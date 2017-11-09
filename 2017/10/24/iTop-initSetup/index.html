@@ -104,7 +104,7 @@
 <meta property="og:site_name" content="DXC守护者">
 <meta property="og:description" content="大致步骤就是按照iTop官方安装文档，过程中略有小坑，这里笔记一下。">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2017-11-09T03:32:48.304Z">
+<meta property="og:updated_time" content="2017-11-09T03:35:54.687Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="iTop学习笔记--安装和初始化配置">
 <meta name="twitter:description" content="大致步骤就是按照iTop官方安装文档，过程中略有小坑，这里笔记一下。">
@@ -449,7 +449,7 @@
 
       
         <p>大致步骤就是按照<a href="https://wiki.openitop.org/doku.php?id=2_3_0:install:start" target="_blank" rel="external">iTop官方安装文档</a>，过程中略有小坑，这里笔记一下。<br><a id="more"></a></p>
-<h3 id="itop相关包安装"><a href="#itop相关包安装" class="headerlink" title="itop相关包安装"></a>itop相关包安装</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">yum install httpd</div><div class="line">yum install mysql mysql-server</div><div class="line">yum install php php-mysql php-mcrypt php-xml php-cli php-soap php-ldap graphviz php-gd</div></pre></td></tr></table></figure>
+<h4 id="itop相关包安装"><a href="#itop相关包安装" class="headerlink" title="itop相关包安装"></a>itop相关包安装</h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">yum install httpd</div><div class="line">yum install mysql mysql-server</div><div class="line">yum install php php-mysql php-mcrypt php-xml php-cli php-soap php-ldap graphviz php-gd</div></pre></td></tr></table></figure>
 <p>修改上传图片大小(/etc/php.ini和/etc/my.cnf)<br><a href="https://wiki.openitop.org/doku.php?id=2_3_0:install:php_and_mysql_configuration" target="_blank" rel="external">https://wiki.openitop.org/doku.php?id=2_3_0:install:php_and_mysql_configuration</a></p>
 <h4 id="修改httpd的selinux"><a href="#修改httpd的selinux" class="headerlink" title="修改httpd的selinux"></a>修改httpd的selinux</h4><p>iTop解压到/var/www/html/itop，目录设置:</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">chown -R apache:apache /var/www/html/itop</div><div class="line">chcon -R -t httpd_sys_rw_content_t /var/www/html/itop</div></pre></td></tr></table></figure>
@@ -710,7 +710,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#itop相关包安装"><span class="nav-number">1.</span> <span class="nav-text">itop相关包安装</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#修改httpd的selinux"><span class="nav-number">1.1.</span> <span class="nav-text">修改httpd的selinux</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#安装向导避免mysql-php-mismatch报错"><span class="nav-number">1.2.</span> <span class="nav-text">安装向导避免mysql php mismatch报错</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#安装OPcache加速php"><span class="nav-number">1.3.</span> <span class="nav-text">安装OPcache加速php</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#检查mysql-key-cache和query-cache"><span class="nav-number">1.4.</span> <span class="nav-text">检查mysql key cache和query cache</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#设置cron-php"><span class="nav-number">1.5.</span> <span class="nav-text">设置cron.php</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#itop相关包安装"><span class="nav-number">1.</span> <span class="nav-text">itop相关包安装</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#修改httpd的selinux"><span class="nav-number">2.</span> <span class="nav-text">修改httpd的selinux</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#安装向导避免mysql-php-mismatch报错"><span class="nav-number">3.</span> <span class="nav-text">安装向导避免mysql php mismatch报错</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#安装OPcache加速php"><span class="nav-number">4.</span> <span class="nav-text">安装OPcache加速php</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#检查mysql-key-cache和query-cache"><span class="nav-number">5.</span> <span class="nav-text">检查mysql key cache和query cache</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#设置cron-php"><span class="nav-number">6.</span> <span class="nav-text">设置cron.php</span></a></li></ol></div>
             
 
           </div>
