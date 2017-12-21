@@ -80,7 +80,7 @@
 <link href="/css/main.css?v=5.1.2" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="DXC, XiErDe, edxi" />
+  <meta name="keywords" content="PowerShell,PowerCLI," />
 
 
 
@@ -96,13 +96,20 @@
 
 
 
-<meta property="og:type" content="website">
-<meta property="og:title" content="DXC守护者">
-<meta property="og:url" content="http://edxi.github.io/archives/index.html">
+<meta name="description" content="最近沉迷于一项工作任务——PowerCLI实现自动部署VM，参考了大神的作品，按照实际工作环境做了修改。足足600行代码，实在繁琐，所以这里就不贴代码了，直接扔在GitHub上了。现在的心情如图。通过这个脚本，顺便捡起了10年前学的powershell，这里借着这个脚本的实现总结下几个脚本里用到的技巧。">
+<meta name="keywords" content="PowerShell,PowerCLI">
+<meta property="og:type" content="article">
+<meta property="og:title" content="PowerCLI实现自动部署VM">
+<meta property="og:url" content="http://edxi.github.io/2017/12/21/powercli_vmdeploy/index.html">
 <meta property="og:site_name" content="DXC守护者">
+<meta property="og:description" content="最近沉迷于一项工作任务——PowerCLI实现自动部署VM，参考了大神的作品，按照实际工作环境做了修改。足足600行代码，实在繁琐，所以这里就不贴代码了，直接扔在GitHub上了。现在的心情如图。通过这个脚本，顺便捡起了10年前学的powershell，这里借着这个脚本的实现总结下几个脚本里用到的技巧。">
 <meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="http://ovdqer2rp.bkt.clouddn.com/static/images/powercli_vmdeploy/codingyibasuo.jpg">
+<meta property="og:updated_time" content="2017-12-21T08:41:46.382Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="DXC守护者">
+<meta name="twitter:title" content="PowerCLI实现自动部署VM">
+<meta name="twitter:description" content="最近沉迷于一项工作任务——PowerCLI实现自动部署VM，参考了大神的作品，按照实际工作环境做了修改。足足600行代码，实在繁琐，所以这里就不贴代码了，直接扔在GitHub上了。现在的心情如图。通过这个脚本，顺便捡起了10年前学的powershell，这里借着这个脚本的实现总结下几个脚本里用到的技巧。">
+<meta name="twitter:image" content="http://ovdqer2rp.bkt.clouddn.com/static/images/powercli_vmdeploy/codingyibasuo.jpg">
 
 
 
@@ -131,7 +138,7 @@
 
 
 
-  <link rel="canonical" href="http://edxi.github.io/archives/"/>
+  <link rel="canonical" href="http://edxi.github.io/2017/12/21/powercli_vmdeploy/"/>
 
 
 
@@ -139,7 +146,7 @@
 
 
 
-  <title>归档 | DXC守护者</title>
+  <title>PowerCLI实现自动部署VM | DXC守护者</title>
   
 
 
@@ -174,7 +181,7 @@
     
   
 
-  <div class="container sidebar-position-left  page-archive  ">
+  <div class="container sidebar-position-left page-post-detail ">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -302,370 +309,307 @@
           <div id="content" class="content">
             
 
-  
-  
-  
-  <div class="post-block archive">
-    <div id="posts" class="posts-collapse">
-      <span class="archive-move-on"></span>
+  <div id="posts" class="posts-expand">
+    
 
-      <span class="archive-page-counter">
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://edxi.github.io/2017/12/21/powercli_vmdeploy/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="阿德">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/ade.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="DXC守护者">
+    </span>
+
+    
+      <header class="post-header">
+
         
         
+          <h1 class="post-title" itemprop="name headline">PowerCLI实现自动部署VM</h1>
         
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-12-21T12:25:00+08:00">
+                2017-12-21
+              </time>
+            
+
+            
+
+            
+          </span>
+
           
-        
-        嗯..! 目前共计 9 篇日志。 继续努力。
-      </span>
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/学习/" itemprop="url" rel="index">
+                    <span itemprop="name">学习</span>
+                  </a>
+                </span>
 
-      
+                
+                
+                  ， 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/学习/VMware/" itemprop="url" rel="index">
+                    <span itemprop="name">VMware</span>
+                  </a>
+                </span>
 
-        
-        
-        
-
-        
+                
+                
+              
+            </span>
           
-          <div class="collection-title">
-            <h2 class="archive-year motion-element" id="archive-year-2017">2017</h2>
-          </div>
-        
-        
 
-        
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2017/12/21/powercli_vmdeploy/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count"
+                        data-disqus-identifier="2017/12/21/powercli_vmdeploy/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
 
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
+          
+          
+             <span id="/2017/12/21/powercli_vmdeploy/" class="leancloud_visitors" data-flag-title="PowerCLI实现自动部署VM">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数 </span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
 
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2017/12/21/powercli_vmdeploy/" itemprop="url">
-              
-                <span itemprop="name">PowerCLI实现自动部署VM</span>
-              
-            </a>
-        
-      </h2>
+          
+            <span class="post-meta-divider">|</span>
+            <span class="page-pv"><i class="fa fa-file-o"></i>
+            <span class="busuanzi-value" id="busuanzi_value_page_pv" ></span>
+            </span>
+          
 
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2017-12-21T12:25:00+08:00"
-              content="2017-12-21" >
-          12-21
-        </time>
-      </div>
+          
 
-    </header>
-  </article>
+          
 
+        </div>
+      </header>
+    
 
-
-      
-
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2017/11/15/pluginlist/" itemprop="url">
-              
-                <span itemprop="name">至今使用的插件列表</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2017-11-15T08:15:00+08:00"
-              content="2017-11-15" >
-          11-15
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
 
       
-
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2017/11/08/Zabbix-selinuxIssue/" itemprop="url">
-              
-                <span itemprop="name">Zabbix学习笔记--CentOS7安装selinux修改（转）</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2017-11-08T20:11:00+08:00"
-              content="2017-11-08" >
-          11-08
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
       
 
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2017/11/06/iTop-REST/" itemprop="url">
-              
-                <span itemprop="name">iTop学习笔记--REST集成</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2017-11-06T15:31:00+08:00"
-              content="2017-11-06" >
-          11-06
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
+      
+        <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><p>最近沉迷于一项工作任务——PowerCLI实现自动部署VM，参考了大神的<a href="http://vmwaremine.com/2014/08/25/ultimate-vm-batch-deployment-script/#sthash.oJPuxCZX.dpbs" target="_blank" rel="external">作品</a>，按照实际工作环境做了修改。足足600行代码，实在繁琐，所以这里就不贴代码了，直接扔在<a href="https://github.com/edxi/vmbatchcreate/blob/master/vm_batch_create.ps1" target="_blank" rel="external">GitHub上了</a>。现在的心情如图。<br><img src="http://ovdqer2rp.bkt.clouddn.com/static/images/powercli_vmdeploy/codingyibasuo.jpg"><br>通过这个脚本，顺便捡起了10年前学的powershell，这里借着这个脚本的实现总结下几个脚本里用到的技巧。<br><a id="more"></a></p>
+<h4 id="脚本功能概述"><a href="#脚本功能概述" class="headerlink" title="脚本功能概述"></a>脚本功能概述</h4><p>脚本大致完成下面几件事情：</p>
+<ol>
+<li>读取csv文件——<a href="https://github.com/edxi/vmbatchcreate/blob/master/vm.csv" target="_blank" rel="external">csv文件例子</a>也放在GitHub上了。里面带数字的列是可以增加的，比如例子只有disk1,disk2，可以继续加上disk3,disk4,disk5等等（如果新VM须要更多硬盘的话）</li>
+<li>VM部署——会根据csv文件列出的每一个VM开启一个powershell job进行部署</li>
+<li>VM创建包括下面这些后续任务：<ul>
+<li>Customize——检查customize状态</li>
+<li>VM Tools升级——如果是windows则自动完成vmtools升级</li>
+<li>硬件配置——根据csv要求的硬件配置VM</li>
+<li>GuestOS脚本——执行guestOS脚本（我里面写了windows guest os的设置IP和加域的脚本，理论上应该可以添加任意想在vm里运行的任务）</li>
+</ul>
+</li>
+<li>产生日志——包括两个层面的日志：<ul>
+<li>跟踪Job状态——脚本定时检查VM部署Job的状态，并输出日志</li>
+<li>VM部署日志——各个VM部署Job产生当前部署任务的进度<br>总之，完成的任务很大程度是基于工作环境须要的，所以下面主要还是看看脚本里值得笔记的几个powershell使用技巧吧。</li>
+</ul>
+</li>
+</ol>
+<hr>
+<h4 id="ScriptBlock"><a href="#ScriptBlock" class="headerlink" title="ScriptBlock"></a>ScriptBlock</h4><p>脚本里所有实际部署操作都是通关过start-job调用scriptblock完成的，所以脚本大部分（103-491行）就是定义了个scriptblock，然后里面还罪恶的嵌套了几个scriptblock，比较厉害的就是那个$continue（228-238行），返回一个bool值放在while条件里，把复杂的判断条件封装了起来。<br>scriptblock定义的语法如下：<br><figure class="highlight powershell"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="variable">$example_scriptblock</span>=&#123;</div><div class="line">  <span class="variable">$a</span>=<span class="string">"hello"</span></div><div class="line">  <span class="variable">$b</span>=<span class="string">"world"</span></div><div class="line">  <span class="keyword">return</span> <span class="string">"<span class="variable">$a</span> <span class="variable">$b</span>!"</span></div><div class="line">&#125;</div><div class="line"><span class="built_in">Write-Host</span> <span class="variable">$example_scriptblock</span> <span class="comment">#this will output above block definition</span></div><div class="line"><span class="built_in">Write-Host</span> (&amp; <span class="variable">$example_scriptblock</span>) <span class="comment">#this will output "hello world!"</span></div></pre></td></tr></table></figure></p>
+<p>上面使用&amp;符号执行scriptblock，像start-job这类命令直接调用ScriptBlock变量即可。</p>
+<p>另外，scriptblock也是可以加参数的。用法与函数和脚本自身的参数定义</p>
+<hr>
+<h4 id="通过hash跟踪任务"><a href="#通过hash跟踪任务" class="headerlink" title="通过hash跟踪任务"></a>通过hash跟踪任务</h4><p>hash真的越用越好用，脚本里多处使用：</p>
+<ul>
+<li>start-job放进一个hash里，用来跟踪Job状态</li>
+<li>新建VM放进hash里，跟踪vm创建状态</li>
+<li>升级vmtools任务放进hash，跟踪升级成功状态</li>
+<li>配置硬件的任务放进hash里，跟踪硬件配置是否成功</li>
+</ul>
+<p>hash一般定义和使用这里就不赘述了，这里写个例子用来把vmhost放进hash<br><figure class="highlight powershell"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="variable">$hosthash</span>=@&#123;&#125;</div><div class="line">get-vmhost|%&#123;<span class="variable">$hosthash</span>[<span class="variable">$_</span>.name]=<span class="variable">$_</span>.NumCpu&#125;</div></pre></td></tr></table></figure></p>
+<p>这里还用到了%{}符号，其实就是把管道前输出的做foreach，通过这个方法把hash内容赋值。</p>
+<p>一般来讲，获取value比较方便，这里有个方法通过value来获取key的<br><figure class="highlight powershell"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">(<span class="variable">$hosthash</span>.GetEnumerator()|where&#123;<span class="variable">$_</span>.value <span class="nomarkup">-eq</span> <span class="number">24</span>&#125;).name</div></pre></td></tr></table></figure></p>
+<hr>
+<h4 id="自定义对象"><a href="#自定义对象" class="headerlink" title="自定义对象"></a>自定义对象</h4><p>脚本里用了两种方式自定义对象。<br>第一种规规矩矩的用New-Object PSObject和Add-Member创建。<br><figure class="highlight powershell"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="variable">$job_progress</span> = <span class="built_in">New-Object</span> PSObject</div><div class="line"><span class="variable">$job_progress</span> | <span class="built_in">Add-Member</span> -Name <span class="string">"PWROK"</span> -Value <span class="number">0</span> -MemberType NoteProperty</div></pre></td></tr></table></figure></p>
+<p>第二种通过管道<br><figure class="highlight powershell"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="variable">$obj</span> = <span class="string">""</span> | select VM,CustomizationStatus,StartVMEvent</div></pre></td></tr></table></figure></p>
+<p>总体来说，都比较灵活，后期使用还是要当心点，切记“动态类型一时爽，代码重构火葬场”。</p>
+<hr>
+<h4 id="其他总结"><a href="#其他总结" class="headerlink" title="其他总结"></a>其他总结</h4><ul>
+<li>System.Collections.ArrayList和@()符号定义的list还是有不同的，脚本里的220行和226行用到</li>
+<li>Job通过一个自定义变量产生的csv来跟踪状态，并拿到对应值可以用write-progress画进度条（638-652行）</li>
+<li>用[Diagnostics.Stopwatch]::StartNew()监控总体任务耗时（576,664,665行）</li>
+<li>脚本执行不下去的话可以用get-job看job状态，receive-job获得job交互信息（比如执行guest os script时如果须要输入guest os用户名密码，那么就会须要弹出对话框交互）</li>
+<li>Invoke-VMScript命令传送的<strong>不是</strong>花括号定义的scriptblock，而是单引号定义的字符串，具体定义规则参考<a href="https://www.vmware.com/content/dam/digitalmarketing/vmware/en/pdf/techpaper/vsphere_power-cli-5.1-r1_technote.pdf" target="_blank" rel="external">vmware technote</a>，前提条件不少，也建议参考<a href="http://www.lucd.info/2012/01/01/will-invoke-vmscript-work/" target="_blank" rel="external">大牛博客</a>写的使用方法</li>
+</ul>
+<hr>
+<p>另外，本来还打算继续写基于vcenter的vm部署脚本。（大神原作是基于cluster的，而且会按照cluster内host数量均衡的部署）<br>好吧，总之现在先打算弃坑了，又接到新的任务了 &lt;(￣︶￣)↗[GO!]</p>
 
       
-
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2017/10/24/iTop-initSetup/" itemprop="url">
-              
-                <span itemprop="name">iTop学习笔记--安装和初始化配置</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2017-10-24T10:24:00+08:00"
-              content="2017-10-24" >
-          10-24
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-      
-
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2017/10/10/Ansible-excel-inventory/" itemprop="url">
-              
-                <span itemprop="name">Ansible学习笔记--python编写读取excel的dynamic inventory</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2017-10-10T15:46:00+08:00"
-              content="2017-10-10" >
-          10-10
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-      
-
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2017/10/04/Ansible-PlaybookToRole/" itemprop="url">
-              
-                <span itemprop="name">Ansible学习笔记--从Playbook创建Role</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2017-10-04T16:00:00+08:00"
-              content="2017-10-04" >
-          10-04
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-      
-
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2017/08/31/ade_xiyoumi_write_story_github_example/" itemprop="url">
-              
-                <span itemprop="name">阿德和有米写故事--github使用案例</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2017-08-31T18:30:00+08:00"
-              content="2017-08-31" >
-          08-31
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-      
-
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2017/08/23/hello-world/" itemprop="url">
-              
-                <span itemprop="name">Hello World!</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2017-08-23T21:40:25+08:00"
-              content="2017-08-23" >
-          08-23
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-      
-
     </div>
+    
+    
+    
+
+    
+
+    
+      <div>
+        <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+  <div>欣赏不如打赏！</div>
+  <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+    <span>Donate</span>
+  </button>
+  <div id="QR" style="display: none;">
+
+    
+      <div id="wechat" style="display: inline-block">
+        <img id="wechat_qr" src="/images/donate/wechatpay.jpg" alt="阿德 WeChat Pay"/>
+        <p>WeChat Pay</p>
+      </div>
+    
+
+    
+      <div id="alipay" style="display: inline-block">
+        <img id="alipay_qr" src="/images/donate/alipay.jpg" alt="阿德 Alipay"/>
+        <p>Alipay</p>
+      </div>
+    
+
+    
+
+  </div>
+</div>
+
+      </div>
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/PowerShell/" rel="tag"># PowerShell</a>
+          
+            <a href="/tags/PowerCLI/" rel="tag"># PowerCLI</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/11/15/pluginlist/" rel="next" title="至今使用的插件列表">
+                <i class="fa fa-chevron-left"></i> 至今使用的插件列表
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
   </div>
   
   
   
+  </article>
 
-  
 
+
+    <div class="post-spread">
+      
+        <!-- JiaThis Button BEGIN -->
+<div class="jiathis_style">
+  <a class="jiathis_button_tsina"></a>
+  <a class="jiathis_button_tqq"></a>
+  <a class="jiathis_button_weixin"></a>
+  <a class="jiathis_button_cqq"></a>
+  <a class="jiathis_button_douban"></a>
+  <a class="jiathis_button_renren"></a>
+  <a class="jiathis_button_qzone"></a>
+  <a class="jiathis_button_kaixin001"></a>
+  <a class="jiathis_button_copy"></a>
+  <a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jiathis_separator jtico jtico_jiathis" target="_blank"></a>
+  <a class="jiathis_counter_style"></a>
+</div>
+<script type="text/javascript" >
+  var jiathis_config={
+    hideMore:false
+  }
+</script>
+<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js" charset="utf-8"></script>
+<!-- JiaThis Button END -->
+
+      
+    </div>
+  </div>
 
 
           </div>
@@ -673,6 +617,17 @@
 
 
           
+  <div class="comments" id="comments">
+    
+      <div id="disqus_thread">
+        <noscript>
+          Please enable JavaScript to view the
+          <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a>
+        </noscript>
+      </div>
+    
+  </div>
+
 
         </div>
         
@@ -693,8 +648,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview sidebar-panel sidebar-panel-active">
+      <section class="site-overview sidebar-panel">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="/images/ade.png"
@@ -769,6 +733,22 @@
 
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#脚本功能概述"><span class="nav-number">1.</span> <span class="nav-text">脚本功能概述</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#ScriptBlock"><span class="nav-number">2.</span> <span class="nav-text">ScriptBlock</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#通过hash跟踪任务"><span class="nav-number">3.</span> <span class="nav-text">通过hash跟踪任务</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#自定义对象"><span class="nav-number">4.</span> <span class="nav-text">自定义对象</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#其他总结"><span class="nav-number">5.</span> <span class="nav-text">其他总结</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
@@ -891,11 +871,9 @@
   
 
   
-  
-    <script type="text/javascript" id="motion.page.archive">
-      $('.archive-year').velocity('transition.slideLeftIn');
-    </script>
-  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.2"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.2"></script>
+
 
 
   
@@ -914,6 +892,18 @@
       <script id="dsq-count-scr" src="https://edxi.disqus.com/count.js" async></script>
     
 
+    
+      <script type="text/javascript">
+        var disqus_config = function () {
+          this.page.url = 'http://edxi.github.io/2017/12/21/powercli_vmdeploy/';
+          this.page.identifier = '2017/12/21/powercli_vmdeploy/';
+          this.page.title = 'PowerCLI实现自动部署VM';
+        };
+        var d = document, s = d.createElement('script');
+        s.src = 'https://edxi.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', '' + +new Date());
+        (d.head || d.body).appendChild(s);
+      </script>
     
 
   
