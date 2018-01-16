@@ -80,7 +80,7 @@
 <link href="/css/main.css?v=5.1.2" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="python,iTop,REST," />
+  <meta name="keywords" content="PowerShell,VS Code,Release Pipeline,CD/CI," />
 
 
 
@@ -96,18 +96,18 @@
 
 
 
-<meta name="description" content="早先有同事通过直接修改iTop数据库实现集成，由于这种方式略感粗暴（一旦类对象变化或版本升级等原因导致数据库表结构变化，比较容易出现问题），所以测试了iTop官方安装文档推荐的REST/JSON集成方式，这里使用python实现。">
-<meta name="keywords" content="python,iTop,REST">
+<meta name="description" content="本来标题想叫《PowerShell实现模块发布流水线》的，但是这个洋气高大上的标题抄袭痕迹太严重了，好吧，不得不承认我的学习成果通常都是大量参(copy)考(paste)大神博客的。（估计写个爬虫爬一下我的博客，也会发现大神这个词出现频率肥肠高~） 先用下面这个视频解释下什么是流水线~嘿嘿，玩笑啦~(￣▽￣)~* 其实还是从字面解释吧，PowerShell模块–发布–流水线：  PowerShel">
+<meta name="keywords" content="PowerShell,VS Code,Release Pipeline,CD&#x2F;CI">
 <meta property="og:type" content="article">
-<meta property="og:title" content="iTop学习笔记--REST集成">
-<meta property="og:url" content="http://edxi.github.io/2017/11/06/iTop-REST/index.html">
+<meta property="og:title" content="PowerShell 一把梭">
+<meta property="og:url" content="http://edxi.github.io/2018/01/15/PowerShellPipeline/index.html">
 <meta property="og:site_name" content="DXC守护者">
-<meta property="og:description" content="早先有同事通过直接修改iTop数据库实现集成，由于这种方式略感粗暴（一旦类对象变化或版本升级等原因导致数据库表结构变化，比较容易出现问题），所以测试了iTop官方安装文档推荐的REST/JSON集成方式，这里使用python实现。">
+<meta property="og:description" content="本来标题想叫《PowerShell实现模块发布流水线》的，但是这个洋气高大上的标题抄袭痕迹太严重了，好吧，不得不承认我的学习成果通常都是大量参(copy)考(paste)大神博客的。（估计写个爬虫爬一下我的博客，也会发现大神这个词出现频率肥肠高~） 先用下面这个视频解释下什么是流水线~嘿嘿，玩笑啦~(￣▽￣)~* 其实还是从字面解释吧，PowerShell模块–发布–流水线：  PowerShel">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2017-11-10T08:50:12.754Z">
+<meta property="og:updated_time" content="2018-01-16T03:11:57.296Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="iTop学习笔记--REST集成">
-<meta name="twitter:description" content="早先有同事通过直接修改iTop数据库实现集成，由于这种方式略感粗暴（一旦类对象变化或版本升级等原因导致数据库表结构变化，比较容易出现问题），所以测试了iTop官方安装文档推荐的REST/JSON集成方式，这里使用python实现。">
+<meta name="twitter:title" content="PowerShell 一把梭">
+<meta name="twitter:description" content="本来标题想叫《PowerShell实现模块发布流水线》的，但是这个洋气高大上的标题抄袭痕迹太严重了，好吧，不得不承认我的学习成果通常都是大量参(copy)考(paste)大神博客的。（估计写个爬虫爬一下我的博客，也会发现大神这个词出现频率肥肠高~） 先用下面这个视频解释下什么是流水线~嘿嘿，玩笑啦~(￣▽￣)~* 其实还是从字面解释吧，PowerShell模块–发布–流水线：  PowerShel">
 
 
 
@@ -136,7 +136,7 @@
 
 
 
-  <link rel="canonical" href="http://edxi.github.io/2017/11/06/iTop-REST/"/>
+  <link rel="canonical" href="http://edxi.github.io/2018/01/15/PowerShellPipeline/"/>
 
 
 
@@ -144,7 +144,7 @@
 
 
 
-  <title>iTop学习笔记--REST集成 | DXC守护者</title>
+  <title>PowerShell 一把梭 | DXC守护者</title>
   
 
 
@@ -321,7 +321,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://edxi.github.io/2017/11/06/iTop-REST/">
+    <link itemprop="mainEntityOfPage" href="http://edxi.github.io/2018/01/15/PowerShellPipeline/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="阿德">
@@ -338,7 +338,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">iTop学习笔记--REST集成</h1>
+          <h1 class="post-title" itemprop="name headline">PowerShell 一把梭</h1>
         
 
         <div class="post-meta">
@@ -350,8 +350,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-11-06T15:31:00+08:00">
-                2017-11-06
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-01-15T21:21:21+08:00">
+                2018-01-15
               </time>
             
 
@@ -384,8 +384,8 @@
                 
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/学习/iTop/" itemprop="url" rel="index">
-                    <span itemprop="name">iTop</span>
+                  <a href="/categories/学习/PowerShell/" itemprop="url" rel="index">
+                    <span itemprop="name">PowerShell</span>
                   </a>
                 </span>
 
@@ -402,9 +402,9 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2017/11/06/iTop-REST/#comments" itemprop="discussionUrl">
+                <a href="/2018/01/15/PowerShellPipeline/#comments" itemprop="discussionUrl">
                   <span class="post-comments-count disqus-comment-count"
-                        data-disqus-identifier="2017/11/06/iTop-REST/" itemprop="commentCount"></span>
+                        data-disqus-identifier="2018/01/15/PowerShellPipeline/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -412,7 +412,7 @@
 
           
           
-             <span id="/2017/11/06/iTop-REST/" class="leancloud_visitors" data-flag-title="iTop学习笔记--REST集成">
+             <span id="/2018/01/15/PowerShellPipeline/" class="leancloud_visitors" data-flag-title="PowerShell 一把梭">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -448,55 +448,91 @@
       
 
       
-        <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><p>早先有同事通过直接修改iTop数据库实现集成，由于这种方式略感粗暴（一旦类对象变化或版本升级等原因导致数据库表结构变化，比较容易出现问题），所以测试了<a href="https://wiki.openitop.org/doku.php?id=2_3_0:advancedtopics:rest_json" target="_blank" rel="external">iTop官方安装文档</a>推荐的REST/JSON集成方式，这里使用python实现。<br><a id="more"></a></p>
-<h4 id="POST参数"><a href="#POST参数" class="headerlink" title="POST参数"></a>POST参数</h4><p>要调用对应的action，通过下面几个参数给<itop-root>/webservices/rest.php</itop-root></p>
-<table>
-<thead>
-<tr>
-<th><strong>Argument</strong></th>
-<th><strong>Description</strong></th>
-<th><strong>Defaut value</strong></th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>version</td>
-<td>Version of  the API. It is a way to make sure that the targetted iTop server can  deliver some functionality, and it ensures stability for your scripts: as  long as a version is available, the operations will remain unchanged, with  the exception of the following cases: bug fixes, modification in the returned  messages, new elements into the returned JSON structure.</td>
-<td>-</td>
-</tr>
-<tr>
-<td>auth_user</td>
-<td>User login</td>
-<td>-</td>
-</tr>
-<tr>
-<td>auth_pwd</td>
-<td>User password</td>
-<td>-</td>
-</tr>
-<tr>
-<td>json_data</td>
-<td>Structure containing  all the information required to process your request. In particular, the  requested operation is given here.</td>
-<td></td>
-</tr>
-<tr>
-<td>callback</td>
-<td>If set, then <a href="http://en.wikipedia.org/wiki/JSONP" target="_blank" rel="external">JSON-P</a> (JSON  with padding) is used</td>
-</tr>
-</tbody>
-</table>
-<p>在实际使用参数时，须要注意：</p>
+        <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><p>本来标题想叫《PowerShell实现模块发布流水线》的，但是这个洋气高大上的标题抄袭痕迹太严重了，好吧，不得不承认我的学习成果通常都是大量参(copy)考(paste)<a href="http://ramblingcookiemonster.github.io/PSDeploy-Inception/" target="_blank" rel="external">大神博客</a>的。（估计写个爬虫爬一下我的博客，也会发现大神这个词出现频率肥肠高~）</p>
+<p>先用下面这个视频解释下什么是流水线~<br><iframe src="http://player.youku.com/embed/XMzMyMTM0NzM0NA==" width="100%" height="300" frameborder="0" allowfullscreen></iframe><br>嘿嘿，玩笑啦~(￣▽￣)~*</p>
+<p>其实还是从字面解释吧，PowerShell模块–发布–流水线：</p>
 <ul>
-<li><p>传递auth_user和auth_pwd须要在配置文件<itop-root>/conf/production/config-itop.php开启url</itop-root></p>
-<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">'allowed_login_types' =&gt; 'form|basic|external|url',</div></pre></td></tr></table></figure>
-</li>
-<li><p>所有参数整体作为dictionary传递（并做urlencode），在整个dictionary中的json_data须要事先指定为JSON类型</p>
-</li>
-<li><p>具体操作都是由json_data参数内完成，可以使用”operation”: “list_operations”列出所有支持的operation</p>
-</li>
+<li>PowerShell模块——把脚本写成模块。</li>
+<li>发布——把写好的模块发布给其他人用，比如上传到PSGallery。一般来说发布前要做好打包和测试。</li>
+<li>流水线——写好代码提交版本后，自动完成打包–测试–发布这些动作，比如提交到GitHub后AppVeyor完成自动化流水线操作。</li>
 </ul>
-<h4 id="python实现"><a href="#python实现" class="headerlink" title="python实现"></a>python实现</h4><p>这里测试实现了直接脚本里写了一个参数列表，POST到iTop实现ticket创建。生产环境可以通过传递相应参数来实现不通内容的传递。</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div></pre></td><td class="code"><pre><div class="line"><span class="string">'''</span></div><div class="line"><span class="string">Created on Nov 6, 2017</span></div><div class="line"><span class="string"></span></div><div class="line"><span class="string">@author: edxi</span></div><div class="line"><span class="string">'''</span></div><div class="line"></div><div class="line"><span class="keyword">import</span> json</div><div class="line"><span class="keyword">import</span> urllib.request, urllib.error, urllib.parse</div><div class="line"></div><div class="line">data = dict(auth_user=<span class="string">"admin"</span>, auth_pwd=<span class="string">"itopadminpass"</span>, version=<span class="string">"1.3"</span>, json_data=json.dumps(&#123;</div><div class="line">   <span class="string">"operation"</span>: <span class="string">"core/create"</span>,</div><div class="line">   <span class="string">"comment"</span>: <span class="string">"Synchronization from python script"</span>,</div><div class="line">   <span class="string">"class"</span>: <span class="string">"UserRequest"</span>,</div><div class="line">   <span class="string">"output_fields"</span>: <span class="string">"id, friendlyname"</span>,</div><div class="line">   <span class="string">"fields"</span>:</div><div class="line">   &#123;</div><div class="line">      <span class="string">"org_id"</span>: <span class="string">"SELECT Organization WHERE name = \"MyOrg\""</span>,</div><div class="line">      <span class="string">"caller_id"</span>:</div><div class="line">      &#123;</div><div class="line">         <span class="string">"name"</span>: <span class="string">"xi"</span>,</div><div class="line">         <span class="string">"first_name"</span>: <span class="string">"erde"</span>,</div><div class="line">      &#125;,</div><div class="line">      <span class="string">"title"</span>: <span class="string">"Got a problem!"</span>,</div><div class="line">      <span class="string">"description"</span>: <span class="string">"It's generated by python script"</span></div><div class="line">   &#125;</div><div class="line">&#125;))</div><div class="line"></div><div class="line">req = urllib.request.Request(<span class="string">'http://192.168.145.130/webservices/rest.php'</span>,</div><div class="line">                             data=urllib.parse.urlencode(data).encode(<span class="string">"utf-8"</span>))  <span class="comment"># this will make the method "POST"</span></div><div class="line">response = urllib.request.urlopen(req)</div><div class="line"></div><div class="line">print(response.read().decode(<span class="string">'utf-8'</span>))</div></pre></td></tr></table></figure>
+<a id="more"></a>
+<h3 id="在开始之前"><a href="#在开始之前" class="headerlink" title="在开始之前"></a>在开始之前</h3><p>可能先找个例子作解释更好，所以这里把我已经提交<a href="https://github.com/edxi/BaselineCheck" target="_blank" rel="external">GitHub</a>并发布在<a href="https://www.powershellgallery.com/packages/BaselineCheck/" target="_blank" rel="external">PSGallery</a>的一个名字叫BaselineCheck的模块作为例子。<br>良好的目录结构(Scaffold)是程序员自我修养的一部分，我这里大致是这个样子：<br><figure class="highlight powershell"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div></pre></td><td class="code"><pre><div class="line">D:\DOC\GITHUB\BASELINECHECK</div><div class="line">│   .gitignore</div><div class="line">│   appveyor.yml————AppVeyor配置文件</div><div class="line">│   BaselineCheck.psd1————模块的manifest</div><div class="line">│   BaselineCheck.psm1————模块本身</div><div class="line">│   Build.ps1————VScode提供的psake脚本</div><div class="line">│   LICENSE</div><div class="line">│   README.md</div><div class="line">│</div><div class="line">├───.vscode</div><div class="line">│       launch.json————VScode调试配置</div><div class="line">│       tasks.json————VScode任务配置</div><div class="line">│</div><div class="line">├───Build————使用AppVeyor相关的一大堆脚本</div><div class="line">│   │   build.requirements.psd1</div><div class="line">│   │   deploy.psdeploy.ps1</div><div class="line">│   │   psake.ps1</div><div class="line">│   │   Start-Build.ps1</div><div class="line">│   │</div><div class="line">│   └───helpers</div><div class="line">│           Install-PSDepend.ps1</div><div class="line">│</div><div class="line">├───Images</div><div class="line">│       PowerShell_icon.png</div><div class="line">│</div><div class="line">├───Private————私有函数，不export给用户使用</div><div class="line">│       Get-FileName.ps1</div><div class="line">│</div><div class="line">├───Public————公有函数，会export出来</div><div class="line">│       Compare-Rsop.ps1</div><div class="line">│       Compare-ScriptOutput.ps1</div><div class="line">│       Find-RsopSetting.ps1</div><div class="line">│       Find-XmlNodes.ps1</div><div class="line">│</div><div class="line">└───Tests————Pester测试脚本</div><div class="line">        BaselineCheck.Tests.ps1</div></pre></td></tr></table></figure></p>
+<p>这个目录结构的好处是：</p>
+<ul>
+<li>每次新建项目可以直接拷贝使用，基本上只要修改功能代码和测试脚本就行。</li>
+<li>包含了VScode的手动触发的任务和AppVeyor自动流水线的脚本。</li>
+</ul>
+<hr>
+<h3 id="PowerShell-模块"><a href="#PowerShell-模块" class="headerlink" title="PowerShell 模块"></a>PowerShell 模块</h3><p>写成模块又很多好处，比如下面这一把梭：</p>
+<ul>
+<li>Simplify code organization</li>
+<li>Group related functions together</li>
+<li>Share state between functions, but not with the user</li>
+<li>Re-use “helper functions” that you don’t want exposed to the user</li>
+<li>Improve discoverability: Find-Module MyModule or Get-Command -Module MyModule</li>
+<li>Simplify distribution: Install-Module MyModule</li>
+</ul>
+<p>具体做起来，当然看下写模块的<a href="https://msdn.microsoft.com/en-us/library/dd878310(v=vs.85" target="_blank" rel="external">官方文档</a>.aspx)是很值得的，自己总结下来也就3个步：</p>
+<ol>
+<li>写完功能代码.ps1——可选项：建议写成函数方式，可能的话函数可以使用begin-process-end方式处理管道。</li>
+<li>写一个模块代码.psm1——可以直接把.ps1改名成.psm1，但是通常代码会包含多个.ps1，所以把代码按照scaffold组织存放.ps1，然后写一个.psm1来调用，所以这个<a href="https://github.com/edxi/BaselineCheck/blob/master/BaselineCheck.psm1" target="_blank" rel="external">模块调用代码</a>也是一劳永逸，不用修改。</li>
+<li>生成Manifest文件.psd1——可以直接拷贝官网例子（自己用New-Guid改个GUID），也可以用New-ModuleManifest命令生成，然后修改下里面的版本和导出函数等等的设置。</li>
+</ol>
+<p>这样模块最基本所需要的内容就算完成了，如果还要写帮助文档、Format.ps1xml，建议继续参考<a href="http://ramblingcookiemonster.github.io/" target="_blank" rel="external">大神博客</a>吧~</p>
+<hr>
+<h3 id="打包-测试-发布"><a href="#打包-测试-发布" class="headerlink" title="打包-测试-发布"></a>打包-测试-发布</h3><p>前面说了整个流水线的包含了打包-测试-发布这些步骤，这里逐一列出所需要使用的工具。<br>其中psake/BuildHelpers/PSDepend/PSDeploy这些模块须要从PSGallery下载安装，以安装psake举例，命令如下：<br><figure class="highlight powershell"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">Install-Module psake -scope currentuser -force</div></pre></td></tr></table></figure></p>
+<h4 id="psake"><a href="#psake" class="headerlink" title="psake"></a>psake</h4><p>psake这个powershell模块用来自动化整个流程，用它提供的函数可以把各个步骤写成下面这个互相有依赖关系的任务模块：<br><figure class="highlight powershell"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div></pre></td><td class="code"><pre><div class="line">Properties &#123;</div><div class="line">    <span class="variable">$someproperty</span> = <span class="string">'Define some properties for following tasks'</span></div><div class="line">&#125;</div><div class="line"></div><div class="line">Task default -depends Build</div><div class="line"></div><div class="line">Task Init &#123;</div><div class="line">    <span class="string">'Write init code'</span></div><div class="line">&#125;</div><div class="line"></div><div class="line">Task Clean &#123;</div><div class="line">    <span class="string">'Write some clean code'</span></div><div class="line">&#125;</div><div class="line"></div><div class="line">Task Build -depends Clean, Init -requiredVariables someproperty &#123;</div><div class="line">    <span class="string">'Write some build code'</span></div><div class="line">&#125;</div><div class="line"></div><div class="line">Task Test -depends Build &#123;</div><div class="line">    <span class="string">'Write some test code, for example, invoke-pester...'</span></div><div class="line">&#125;</div><div class="line"></div><div class="line">Task Publish -depends Test &#123;</div><div class="line">    <span class="string">'Write some publish code, for example, Invoke-PSDeploy'</span></div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>VScode的task和AppVeyor都是通过调用psake来完成流程相应步骤的，接下来是完成各个发布步骤的工具了。</p>
+<h4 id="打包"><a href="#打包" class="headerlink" title="打包"></a>打包</h4><p>Build打包在这里没有用到什么特殊的工具，我在脚本里就做的事情：</p>
+<ul>
+<li>更新下Model Manifest</li>
+<li>把模块相关的文件复制到Release目录</li>
+</ul>
+<p>具体代码不再黏贴，可以直接参考Build.ps1和Build\psake.ps1两个文件。</p>
+<h4 id="pester"><a href="#pester" class="headerlink" title="pester"></a>pester</h4><p>pester是powershell的测试模块，现在已经集成到win10和win2016里，所以除非想要升级PSGallery上的最新版，一般也就不需要安装了。<br>我们可以自己写测试脚本，写完后可以放在比如Tests目录，用Invoke-Pester来调用测试。<br>每个项目的测试内容也不会相同，这里举个测试模块.psd1文件的例子：<br><figure class="highlight powershell"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line"><span class="variable">$Verbose</span> = @&#123;&#125;</div><div class="line"><span class="keyword">if</span>(<span class="variable">$env:APPVEYOR_REPO_BRANCH</span> -and <span class="variable">$env:APPVEYOR_REPO_BRANCH</span> <span class="nomarkup">-notlike</span> <span class="string">"master"</span>)</div><div class="line">&#123;</div><div class="line">    <span class="variable">$Verbose</span>.add(<span class="string">"Verbose"</span>,<span class="literal">$True</span>)</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="variable">$PSVersion</span> = <span class="variable">$PSVersionTable</span>.PSVersion.Major</div><div class="line"><span class="variable">$ModuleManifestName</span> = <span class="string">'BaselineCheck.psd1'</span></div><div class="line"><span class="built_in">Import-Module</span> <span class="variable">$PSScriptRoot</span>\..\<span class="variable">$ModuleManifestName</span></div><div class="line"></div><div class="line">Describe <span class="string">'Module Manifest Tests'</span> &#123;</div><div class="line">    It <span class="string">'Passes Test-ModuleManifest'</span> &#123;</div><div class="line">        <span class="built_in">Test-ModuleManifest</span> -Path <span class="variable">$PSScriptRoot</span>\..\<span class="variable">$ModuleManifestName</span></div><div class="line">        $? | Should Be <span class="literal">$true</span></div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>可见测试其本身也是一个powershell脚本，只是其中调用了pester提供的函数Describe/It/Should Be等等。<br>Pester的具体的语法可以参考<a href="https://github.com/Pester/Pester/wiki" target="_blank" rel="external">官方Wiki</a>。</p>
+<h4 id="发布，PSdeploy"><a href="#发布，PSdeploy" class="headerlink" title="发布，PSdeploy"></a>发布，PSdeploy</h4><p>发布要看具体是要发布到哪里了，比如说：</p>
+<ul>
+<li>发布到PowerShell Gallery</li>
+<li>在github上生成个release</li>
+<li>AppVeyor上生成个Artifacts</li>
+<li>把模块目录直接复制到$PSModulePath来安装，也算是发布</li>
+</ul>
+<p>总之，发布就是把做好的模块放出来，这样就可以给别人用了。<br>我这里主要就是发布到PowerShell Gallery。用到的模块是PSdeploy。</p>
+<p>PSDeploy通过Invoke-PSDeploy来调用Build目录，其中包含deploy.psdeploy.ps1文件，下面是部署到PSGallery的代码：<br><figure class="highlight powershell"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">Deploy Module &#123;</div><div class="line">    By PSGalleryModule &#123;</div><div class="line">        FromSource <span class="variable">$ENV:PublishDir</span></div><div class="line">        To PSGallery</div><div class="line">        WithOptions @&#123;</div><div class="line">            ApiKey = <span class="variable">$ENV:NugetApiKey</span></div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>其用法看似和psake和Pester那些Alias语法很像，其中$ENV:NugetApiKey是PSGallery的API key，通过这个key来验证上传模块。<br>PSDeploy可以做很多种类型的发布，具体用法也可以参考官方的<a href="http://psdeploy.readthedocs.io/en/latest/" target="_blank" rel="external">readthedocs</a>。</p>
+<hr>
+<h3 id="流水线"><a href="#流水线" class="headerlink" title="流水线"></a>流水线</h3><p>在示例的repo里，我用了VScode和AppVeyor两种方式：</p>
+<ul>
+<li>VS Code —— 适合于本地项目，通过task完成打包、测试、发布等操作。</li>
+<li>AppVeyor —— 集成GitHub或其他VSC的CI工具，直接提交代码触发相应条件来完成各个CI操作。</li>
+</ul>
+<h4 id="VS-Code-Task"><a href="#VS-Code-Task" class="headerlink" title="VS Code Task"></a>VS Code Task</h4><p>在VSCode里按下F1然后输入example可以查看VS Code的示例代码，其中就有如何设置Task的方法。除了前面说到的psake，大致再复制黏贴下example的两个文件就行：</p>
+<ul>
+<li>.vscode\tasks.json——用来设置F1后输入task可调用的任务。</li>
+<li>Build.ps1——是psake脚本，VSCode通过调用这个脚本来执行对应的任务。</li>
+</ul>
+<p>这里可能须要自己手动修改这个psake脚本，比如修改不需要打包的目录和文件，是否须要使用releasenotes文件等等。<br>脚本发布默认也是发布到PSGallery（怎么注册PSGallery并获取API key这里不赘述了，反正网站上点点就行），第一次发布的时候会提示输入API key，这个key会加密保存到xml文件里，以后就不必要再输入了。（可以自行调用脚本里RemoveKey任务来删除Key，其实也就是手动删xml文件）</p>
+<h4 id="AppVeyor"><a href="#AppVeyor" class="headerlink" title="AppVeyor"></a>AppVeyor</h4><p>作为一个公网服务，先去AppVeyor注册并关联自己的GitHub Repo，接下来就是写AppVeyor配置文件和相关的Build代码。这里我也是一把梭了大神的代码（整个Build目录和appveyor.yml文件），然后按自己情况改了发布目录而已。其中各个文件的作用如下：</p>
+<ul>
+<li>appveyor.yml——这个是必须的，我因为要发布到PSGallery，所以在AppVeyor上把PSGallery的API Key<a href="https://ci.appveyor.com/tools/encrypt" target="_blank" rel="external">加密</a>一下，放在yml文件里。</li>
+<li>Start-Build.ps1——调用PSDepend检查所需要的模块，然后交给psake去处理流程各个步骤。</li>
+<li>Install-PSDepend.ps1——如果PSDepend本身不存在，通过这个脚本来安装。</li>
+<li>build.requirements.psd1——PSDepend列出的所需模块。</li>
+<li>psake.ps1——具体流程的各个任务。这里可以包含一大堆任务，前面介绍了，具体不再赘述了。</li>
+<li>deploy.psdeploy.ps1——通过psake发布任务调用，执行所需发布的类型。</li>
+</ul>
+<p>总之，只要一提交GitHub，接下来会完成上面这一大堆任务了！</p>
+<hr>
+<h3 id="还能做些什么？"><a href="#还能做些什么？" class="headerlink" title="还能做些什么？"></a>还能做些什么？</h3><p>至此流水线完成，而且这样发布出来的代码结构也看上去很专业啦，哈哈。<br>那么怎么再提升一点B格呢？我这里大致就是：</p>
+<ol>
+<li>写好README</li>
+<li>先个LICENSE</li>
+<li>RELEASE和RELEASE NOTES</li>
+<li>此外大神们厉害的项目还会有issue和wiki~</li>
+</ol>
+<p>当然，关于流水线，还有很多须要学的地方，接下来自己也想学习怎么搭建Jenkins，好吧，少年~再接再厉~ o(<em>￣▽￣</em>)o</p>
 
       
     </div>
@@ -543,11 +579,13 @@
       
         <div class="post-tags">
           
-            <a href="/tags/python/" rel="tag"># python</a>
+            <a href="/tags/PowerShell/" rel="tag"># PowerShell</a>
           
-            <a href="/tags/iTop/" rel="tag"># iTop</a>
+            <a href="/tags/VS-Code/" rel="tag"># VS Code</a>
           
-            <a href="/tags/REST/" rel="tag"># REST</a>
+            <a href="/tags/Release-Pipeline/" rel="tag"># Release Pipeline</a>
+          
+            <a href="/tags/CD-CI/" rel="tag"># CD/CI</a>
           
         </div>
       
@@ -560,8 +598,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/10/24/iTop-initSetup/" rel="next" title="iTop学习笔记--安装和初始化配置">
-                <i class="fa fa-chevron-left"></i> iTop学习笔记--安装和初始化配置
+              <a href="/2018/01/01/powershell_IDE/" rel="next" title="PowerCLI IDE环境">
+                <i class="fa fa-chevron-left"></i> PowerCLI IDE环境
               </a>
             
           </div>
@@ -569,10 +607,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2017/11/08/Zabbix-selinuxIssue/" rel="prev" title="Zabbix学习笔记--CentOS7安装selinux修改（转）">
-                Zabbix学习笔记--CentOS7安装selinux修改（转） <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -749,7 +783,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#POST参数"><span class="nav-number">1.</span> <span class="nav-text">POST参数</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#python实现"><span class="nav-number">2.</span> <span class="nav-text">python实现</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#在开始之前"><span class="nav-number">1.</span> <span class="nav-text">在开始之前</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#PowerShell-模块"><span class="nav-number">2.</span> <span class="nav-text">PowerShell 模块</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#打包-测试-发布"><span class="nav-number">3.</span> <span class="nav-text">打包-测试-发布</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#psake"><span class="nav-number">3.1.</span> <span class="nav-text">psake</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#打包"><span class="nav-number">3.2.</span> <span class="nav-text">打包</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#pester"><span class="nav-number">3.3.</span> <span class="nav-text">pester</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#发布，PSdeploy"><span class="nav-number">3.4.</span> <span class="nav-text">发布，PSdeploy</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#流水线"><span class="nav-number">4.</span> <span class="nav-text">流水线</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#VS-Code-Task"><span class="nav-number">4.1.</span> <span class="nav-text">VS Code Task</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#AppVeyor"><span class="nav-number">4.2.</span> <span class="nav-text">AppVeyor</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#还能做些什么？"><span class="nav-number">5.</span> <span class="nav-text">还能做些什么？</span></a></li></ol></div>
             
 
           </div>
@@ -901,9 +935,9 @@
     
       <script type="text/javascript">
         var disqus_config = function () {
-          this.page.url = 'http://edxi.github.io/2017/11/06/iTop-REST/';
-          this.page.identifier = '2017/11/06/iTop-REST/';
-          this.page.title = 'iTop学习笔记--REST集成';
+          this.page.url = 'http://edxi.github.io/2018/01/15/PowerShellPipeline/';
+          this.page.identifier = '2018/01/15/PowerShellPipeline/';
+          this.page.title = 'PowerShell 一把梭';
         };
         var d = document, s = d.createElement('script');
         s.src = 'https://edxi.disqus.com/embed.js';
