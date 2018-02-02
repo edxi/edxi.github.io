@@ -80,7 +80,7 @@
 <link href="/css/main.css?v=5.1.2" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="DXC, XiErDe, edxi" />
+  <meta name="keywords" content="PowerShell," />
 
 
 
@@ -96,13 +96,20 @@
 
 
 
-<meta property="og:type" content="website">
-<meta property="og:title" content="DXC守护者">
-<meta property="og:url" content="http://edxi.github.io/tags/PowerShell/index.html">
+<meta name="description" content="这一篇主要目的其实是为炫耀下奚有米的工作环境(￣y▽,￣)╭其次才是总结一下这段时间写PowerShell的心得。 所以，先上奚有米工作图。 Look！ 豪华6屏联动！同时掌控5个操作系统（加上虚拟机7种操作系统）！老夫一把键盘游刃有余！  竖着的代码屏——VS Code的ZenMode。 Apple Air——Google/GitHub/stackoverflow  复制！黏贴！ HP Elit">
+<meta name="keywords" content="PowerShell">
+<meta property="og:type" content="article">
+<meta property="og:title" content="PowerShell 学习笔记">
+<meta property="og:url" content="http://edxi.github.io/2018/02/02/PowerShell_Study/index.html">
 <meta property="og:site_name" content="DXC守护者">
+<meta property="og:description" content="这一篇主要目的其实是为炫耀下奚有米的工作环境(￣y▽,￣)╭其次才是总结一下这段时间写PowerShell的心得。 所以，先上奚有米工作图。 Look！ 豪华6屏联动！同时掌控5个操作系统（加上虚拟机7种操作系统）！老夫一把键盘游刃有余！  竖着的代码屏——VS Code的ZenMode。 Apple Air——Google/GitHub/stackoverflow  复制！黏贴！ HP Elit">
 <meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="http://ovdqer2rp.bkt.clouddn.com/static/images/powershell_study/CodingMi.jpg">
+<meta property="og:updated_time" content="2018-02-02T06:07:55.818Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="DXC守护者">
+<meta name="twitter:title" content="PowerShell 学习笔记">
+<meta name="twitter:description" content="这一篇主要目的其实是为炫耀下奚有米的工作环境(￣y▽,￣)╭其次才是总结一下这段时间写PowerShell的心得。 所以，先上奚有米工作图。 Look！ 豪华6屏联动！同时掌控5个操作系统（加上虚拟机7种操作系统）！老夫一把键盘游刃有余！  竖着的代码屏——VS Code的ZenMode。 Apple Air——Google/GitHub/stackoverflow  复制！黏贴！ HP Elit">
+<meta name="twitter:image" content="http://ovdqer2rp.bkt.clouddn.com/static/images/powershell_study/CodingMi.jpg">
 
 
 
@@ -131,7 +138,7 @@
 
 
 
-  <link rel="canonical" href="http://edxi.github.io/tags/PowerShell/"/>
+  <link rel="canonical" href="http://edxi.github.io/2018/02/02/PowerShell_Study/"/>
 
 
 
@@ -139,7 +146,7 @@
 
 
 
-  <title>标签: PowerShell | DXC守护者</title>
+  <title>PowerShell 学习笔记 | DXC守护者</title>
   
 
 
@@ -174,7 +181,7 @@
     
   
 
-  <div class="container sidebar-position-left  ">
+  <div class="container sidebar-position-left page-post-detail ">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -302,110 +309,291 @@
           <div id="content" class="content">
             
 
+  <div id="posts" class="posts-expand">
+    
+
+  
+
   
   
   
-  <div class="post-block tag">
-
-    <div id="posts" class="posts-collapse">
-      <div class="collection-title">
-        <h1>PowerShell<small>标签</small>
-        </h1>
-      </div>
-
-      
-        
 
   <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://edxi.github.io/2018/02/02/PowerShell_Study/">
 
-      <h2 class="post-title">
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="阿德">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/ade.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="DXC守护者">
+    </span>
+
+    
+      <header class="post-header">
+
         
-            <a class="post-title-link" href="/2018/02/02/PowerShell_Study/" itemprop="url">
-              
-                <span itemprop="name">PowerShell 学习笔记</span>
-              
-            </a>
         
-      </h2>
+          <h1 class="post-title" itemprop="name headline">PowerShell 学习笔记</h1>
+        
 
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2018-02-02T08:08:08+08:00"
-              content="2018-02-02" >
-          02-02
-        </time>
-      </div>
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-02-02T08:08:08+08:00">
+                2018-02-02
+              </time>
+            
 
-    </header>
-  </article>
+            
 
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/学习/" itemprop="url" rel="index">
+                    <span itemprop="name">学习</span>
+                  </a>
+                </span>
+
+                
+                
+                  ， 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/学习/PowerShell/" itemprop="url" rel="index">
+                    <span itemprop="name">PowerShell</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2018/02/02/PowerShell_Study/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count"
+                        data-disqus-identifier="2018/02/02/PowerShell_Study/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+             <span id="/2018/02/02/PowerShell_Study/" class="leancloud_visitors" data-flag-title="PowerShell 学习笔记">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数 </span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+            <span class="post-meta-divider">|</span>
+            <span class="page-pv"><i class="fa fa-file-o"></i>
+            <span class="busuanzi-value" id="busuanzi_value_page_pv" ></span>
+            </span>
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
 
       
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2018/01/15/PowerShellPipeline/" itemprop="url">
-              
-                <span itemprop="name">PowerShell 一把梭</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2018-01-15T21:21:21+08:00"
-              content="2018-01-15" >
-          01-15
-        </time>
-      </div>
-
-    </header>
-  </article>
-
+      
 
       
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2017/12/21/powercli_vmdeploy/" itemprop="url">
-              
-                <span itemprop="name">PowerCLI实现自动部署VM</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2017-12-21T12:25:00+08:00"
-              content="2017-12-21" >
-          12-21
-        </time>
-      </div>
-
-    </header>
-  </article>
-
+        <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><p>这一篇主要目的其实是为炫耀下奚有米的工作环境(￣y▽,￣)╭<br>其次才是总结一下这段时间写PowerShell的心得。</p>
+<p>所以，先上奚有米工作图。<br><img src="http://ovdqer2rp.bkt.clouddn.com/static/images/powershell_study/CodingMi.jpg"></p>
+<p>Look！ 豪华6屏联动！同时掌控5个操作系统（加上虚拟机7种操作系统）！老夫一把键盘游刃有余！</p>
+<ul>
+<li>竖着的代码屏——VS Code的ZenMode。</li>
+<li>Apple Air——Google/GitHub/stackoverflow  复制！黏贴！</li>
+<li>HP Elite——收收邮件开开会~填填表格写写文档，这就是为啥公司派的电脑配置再好也总是让人讨厌的原因~。</li>
+<li>Dell XPS——可选，Ubuntu里Dock跑测试，当然实际上可以直接跑在工作机、虚拟机或云上面。</li>
+<li>iPad——Slack上聊个天而已。</li>
+<li>华为P9——还是微信最贴合国人需求。</li>
+</ul>
+<a id="more"></a>
+<h3 id="PowerShell-DSC"><a href="#PowerShell-DSC" class="headerlink" title="PowerShell DSC"></a>PowerShell DSC</h3><p>目前工作环境还没有真的使用，这里留个沙发位给他。目前参考文档有：</p>
+<ul>
+<li><a href="https://docs.microsoft.com/en-us/powershell/dsc/overview" target="_blank" rel="external">DCS官网文档</a>——必不可少。</li>
+<li><a href="http://ramblingcookiemonster.github.io/Testing-DSC-with-Pester-and-AppVeyor/" target="_blank" rel="external">DSC使用Pester和AppVeyor做测试</a>——Warren F大神关于DCS测试的博客，编写复杂配置的时候，不妨使用这个方法测试。</li>
+<li><a href="http://www.lucd.info/tag/vspheredsc/" target="_blank" rel="external">vSphereDCS系列</a>——LucD大神嫁接vSphere的DCS实现，其中创意的把LCM放在一个独立的可以连接vcenter的服务器上（当然可以是vcenter本身），可惜目前项目进度感觉有点停滞了~</li>
+</ul>
+<hr>
+<h3 id="Vester"><a href="#Vester" class="headerlink" title="Vester"></a>Vester</h3><p>这个开源项目着实解决了我的一些实际工作需求。<br><a href="https://github.com/WahlNetwork/Vester" target="_blank" rel="external">Vester</a>借助Pester实现对vSphere环境的检查(Test)，并且可以做相应的修复(Remediate)。当然检查和修复的脚本项目自身已经提供了不少，我在实际工作中也写了些，放在自己的<a href="https://github.com/edxi/Vester/tree/hashtable-support" target="_blank" rel="external">fork</a>里。<br>主要补充了：</p>
+<ul>
+<li>一些Host的Tests</li>
+<li>支持配置使用HashTable</li>
+</ul>
+<hr>
+<h3 id="Compare-HashTable"><a href="#Compare-HashTable" class="headerlink" title="Compare-HashTable"></a>Compare-HashTable</h3><p>PowerShell自带的Compare-Object不能有效的比较HashTable，这里改写了网上某神的函数，实现递归的比较带嵌套的HashTable，Gist如下：<br><script src="//gist.github.com/87cb8a550b43ec90e4a89d2e69324806.js?file=[Compare-Hashtable.ps1]"></script></p>
+<hr>
+<h3 id="PSObject和HashTable互转"><a href="#PSObject和HashTable互转" class="headerlink" title="PSObject和HashTable互转"></a>PSObject和HashTable互转</h3><p>有个现成的<a href="https://blogs.msdn.microsoft.com/timid/2013/03/05/converting-pscustomobject-tofrom-hashtables/" target="_blank" rel="external">MSDN博客</a>提供了两个互转的函数。<br>实际使用时<a href="https://stackoverflow.com/questions/3740128/pscustomobject-to-hashtable" target="_blank" rel="external">stackoverflow</a>里提供了两种方法也不错。<br>首先时直接循环对象的属性：<br><figure class="highlight powershell"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># Create a PSCustomObject (ironically using a hashtable)</span></div><div class="line"><span class="variable">$ht1</span> = @&#123; A = <span class="string">'a'</span>; B = <span class="string">'b'</span>; DateTime = <span class="built_in">Get-Date</span> &#125;</div><div class="line"><span class="variable">$theObject</span> = <span class="built_in">new-object</span> psobject -Property <span class="variable">$ht1</span></div><div class="line"></div><div class="line"><span class="comment"># Convert the PSCustomObject back to a hashtable</span></div><div class="line"><span class="variable">$ht2</span> = @&#123;&#125;</div><div class="line"><span class="variable">$theObject</span>.psobject.properties | <span class="keyword">Foreach</span> &#123; <span class="variable">$ht2</span>[<span class="variable">$_</span>.Name] = <span class="variable">$_</span>.Value &#125;</div></pre></td></tr></table></figure></p>
+<p>还有就是如果须要转换嵌套对象，就使用这个函数：<br><figure class="highlight powershell"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">function</span> ConvertPSObjectToHashtable &#123; </div><div class="line">    <span class="keyword">param</span> (</div><div class="line">        [Parameter(ValueFromPipeline)]</div><div class="line">        <span class="variable">$InputObject</span></div><div class="line">    )</div><div class="line"></div><div class="line">	 <span class="keyword">process</span> &#123;</div><div class="line">		<span class="keyword">if</span> (<span class="variable">$InputObject</span> -is [psobject])&#123;</div><div class="line">			<span class="variable">$hash</span> = @&#123;&#125;</div><div class="line">			<span class="keyword">foreach</span> (<span class="variable">$property</span> <span class="keyword">in</span> <span class="variable">$InputObject</span>.PSObject.Properties)&#123;</div><div class="line">				<span class="variable">$hash</span>[<span class="variable">$property</span>.Name] = ConvertPSObjectToHashtable <span class="variable">$property</span>.Value</div><div class="line">			&#125;</div><div class="line">			<span class="variable">$hash</span></div><div class="line">		&#125;</div><div class="line">		<span class="keyword">else</span>&#123;</div><div class="line">			<span class="variable">$InputObject</span></div><div class="line">		&#125;</div><div class="line">	 &#125; </div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<hr>
+<h3 id="参数选项"><a href="#参数选项" class="headerlink" title="参数选项"></a>参数选项</h3><p>这里墙裂推荐<a href="http://www.pstips.net/" target="_blank" rel="external">PowerShell中文博客</a>，标签云里提供了很多种参数用法。<br>当然，参考<a href="https://docs.microsoft.com/en-us/powershell/module/microsoft.powershell.core/about/about_functions_advanced_parameters?view=powershell-5.1" target="_blank" rel="external">官方文档</a>总能有全面详细的参数使用帮助。</p>
+<hr>
+<p>最后，农历狗年即将到来，预祝一下今年会旺<em>(੭</em>ˊᵕˋ)੭*ଘ</p>
 
       
     </div>
+    
+    
+    
 
+    
+
+    
+      <div>
+        <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+  <div>欣赏不如打赏！</div>
+  <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+    <span>Donate</span>
+  </button>
+  <div id="QR" style="display: none;">
+
+    
+      <div id="wechat" style="display: inline-block">
+        <img id="wechat_qr" src="/images/donate/wechatpay.jpg" alt="阿德 WeChat Pay"/>
+        <p>WeChat Pay</p>
+      </div>
+    
+
+    
+      <div id="alipay" style="display: inline-block">
+        <img id="alipay_qr" src="/images/donate/alipay.jpg" alt="阿德 Alipay"/>
+        <p>Alipay</p>
+      </div>
+    
+
+    
+
+  </div>
+</div>
+
+      </div>
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/PowerShell/" rel="tag"># PowerShell</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/01/15/PowerShellPipeline/" rel="next" title="PowerShell 一把梭">
+                <i class="fa fa-chevron-left"></i> PowerShell 一把梭
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
   </div>
   
   
   
+  </article>
 
-  
+
+
+    <div class="post-spread">
+      
+        <!-- JiaThis Button BEGIN -->
+<div class="jiathis_style">
+  <a class="jiathis_button_tsina"></a>
+  <a class="jiathis_button_tqq"></a>
+  <a class="jiathis_button_weixin"></a>
+  <a class="jiathis_button_cqq"></a>
+  <a class="jiathis_button_douban"></a>
+  <a class="jiathis_button_renren"></a>
+  <a class="jiathis_button_qzone"></a>
+  <a class="jiathis_button_kaixin001"></a>
+  <a class="jiathis_button_copy"></a>
+  <a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jiathis_separator jtico jtico_jiathis" target="_blank"></a>
+  <a class="jiathis_counter_style"></a>
+</div>
+<script type="text/javascript" >
+  var jiathis_config={
+    hideMore:false
+  }
+</script>
+<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js" charset="utf-8"></script>
+<!-- JiaThis Button END -->
+
+      
+    </div>
+  </div>
 
 
           </div>
@@ -413,6 +601,17 @@
 
 
           
+  <div class="comments" id="comments">
+    
+      <div id="disqus_thread">
+        <noscript>
+          Please enable JavaScript to view the
+          <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a>
+        </noscript>
+      </div>
+    
+  </div>
+
 
         </div>
         
@@ -433,8 +632,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview sidebar-panel sidebar-panel-active">
+      <section class="site-overview sidebar-panel">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="/images/ade.png"
@@ -509,6 +717,22 @@
 
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#PowerShell-DSC"><span class="nav-number">1.</span> <span class="nav-text">PowerShell DSC</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Vester"><span class="nav-number">2.</span> <span class="nav-text">Vester</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Compare-HashTable"><span class="nav-number">3.</span> <span class="nav-text">Compare-HashTable</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#PSObject和HashTable互转"><span class="nav-number">4.</span> <span class="nav-text">PSObject和HashTable互转</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#参数选项"><span class="nav-number">5.</span> <span class="nav-text">参数选项</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
@@ -631,10 +855,10 @@
   
 
   
-    <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.2"></script>
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.2"></script>
 <script type="text/javascript" src="/js/src/post-details.js?v=5.1.2"></script>
 
-  
+
 
   
 
@@ -652,6 +876,18 @@
       <script id="dsq-count-scr" src="https://edxi.disqus.com/count.js" async></script>
     
 
+    
+      <script type="text/javascript">
+        var disqus_config = function () {
+          this.page.url = 'http://edxi.github.io/2018/02/02/PowerShell_Study/';
+          this.page.identifier = '2018/02/02/PowerShell_Study/';
+          this.page.title = 'PowerShell 学习笔记';
+        };
+        var d = document, s = d.createElement('script');
+        s.src = 'https://edxi.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', '' + +new Date());
+        (d.head || d.body).appendChild(s);
+      </script>
     
 
   
