@@ -96,19 +96,19 @@
 
 
 
-<meta name="description" content="最近沉迷于一项工作任务——PowerCLI实现自动部署VM，参考了大神的作品，按照实际工作环境做了修改。足足600行代码，实在繁琐，所以这里就不贴代码了，直接扔在GitHub上了。现在的心情如图。通过这个脚本，顺便捡起了10年前学的powershell，这里借着这个脚本的实现总结下几个脚本里用到的技巧。">
+<meta name="description" content="最近沉迷于一项工作任务——PowerCLI实现自动部署VM，参考了大神的作品，按照实际工作环境做了修改。足足600行代码，实在繁琐，所以这里就不贴代码了，直接扔在Gist上了。现在的心情如图。通过这个脚本，顺便捡起了10年前学的powershell，这里借着这个脚本的实现总结下几个脚本里用到的技巧。">
 <meta name="keywords" content="PowerShell,PowerCLI">
 <meta property="og:type" content="article">
 <meta property="og:title" content="PowerCLI实现自动部署VM">
 <meta property="og:url" content="http://edxi.github.io/2017/12/21/powercli_vmdeploy/index.html">
 <meta property="og:site_name" content="DXC守护者">
-<meta property="og:description" content="最近沉迷于一项工作任务——PowerCLI实现自动部署VM，参考了大神的作品，按照实际工作环境做了修改。足足600行代码，实在繁琐，所以这里就不贴代码了，直接扔在GitHub上了。现在的心情如图。通过这个脚本，顺便捡起了10年前学的powershell，这里借着这个脚本的实现总结下几个脚本里用到的技巧。">
+<meta property="og:description" content="最近沉迷于一项工作任务——PowerCLI实现自动部署VM，参考了大神的作品，按照实际工作环境做了修改。足足600行代码，实在繁琐，所以这里就不贴代码了，直接扔在Gist上了。现在的心情如图。通过这个脚本，顺便捡起了10年前学的powershell，这里借着这个脚本的实现总结下几个脚本里用到的技巧。">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="http://ovdqer2rp.bkt.clouddn.com/static/images/powercli_vmdeploy/codingyibasuo.jpg">
-<meta property="og:updated_time" content="2017-12-21T08:58:36.660Z">
+<meta property="og:updated_time" content="2018-02-27T01:04:14.042Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="PowerCLI实现自动部署VM">
-<meta name="twitter:description" content="最近沉迷于一项工作任务——PowerCLI实现自动部署VM，参考了大神的作品，按照实际工作环境做了修改。足足600行代码，实在繁琐，所以这里就不贴代码了，直接扔在GitHub上了。现在的心情如图。通过这个脚本，顺便捡起了10年前学的powershell，这里借着这个脚本的实现总结下几个脚本里用到的技巧。">
+<meta name="twitter:description" content="最近沉迷于一项工作任务——PowerCLI实现自动部署VM，参考了大神的作品，按照实际工作环境做了修改。足足600行代码，实在繁琐，所以这里就不贴代码了，直接扔在Gist上了。现在的心情如图。通过这个脚本，顺便捡起了10年前学的powershell，这里借着这个脚本的实现总结下几个脚本里用到的技巧。">
 <meta name="twitter:image" content="http://ovdqer2rp.bkt.clouddn.com/static/images/powercli_vmdeploy/codingyibasuo.jpg">
 
 
@@ -450,10 +450,10 @@
       
 
       
-        <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><p>最近沉迷于一项工作任务——PowerCLI实现自动部署VM，参考了大神的<a href="http://vmwaremine.com/2014/08/25/ultimate-vm-batch-deployment-script/#sthash.oJPuxCZX.dpbs" target="_blank" rel="external">作品</a>，按照实际工作环境做了修改。足足600行代码，实在繁琐，所以这里就不贴代码了，直接扔在<a href="https://github.com/edxi/vmbatchcreate/blob/master/vm_batch_create.ps1" target="_blank" rel="external">GitHub上了</a>。现在的心情如图。<br><img src="http://ovdqer2rp.bkt.clouddn.com/static/images/powercli_vmdeploy/codingyibasuo.jpg"><br>通过这个脚本，顺便捡起了10年前学的powershell，这里借着这个脚本的实现总结下几个脚本里用到的技巧。<br><a id="more"></a></p>
+        <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><p>最近沉迷于一项工作任务——PowerCLI实现自动部署VM，参考了大神的<a href="http://vmwaremine.com/2014/08/25/ultimate-vm-batch-deployment-script/#sthash.oJPuxCZX.dpbs" target="_blank" rel="external">作品</a>，按照实际工作环境做了修改。足足600行代码，实在繁琐，所以这里就不贴代码了，直接扔在<a href="https://gist.github.com/edxi/f80e6e4f9bffa55162ab84d2ce6b10dc" target="_blank" rel="external">Gist上了</a>。现在的心情如图。<br><img src="http://ovdqer2rp.bkt.clouddn.com/static/images/powercli_vmdeploy/codingyibasuo.jpg"><br>通过这个脚本，顺便捡起了10年前学的powershell，这里借着这个脚本的实现总结下几个脚本里用到的技巧。<br><a id="more"></a></p>
 <h4 id="脚本功能概述"><a href="#脚本功能概述" class="headerlink" title="脚本功能概述"></a>脚本功能概述</h4><p>脚本大致完成下面几件事情：</p>
 <ol>
-<li>读取csv文件——<a href="https://github.com/edxi/vmbatchcreate/blob/master/vm.csv" target="_blank" rel="external">csv文件例子</a>也放在GitHub上了。里面带数字的列是可以增加的，比如例子只有disk1,disk2，可以继续加上disk3,disk4,disk5等等（如果新VM须要更多硬盘的话）</li>
+<li>读取csv文件——<a href="https://gist.github.com/edxi/f80e6e4f9bffa55162ab84d2ce6b10dc" target="_blank" rel="external">csv文件例子</a>也放在Gist上了。里面带数字的列是可以增加的，比如例子只有disk1,disk2，可以继续加上disk3,disk4,disk5等等（如果新VM须要更多硬盘的话）</li>
 <li>VM部署——会根据csv文件列出的每一个VM开启一个powershell job进行部署</li>
 <li>VM创建包括下面这些后续任务：<ul>
 <li>Customize——检查customize状态</li>
@@ -490,8 +490,8 @@
 <hr>
 <h4 id="其他总结"><a href="#其他总结" class="headerlink" title="其他总结"></a>其他总结</h4><ul>
 <li>System.Collections.ArrayList和@()符号定义的list还是有不同的，脚本里的220行和226行用到</li>
-<li>Job通过一个自定义变量产生的csv来跟踪状态，并拿到对应值可以用write-progress画进度条（638-652行）</li>
-<li>用[Diagnostics.Stopwatch]::StartNew()监控总体任务耗时（576,664,665行）</li>
+<li>Job通过一个自定义变量产生的csv来跟踪状态，并拿到对应值可以用write-progress画进度条（610-647行）</li>
+<li>用[Diagnostics.Stopwatch]::StartNew()监控总体任务耗时（572,659,660行）</li>
 <li>脚本执行不下去的话可以用get-job看job状态，receive-job获得job交互信息（比如执行guest os script时如果须要输入guest os用户名密码，那么就会须要弹出对话框交互）</li>
 <li>Invoke-VMScript命令传送的<strong>不是</strong>花括号定义的scriptblock，而是单引号定义的字符串，具体定义规则参考<a href="https://www.vmware.com/content/dam/digitalmarketing/vmware/en/pdf/techpaper/vsphere_power-cli-5.1-r1_technote.pdf" target="_blank" rel="external">vmware technote</a>，前提条件不少，也建议参考<a href="http://www.lucd.info/2012/01/01/will-invoke-vmscript-work/" target="_blank" rel="external">大牛博客</a>写的使用方法</li>
 </ul>
@@ -677,7 +677,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives/">
-                <span class="site-state-item-count">13</span>
+                <span class="site-state-item-count">14</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -699,7 +699,7 @@
             
             <div class="site-state-item site-state-tags">
               <a href="/tags/index.html">
-                <span class="site-state-item-count">16</span>
+                <span class="site-state-item-count">17</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>

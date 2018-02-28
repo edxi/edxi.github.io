@@ -318,6 +318,194 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://edxi.github.io/2018/02/27/WinBaseline/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="阿德">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/ade.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="DXC守护者">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/02/27/WinBaseline/" itemprop="url">使用DSCEA和BaselineManagement做合规检查</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-02-27T08:19:08+08:00">
+                2018-02-27
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/学习/" itemprop="url" rel="index">
+                    <span itemprop="name">学习</span>
+                  </a>
+                </span>
+
+                
+                
+                  ， 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/学习/PowerShell/" itemprop="url" rel="index">
+                    <span itemprop="name">PowerShell</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2018/02/27/WinBaseline/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count"
+                        data-disqus-identifier="2018/02/27/WinBaseline/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+             <span id="/2018/02/27/WinBaseline/" class="leancloud_visitors" data-flag-title="使用DSCEA和BaselineManagement做合规检查">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数 </span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <p>这里所说的合规检查指的是Windows Baseline Compliance Check。</p>
+<p>原本微软有个SCM的安全检查工具<sup id="fnref:1"><a href="#fn:1" rel="footnote"><span class="hint--top-right hint--error hint--large" aria-label="[Security Compliance Manager](https://technet.microsoft.com/en-us/solutionaccelerators/cc835245.aspx)
+">[1]</span></a></sup>，可以做合规检查的工作，但是目前这个工具已经退役了，并因此推荐了这篇博客所提及的两个开源工具DSCEA和BaselineManagement<sup id="fnref:2"><a href="#fn:2" rel="footnote"><span class="hint--top-right hint--error hint--large" aria-label="[Security Compliance Manager retired; new tools and procedures](https://blogs.technet.microsoft.com/secguide/2017/06/15/security-compliance-manager-scm-retired-new-tools-and-procedures/)
+">[2]</span></a></sup>，另外还有SCT这个工具<sup id="fnref:3"><a href="#fn:3" rel="footnote"><span class="hint--top-right hint--error hint--large" aria-label="[Microsoft Security Compliance Toolkit 1.0](https://docs.microsoft.com/en-us/windows/security/threat-protection/security-compliance-toolkit-10)
+">[3]</span></a></sup>，总之，关于安全合规，可以参考微软官方文档<sup id="fnref:4"><a href="#fn:4" rel="footnote"><span class="hint--top-right hint--error hint--large" aria-label="[Windows Security Baselines](https://docs.microsoft.com/en-us/windows/security/threat-protection/windows-security-baselines)
+">[4]</span></a></sup>了解更多。</p>
+<p>当然，合规也未必只限于安全方面，说到底，只要系统和自己定义的配置相符，那么就可以认为是合规。 这里用“有米饺”举个例子，嘿嘿(●ˇ∀ˇ●)</p>
+<img src="http://ovdqer2rp.bkt.clouddn.com/static/images/WinBaseline/youmijiao.jpg">
+<p>所以，DSCEA内部使用Test-DscConfiguration，很好的做到了检查相应的配置，而不局限于安全方面。</p>
+<p>由于BaselineManagement和DSCEA作为开源的PowerShell程序，目前官方的文档还比较少，很多还是依赖于社区资源，所以这里记录下使用方法。</p>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2018/02/27/WinBaseline/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://edxi.github.io/2018/02/18/DSCwinrm/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -447,13 +635,13 @@
 <img src="http://ovdqer2rp.bkt.clouddn.com/static/images/DSCwinrm/dogyear.jpg">
 <p>新年长假后会有一个拖延了很久的任务须要完成，于是着手研究怎么使用DSC，其中包含了winrm的配置，这篇博客简单记录下相关经验：</p>
 <ul>
-<li>初始winrm。<sup id="fnref:1"><a href="#fn:1" rel="footnote"><span class="hint--top-right hint--error hint--large" aria-label="Installation and Configuration for Windows Remote Management -- https://msdn.microsoft.com/en-us/library/aa384372(v=vs.85).aspx
+<li>初始winrm。<sup id="fnref:1"><a href="#fn:1" rel="footnote"><span class="hint--top-right hint--error hint--large" aria-label="[Installation and Configuration for Windows Remote Management](https://msdn.microsoft.com/en-us/library/aa384372.aspx)
 ">[1]</span></a></sup></li>
-<li>使用winrm的https方法。<sup id="fnref:2"><a href="#fn:2" rel="footnote"><span class="hint--top-right hint--error hint--large" aria-label="How to configure WinRM for HTTPS manually -- https://www.visualstudiogeeks.com/devops/how-to-configure-winrm-for-https-manually
+<li>使用winrm的https方法。<sup id="fnref:2"><a href="#fn:2" rel="footnote"><span class="hint--top-right hint--error hint--large" aria-label="[How to configure WinRM for HTTPS manually](https://www.visualstudiogeeks.com/devops/how-to-configure-winrm-for-https-manually)
 ">[2]</span></a></sup></li>
-<li>https是否会过期。<sup id="fnref:3"><a href="#fn:3" rel="footnote"><span class="hint--top-right hint--error hint--large" aria-label="WinRM and HTTPs – What happens when certs expired -- https://foxdeploy.com/2016/09/13/winrm-and-https-what-happens-when-certs-die/
+<li>https是否会过期。<sup id="fnref:3"><a href="#fn:3" rel="footnote"><span class="hint--top-right hint--error hint--large" aria-label="[WinRM and HTTPs – What happens when certs expired](https://foxdeploy.com/2016/09/13/winrm-and-https-what-happens-when-certs-die/)
 ">[3]</span></a></sup></li>
-<li>通过GPO分发winrm证书的方法。<sup id="fnref:4"><a href="#fn:4" rel="footnote"><span class="hint--top-right hint--error hint--large" aria-label="WinRM SSL Certificate Deployment via GPO -- https://www.darkoperator.com/blog/2015/3/24/bdvjiiw1ybzfdjulc5pprgpkm8os0b
+<li>通过GPO分发winrm证书的方法。<sup id="fnref:4"><a href="#fn:4" rel="footnote"><span class="hint--top-right hint--error hint--large" aria-label="[WinRM SSL Certificate Deployment via GPO](https://www.darkoperator.com/blog/2015/3/24/bdvjiiw1ybzfdjulc5pprgpkm8os0b)
 ">[4]</span></a></sup></li>
 </ul>
           <!--noindex-->
@@ -1198,7 +1386,7 @@
 
       
         
-          <p>最近沉迷于一项工作任务——PowerCLI实现自动部署VM，参考了大神的<a href="http://vmwaremine.com/2014/08/25/ultimate-vm-batch-deployment-script/#sthash.oJPuxCZX.dpbs" target="_blank" rel="external">作品</a>，按照实际工作环境做了修改。足足600行代码，实在繁琐，所以这里就不贴代码了，直接扔在<a href="https://github.com/edxi/vmbatchcreate/blob/master/vm_batch_create.ps1" target="_blank" rel="external">GitHub上了</a>。现在的心情如图。<br><img src="http://ovdqer2rp.bkt.clouddn.com/static/images/powercli_vmdeploy/codingyibasuo.jpg"><br>通过这个脚本，顺便捡起了10年前学的powershell，这里借着这个脚本的实现总结下几个脚本里用到的技巧。<br>
+          <p>最近沉迷于一项工作任务——PowerCLI实现自动部署VM，参考了大神的<a href="http://vmwaremine.com/2014/08/25/ultimate-vm-batch-deployment-script/#sthash.oJPuxCZX.dpbs" target="_blank" rel="external">作品</a>，按照实际工作环境做了修改。足足600行代码，实在繁琐，所以这里就不贴代码了，直接扔在<a href="https://gist.github.com/edxi/f80e6e4f9bffa55162ab84d2ce6b10dc" target="_blank" rel="external">Gist上了</a>。现在的心情如图。<br><img src="http://ovdqer2rp.bkt.clouddn.com/static/images/powercli_vmdeploy/codingyibasuo.jpg"><br>通过这个脚本，顺便捡起了10年前学的powershell，这里借着这个脚本的实现总结下几个脚本里用到的技巧。<br>
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/2017/12/21/powercli_vmdeploy/#more" rel="contents">
@@ -1958,185 +2146,6 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://edxi.github.io/2017/10/10/Ansible-excel-inventory/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="阿德">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/ade.png">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="DXC守护者">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2017/10/10/Ansible-excel-inventory/" itemprop="url">Ansible学习笔记--python编写读取excel的dynamic inventory</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-10-10T15:46:00+08:00">
-                2017-10-10
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/学习/" itemprop="url" rel="index">
-                    <span itemprop="name">学习</span>
-                  </a>
-                </span>
-
-                
-                
-                  ， 
-                
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/学习/ansible/" itemprop="url" rel="index">
-                    <span itemprop="name">ansible</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/2017/10/10/Ansible-excel-inventory/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count disqus-comment-count"
-                        data-disqus-identifier="2017/10/10/Ansible-excel-inventory/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-          
-             <span id="/2017/10/10/Ansible-excel-inventory/" class="leancloud_visitors" data-flag-title="Ansible学习笔记--python编写读取excel的dynamic inventory">
-               <span class="post-meta-divider">|</span>
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               
-                 <span class="post-meta-item-text">阅读次数 </span>
-               
-                 <span class="leancloud-visitors-count"></span>
-             </span>
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <p>Ansible提供了自己写脚本实现获取inventory的方法，直接通过github下载ansible源码，在/ansible/contrib/inventory目录里有不少现成的dynamic inventory，比如ec2、cobbler、openstack等等，可以直接从对应系统读取ansible须要管理的主机信息。这里要实现得dynamic inventory是从excel里读取主机信息（可能因为功能太low了，这么多contribute里面居然没有，于是自己写脚本实现一个）。</p>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2017/10/10/Ansible-excel-inventory/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -2187,7 +2196,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives/">
-                <span class="site-state-item-count">13</span>
+                <span class="site-state-item-count">14</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -2209,7 +2218,7 @@
             
             <div class="site-state-item site-state-tags">
               <a href="/tags/index.html">
-                <span class="site-state-item-count">16</span>
+                <span class="site-state-item-count">17</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
