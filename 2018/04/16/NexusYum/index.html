@@ -80,7 +80,7 @@
 <link href="/css/main.css?v=5.1.2" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="PowerCLI,Docker," />
+  <meta name="keywords" content="Nexus," />
 
 
 
@@ -96,20 +96,21 @@
 
 
 
-<meta name="description" content="奚有米一岁啦！先来张庆生照！ 时间过的真快，VMware也已经10周年了，PowerCLI也在上个月发布了新的版本，版本号也直接从6.5到了10[1]，就是为了10周年的缘故吧，在slack的讨论里也有这样的解释：  Because 7 8(ate) 9  随着这次的版本的更新，更是加入了对MacOS和多种Linux发行版本的支持，这个月其Docker版本也有了更新。所以这篇博客记录下几种不同环境">
-<meta name="keywords" content="PowerCLI,Docker">
+<meta name="description" content="以往为了让内网服务器使用Yum，自建了Yum服务器，大致就是一个apache指向自建的repository目录，然后使用yum-util里的reposync更新rpm（当然也可以手动下载后放到repo目录），再使用createrepo来创建metadata。虽说可以实现，但是也存在不少不便：  repo目录日趋庞大 EPEL这样的repo没法下载 同时维护centos7和centos6这样多个版本">
+<meta name="keywords" content="Nexus">
 <meta property="og:type" content="article">
-<meta property="og:title" content="在Linux和Docker上使用PowerCLI">
-<meta property="og:url" content="http://edxi.github.io/2018/03/30/LinuxPowerCLI/index.html">
+<meta property="og:title" content="使用Nexus自建Yum Repository代理">
+<meta property="og:url" content="http://edxi.github.io/2018/04/16/NexusYum/index.html">
 <meta property="og:site_name" content="DXC守护者">
-<meta property="og:description" content="奚有米一岁啦！先来张庆生照！ 时间过的真快，VMware也已经10周年了，PowerCLI也在上个月发布了新的版本，版本号也直接从6.5到了10[1]，就是为了10周年的缘故吧，在slack的讨论里也有这样的解释：  Because 7 8(ate) 9  随着这次的版本的更新，更是加入了对MacOS和多种Linux发行版本的支持，这个月其Docker版本也有了更新。所以这篇博客记录下几种不同环境">
+<meta property="og:description" content="以往为了让内网服务器使用Yum，自建了Yum服务器，大致就是一个apache指向自建的repository目录，然后使用yum-util里的reposync更新rpm（当然也可以手动下载后放到repo目录），再使用createrepo来创建metadata。虽说可以实现，但是也存在不少不便：  repo目录日趋庞大 EPEL这样的repo没法下载 同时维护centos7和centos6这样多个版本">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="http://ovdqer2rp.bkt.clouddn.com/static/images/LinuxPowerCLI/1year.jpg">
-<meta property="og:updated_time" content="2018-04-01T08:38:44.451Z">
+<meta property="og:image" content="http://ovdqer2rp.bkt.clouddn.com/static/images/NexusYum/HulkPunch.gif">
+<meta property="og:image" content="http://ovdqer2rp.bkt.clouddn.com/static/images/NexusYum/NexusYum.gif">
+<meta property="og:updated_time" content="2018-04-18T13:46:16.165Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="在Linux和Docker上使用PowerCLI">
-<meta name="twitter:description" content="奚有米一岁啦！先来张庆生照！ 时间过的真快，VMware也已经10周年了，PowerCLI也在上个月发布了新的版本，版本号也直接从6.5到了10[1]，就是为了10周年的缘故吧，在slack的讨论里也有这样的解释：  Because 7 8(ate) 9  随着这次的版本的更新，更是加入了对MacOS和多种Linux发行版本的支持，这个月其Docker版本也有了更新。所以这篇博客记录下几种不同环境">
-<meta name="twitter:image" content="http://ovdqer2rp.bkt.clouddn.com/static/images/LinuxPowerCLI/1year.jpg">
+<meta name="twitter:title" content="使用Nexus自建Yum Repository代理">
+<meta name="twitter:description" content="以往为了让内网服务器使用Yum，自建了Yum服务器，大致就是一个apache指向自建的repository目录，然后使用yum-util里的reposync更新rpm（当然也可以手动下载后放到repo目录），再使用createrepo来创建metadata。虽说可以实现，但是也存在不少不便：  repo目录日趋庞大 EPEL这样的repo没法下载 同时维护centos7和centos6这样多个版本">
+<meta name="twitter:image" content="http://ovdqer2rp.bkt.clouddn.com/static/images/NexusYum/HulkPunch.gif">
 
 
 
@@ -138,7 +139,7 @@
 
 
 
-  <link rel="canonical" href="http://edxi.github.io/2018/03/30/LinuxPowerCLI/"/>
+  <link rel="canonical" href="http://edxi.github.io/2018/04/16/NexusYum/"/>
 
 
 
@@ -146,7 +147,7 @@
 
 
 
-  <title>在Linux和Docker上使用PowerCLI | DXC守护者</title>
+  <title>使用Nexus自建Yum Repository代理 | DXC守护者</title>
   
 
 
@@ -323,7 +324,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://edxi.github.io/2018/03/30/LinuxPowerCLI/">
+    <link itemprop="mainEntityOfPage" href="http://edxi.github.io/2018/04/16/NexusYum/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="阿德">
@@ -340,7 +341,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">在Linux和Docker上使用PowerCLI</h1>
+          <h1 class="post-title" itemprop="name headline">使用Nexus自建Yum Repository代理</h1>
         
 
         <div class="post-meta">
@@ -352,8 +353,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-03-30T15:19:18+08:00">
-                2018-03-30
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-04-16T08:09:18+08:00">
+                2018-04-16
               </time>
             
 
@@ -386,8 +387,8 @@
                 
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/学习/VMware/" itemprop="url" rel="index">
-                    <span itemprop="name">VMware</span>
+                  <a href="/categories/学习/Nexus/" itemprop="url" rel="index">
+                    <span itemprop="name">Nexus</span>
                   </a>
                 </span>
 
@@ -404,9 +405,9 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2018/03/30/LinuxPowerCLI/#comments" itemprop="discussionUrl">
+                <a href="/2018/04/16/NexusYum/#comments" itemprop="discussionUrl">
                   <span class="post-comments-count disqus-comment-count"
-                        data-disqus-identifier="2018/03/30/LinuxPowerCLI/" itemprop="commentCount"></span>
+                        data-disqus-identifier="2018/04/16/NexusYum/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -414,7 +415,7 @@
 
           
           
-             <span id="/2018/03/30/LinuxPowerCLI/" class="leancloud_visitors" data-flag-title="在Linux和Docker上使用PowerCLI">
+             <span id="/2018/04/16/NexusYum/" class="leancloud_visitors" data-flag-title="使用Nexus自建Yum Repository代理">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -450,43 +451,51 @@
       
 
       
-        <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><p>奚有米一岁啦！先来张庆生照！<br><img src="http://ovdqer2rp.bkt.clouddn.com/static/images/LinuxPowerCLI/1year.jpg"></p>
-<p>时间过的真快，VMware也已经10周年了，PowerCLI也在上个月发布了新的版本，版本号也直接从6.5到了10<sup id="fnref:1"><a href="#fn:1" rel="footnote"><span class="hint--top-right hint--error hint--large" aria-label="[New Release: VMware PowerCLI 10.0.0](https://blogs.vmware.com/PowerCLI/2018/02/powercli-10.html)
-">[1]</span></a></sup>，就是为了10周年的缘故吧，在slack的讨论里也有这样的解释：</p>
-<blockquote>
-<p>Because 7 8(ate) 9</p>
-</blockquote>
-<p>随着这次的版本的更新，更是加入了对MacOS和多种Linux发行版本的支持，这个月其Docker版本也有了更新。所以这篇博客记录下几种不同环境下PowerCLI的安装方法。</p>
+        <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><p>以往为了让内网服务器使用Yum，自建了Yum服务器，大致就是一个apache指向自建的repository目录，然后使用yum-util里的reposync更新rpm（当然也可以手动下载后放到repo目录），再使用createrepo来创建metadata。虽说可以实现，但是也存在不少不便：</p>
+<ul>
+<li>repo目录日趋庞大</li>
+<li>EPEL这样的repo没法下载</li>
+<li>同时维护centos7和centos6这样多个版本比较麻烦</li>
+<li>只能crontab定期更新，repo内容可能会滞后</li>
+</ul>
+<p>最近使Sonatype Nexus的时候发现可以支持Yum Repository，官方博客也早在去年八月就发布了这个功能<sup id="fnref:1"><a href="#fn:1" rel="footnote"><span class="hint--top-right hint--error hint--large" aria-label="[Nexus Repository Manager 3.5: Yum Proxy Support Now Available](https://blog.sonatype.com/nexus-repository-manager-3.5)
+">[1]</span></a></sup>，通过这个新功能，使得自建的repo可以解决这些困难着实解决了上面这些困难，这里简单介绍下Nexus服务器自建Yum Repository代理的过程。</p>
+<p>Nexus的安装和配置过程都比较简单，当然Nexus的功能远不限于此，它提供了当下最流行的库支持（Maven/Java, npm, NuGet, RubyGems, Docker, P2, OBR, APT, YUM 等等），也支持cluster，还提供rest API和基于OSGi的bundle开发。我这里只是让它小露一手而已~<br>附《绿巨人击倒奚有米》的动图，嘿嘿(o゜▽゜)o☆</p>
+<img src="http://ovdqer2rp.bkt.clouddn.com/static/images/NexusYum/HulkPunch.gif">
 <a id="more"></a>
-<h3 id="Linux安装PowerCLI"><a href="#Linux安装PowerCLI" class="headerlink" title="Linux安装PowerCLI"></a>Linux安装PowerCLI</h3><p>目前官方已经支持在MacOS和好几种Linux发行版上使用PowerCLI，这里测试的机器是CentOS7。</p>
-<p>实际上，正是因为现在.net core和PowerShell已经支持了在多种操作系统上运行，所以使得PowerCLI作为一个PowerShell模块可以运行在Linux和MacOS。</p>
-<p>安装步骤也比较简单：</p>
+<h3 id="安装Nexus"><a href="#安装Nexus" class="headerlink" title="安装Nexus"></a>安装Nexus</h3><p>官方文档<sup id="fnref:2"><a href="#fn:2" rel="footnote"><span class="hint--top-right hint--error hint--large" aria-label="[Nexus Repository Manager 3](https://help.sonatype.com/repomanager3)
+">[2]</span></a></sup>的安装过程并不复杂，我这里简单罗列了使用CentOS7安装的步骤：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># 确保安装了JRE 8</span></div><div class="line">$ java -version</div><div class="line">openjdk version <span class="string">"1.8.0_161"</span></div><div class="line">OpenJDK Runtime Environment (build 1.8.0_161-b14)</div><div class="line">OpenJDK 64-Bit Server VM (build 25.161-b14, mixed mode)</div><div class="line"></div><div class="line"><span class="comment"># 建议创建nexus用户，并设置该用户File Handle Limits</span></div><div class="line">$ sudo useradd nexus</div><div class="line">$ sudo <span class="built_in">echo</span> <span class="string">"nexus - nofile 65536"</span> &gt;&gt; /etc/security/limits.conf</div><div class="line"></div><div class="line"><span class="comment"># 下载并解压nexus到/opt目录，并设置nexus用户权限</span></div><div class="line">$ wget https://download.sonatype.com/nexus/3/latest-unix.tar.gz</div><div class="line">$ sudo tar -xzvf latest-unix.tar.gz -C /opt</div><div class="line">$ sudo mv /opt/nexus* /opt/nexus</div><div class="line">$ sudo chown -R nexus:nexus /opt/nexus /opt/sonatype-work/</div><div class="line"></div><div class="line"><span class="comment"># 设置服务启动用户</span></div><div class="line">$ sudo <span class="built_in">echo</span> <span class="string">'run_as_user="nexus"'</span> &gt; /opt/nexus/bin/nexus.rc</div><div class="line"></div><div class="line"><span class="comment"># 这里使用systemd管理服务</span></div><div class="line">$ sudo cat &lt;&lt;EOF &gt;/etc/systemd/system/nexus.service</div><div class="line">[Unit]</div><div class="line">Description=nexus service</div><div class="line">After=network.target</div><div class="line">  </div><div class="line">[Service]</div><div class="line">Type=forking</div><div class="line">ExecStart=/opt/nexus/bin/nexus start</div><div class="line">ExecStop=/opt/nexus/bin/nexus stop</div><div class="line">User=nexus</div><div class="line">Restart=on-abort</div><div class="line">  </div><div class="line">[Install]</div><div class="line">WantedBy=multi-user.target</div><div class="line">EOF</div><div class="line"></div><div class="line">$ sudo systemctl daemon-reload</div><div class="line">$ sudo systemctl <span class="built_in">enable</span> nexus.service</div><div class="line">$ sudo systemctl start nexus.service</div><div class="line"></div><div class="line"><span class="comment"># 最后，查看log了解服务运行状态</span></div><div class="line">$ tail -f /opt/sonatype-work/nexus3/<span class="built_in">log</span>/nexus.log</div></pre></td></tr></table></figure></p>
+<hr>
+<h3 id="Docker方式运行Nexus"><a href="#Docker方式运行Nexus" class="headerlink" title="Docker方式运行Nexus"></a>Docker方式运行Nexus</h3><p>另一种方式是使用docker运行，可以参考官方的docker github<sup id="fnref:3"><a href="#fn:3" rel="footnote"><span class="hint--top-right hint--error hint--large" aria-label="[Sonatype Nexus3 Docker](https://github.com/sonatype/docker-nexus3)
+">[3]</span></a></sup>，列举命令如下：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># 后台运行并映射8081端口，每次随主机启动</span></div><div class="line">$ docker run -d -p 8081:8081 --restart=always --name nexus sonatype/nexus3</div><div class="line"></div><div class="line"><span class="comment"># 查看运行状态</span></div><div class="line">$ docker logs -f nexus</div><div class="line"></div><div class="line"><span class="comment"># 传递环境变量，调整JAVA参数</span></div><div class="line">$ docker run -d -p 8081:8081 --name nexus -e INSTALL4J_ADD_VM_PARAMS=<span class="string">"-Xms2g -Xmx2g -XX:MaxDirectMemorySize=3g  -Djava.util.prefs.userRoot=/some-other-dir"</span> sonatype/nexus3</div><div class="line"></div><div class="line"><span class="comment"># 持久化/nexus-data目录到docker volume</span></div><div class="line">$ docker volume create --name nexus-data</div><div class="line">$ docker run -d -p 8081:8081 --name nexus -v nexus-data:/nexus-data sonatype/nexus3</div><div class="line"></div><div class="line"><span class="comment"># 持久化到主机的目录（不具便携性）</span></div><div class="line">$ mkdir /some/dir/nexus-data &amp;&amp; chown -R 200 /some/dir/nexus-data</div><div class="line">$ docker run -d -p 8081:8081 --name nexus -v /some/dir/nexus-data:/nexus-data sonatype/nexus3</div><div class="line"></div><div class="line"><span class="comment"># 自己通过nexus3的image为基础Build一个新的image</span></div><div class="line">$ docker build --rm=<span class="literal">true</span> --tag=sonatype/nexus3 .</div><div class="line"><span class="comment">#The following optional variables can be used when building the image:</span></div><div class="line"><span class="comment">#  NEXUS_VERSION: Version of the Nexus Repository Manager</span></div><div class="line"><span class="comment">#  NEXUS_DOWNLOAD_URL: Download URL for Nexus Repository, alternative to using NEXUS_VERSION to download from Sonatype</span></div><div class="line"><span class="comment">#  NEXUS_DOWNLOAD_SHA256_HASH: Sha256 checksum for the downloaded Nexus Repository Manager archive. Required if NEXUS_VERSION or NEXUS_DOWNLOAD_URL is provided</span></div></pre></td></tr></table></figure></p>
+<hr>
+<h3 id="配置Yum-Repository"><a href="#配置Yum-Repository" class="headerlink" title="配置Yum Repository"></a>配置Yum Repository</h3><p>Yum的Repository分为proxy和host两种，两种分别用于不同的用途：</p>
 <ul>
-<li><p>安装PowerShell</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">[root@host1 ~]<span class="comment"># curl https://packages.microsoft.com/config/rhel/7/prod.repo | sudo tee /etc/yum.repos.d/microsoft.repo</span></div><div class="line">[root@host1 ~]<span class="comment"># yum install powershell</span></div></pre></td></tr></table></figure>
+<li><p>Host——如果是为了存放公司内部的rpm，那么创建Host类型的repository，设置定时任务更新metadata，以提供公司内部使用。一般须要做的配置的内容包括：</p>
+<ul>
+<li>Repository的名字</li>
+<li>Repodata深度，用于指定从第几层目录开始创建metadata</li>
+<li>指定Blob store，事先创建的blob store是repo库存放的目录</li>
+<li><p>然后就可以上传rpm了，上传的方式其实就是对repo的链接做HTTP POST，这里用crul示例</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">curl -v --user <span class="string">'admin:admin123'</span> --upload-file ./test.rpm http://localhost:8081/repository/yum-hosted/test.rpm</div></pre></td></tr></table></figure>
 </li>
-<li><p>安装PowerCLI模块</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">[root@host1 ~]<span class="comment"># pwsh</span></div><div class="line">PowerShell v6.1.0-preview.1</div><div class="line">Copyright (c) Microsoft Corporation. All rights reserved.</div><div class="line"></div><div class="line">https://aka.ms/pscore6-docs</div><div class="line">Type <span class="string">'help'</span> to get <span class="built_in">help</span>.</div><div class="line"></div><div class="line">PS /root&gt; install-module vmware.powercli -Scope CurrentUser</div></pre></td></tr></table></figure>
+<li><p>最后，使用Rebuild Yum metadata的schedule task来重建metadata</p>
 </li>
 </ul>
-<p>安装完成的powercli module目录会在 ~/.local/share/powershell/Modules/<br>接下来就可以直接使用PowerCLI命令了。</p>
-<p>MacOS环境下的安装这里就省略了，具体步骤可以参考官方博客<sup id="fnref:2"><a href="#fn:2" rel="footnote"><span class="hint--top-right hint--error hint--large" aria-label="[Installing PowerCLI 10.0.0 on MacOS](https://blogs.vmware.com/PowerCLI/2018/03/installing-powercli-10-0-0-macos.html)
-">[2]</span></a></sup></p>
-<hr>
-<h3 id="通过Docker使用PowerCLI"><a href="#通过Docker使用PowerCLI" class="headerlink" title="通过Docker使用PowerCLI"></a>通过Docker使用PowerCLI</h3><p>我这里使用PhotonOS v2测试了Docker下使用PowerCLI，安装使用也非常简单：</p>
-<ul>
-<li><p>下载PowerCLI Image</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line">root@PhotonOS2 [ ~ ]<span class="comment"># docker pull vmware/powerclicore</span></div><div class="line">Using default tag: latest</div><div class="line">latest: Pulling from vmware/powerclicore</div><div class="line">e9b1ffebdf09: Pull complete</div><div class="line">1ca0671214e4: Pull complete</div><div class="line">e2054d0e7b6e: Downloading [=================&gt;                                 ]  29.73MB/83.88MB</div><div class="line">9e5896375981: Download complete</div><div class="line">e2054d0e7b6e: Downloading [===============================&gt;                   ]  52.98MB/83.88MB</div><div class="line">e2054d0e7b6e: Downloading [====================================&gt;              ]  12.85MB/17.76MB</div><div class="line">e2054d0e7b6e: Pull complete</div><div class="line">9e5896375981: Pull complete</div><div class="line">4fda4ed0aa8e: Pull complete</div><div class="line">ae595f021807: Pull complete</div><div class="line">2223c2963494: Pull complete</div><div class="line">c0625c88535b: Pull complete</div><div class="line">Digest: sha256:4c19d7f6e5b460cdcea403977f1e8491f5c28c81a60e84dddf9d65921ba3ac51</div><div class="line">Status: Downloaded newer image <span class="keyword">for</span> vmware/powerclicore:latest</div></pre></td></tr></table></figure>
 </li>
-<li><p>运行PowerCLI container</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line">root@PhotonOS2 [ ~ ]<span class="comment"># docker run -it vmware/powerclicore</span></div><div class="line">PowerShell v6.0.1</div><div class="line">Copyright (c) Microsoft Corporation. All rights reserved.</div><div class="line"></div><div class="line">https://aka.ms/pscore6-docs</div><div class="line">Type <span class="string">'help'</span> to get <span class="built_in">help</span>.</div><div class="line"></div><div class="line">PS /root&gt; <span class="variable">$PSVersionTable</span></div><div class="line"></div><div class="line">Name                           Value</div><div class="line">----                           -----</div><div class="line">PSVersion                      6.0.1</div><div class="line">PSEdition                      Core</div><div class="line">GitCommitId                    v6.0.1</div><div class="line">OS                             Linux 4.9.80-1.ph2-esx <span class="comment">#1-photon SMP Wed Feb 14 14:45:42 UTC 2018</span></div><div class="line">Platform                       Unix</div><div class="line">PSCompatibleVersions           &#123;1.0, 2.0, 3.0, 4.0...&#125;</div><div class="line">PSRemotingProtocolVersion      2.3</div><div class="line">SerializationVersion           1.1.0.1</div><div class="line">WSManStackVersion              3.0</div></pre></td></tr></table></figure>
-</li>
+<li>Proxy——如果目的是让客户端直接使用外网的repository，可以使用这种类型作为代理，proxy里只会存放客户端下载过的rpm。这里着重介绍这种方式。</li>
 </ul>
+<p>Proxy Repository创建的方法非常简单，完全图形化，主要须要配置的也就是须要代理的公网repository，比如:</p>
+<ul>
+<li>centos可以用<a href="http://mirror.centos.org/centos/" target="_blank" rel="external">http://mirror.centos.org/centos/</a></li>
+<li>epel用<a href="http://mirrors.aliyun.com/epel/" target="_blank" rel="external">http://mirrors.aliyun.com/epel/</a></li>
+</ul>
+<p>这里录了屏</p>
+<img src="http://ovdqer2rp.bkt.clouddn.com/static/images/NexusYum/NexusYum.gif">
+<p>完成后就可以配置客户端使用这个repo了（在刚才配置的repo里可以看到访问链接），下面是centos和epel的repo文件示例：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div></pre></td><td class="code"><pre><div class="line">[root@client01 yum.repos.d]<span class="comment"># cat nexus.repo</span></div><div class="line">[nexus]</div><div class="line">name=Nexus Repository</div><div class="line">baseurl=http://repo.mylab.com:8081/repository/yum-proxy/<span class="variable">$releasever</span>/os/<span class="variable">$basearch</span>/</div><div class="line">enabled=1</div><div class="line">gpgcheck=1</div><div class="line">gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-CentOS-7</div><div class="line">priority=1</div><div class="line"></div><div class="line">[root@client01 yum.repos.d]<span class="comment"># cat nexus-epel.repo</span></div><div class="line">[nexus-epel-debuginfo]</div><div class="line">name = Extra Packages <span class="keyword">for</span> Enterprise Linux 7 - <span class="variable">$basearch</span> - Debug</div><div class="line">baseurl = http://repo.mylab.com:8081/repository/yum-epel-proxy/7/<span class="variable">$basearch</span>/debug</div><div class="line">failovermethod = priority</div><div class="line">enabled = 0</div><div class="line">gpgkey = file:///etc/pki/rpm-gpg/RPM-GPG-KEY-EPEL-7</div><div class="line">gpgcheck = 0</div><div class="line"></div><div class="line">[nexus-epel-source]</div><div class="line">name = Extra Packages <span class="keyword">for</span> Enterprise Linux 7 - <span class="variable">$basearch</span> - Source</div><div class="line">baseurl = http://repo.mylab.com:8081/repository/yum-epel-proxy/7/SRPMS</div><div class="line">failovermethod = priority</div><div class="line">enabled = 0</div><div class="line">gpgkey = file:///etc/pki/rpm-gpg/RPM-GPG-KEY-EPEL-7</div><div class="line">gpgcheck = 0</div><div class="line"></div><div class="line">[nexus-epel]</div><div class="line">baseurl = http://repo.mylab.com:8081/repository/yum-epel-proxy/7/<span class="variable">$basearch</span></div><div class="line">failovermethod = priority</div><div class="line">gpgcheck = 0</div><div class="line">name = EPEL YUM repo</div></pre></td></tr></table></figure></p>
+<p>至此，客户端就可以连接自己的repo服务器下载rpm了，如果所须要的包是第一次下载，那么proxy会连接指定的外网repo下载，但如果是proxy已经存在的repo，那么直接从proxy上拉下来，速度会比外网下载快很很多！</p>
 <hr>
-<blockquote>
-<p>时间就是知识，时间就是力量，时间就是生命。——郭沫若</p>
-</blockquote>
-<div id="footnotes"><hr><div id="footnotelist"><ol style="list-style: none; padding-left: 0; margin-left: 40px"><li id="fn:1"><span style="display: inline-block; vertical-align: top; padding-right: 10px; margin-left: -40px">1.</span><span style="display: inline-block; vertical-align: top; margin-left: 10px;"><a href="https://blogs.vmware.com/PowerCLI/2018/02/powercli-10.html" target="_blank" rel="external">New Release: VMware PowerCLI 10.0.0</a><a href="#fnref:1" rev="footnote"> ↩</a></span></li><li id="fn:2"><span style="display: inline-block; vertical-align: top; padding-right: 10px; margin-left: -40px">2.</span><span style="display: inline-block; vertical-align: top; margin-left: 10px;"><a href="https://blogs.vmware.com/PowerCLI/2018/03/installing-powercli-10-0-0-macos.html" target="_blank" rel="external">Installing PowerCLI 10.0.0 on MacOS</a><a href="#fnref:2" rev="footnote"> ↩</a></span></li></ol></div></div>
+<div id="footnotes"><hr><div id="footnotelist"><ol style="list-style: none; padding-left: 0; margin-left: 40px"><li id="fn:1"><span style="display: inline-block; vertical-align: top; padding-right: 10px; margin-left: -40px">1.</span><span style="display: inline-block; vertical-align: top; margin-left: 10px;"><a href="https://blog.sonatype.com/nexus-repository-manager-3.5" target="_blank" rel="external">Nexus Repository Manager 3.5: Yum Proxy Support Now Available</a><a href="#fnref:1" rev="footnote"> ↩</a></span></li><li id="fn:2"><span style="display: inline-block; vertical-align: top; padding-right: 10px; margin-left: -40px">2.</span><span style="display: inline-block; vertical-align: top; margin-left: 10px;"><a href="https://help.sonatype.com/repomanager3" target="_blank" rel="external">Nexus Repository Manager 3</a><a href="#fnref:2" rev="footnote"> ↩</a></span></li><li id="fn:3"><span style="display: inline-block; vertical-align: top; padding-right: 10px; margin-left: -40px">3.</span><span style="display: inline-block; vertical-align: top; margin-left: 10px;"><a href="https://github.com/sonatype/docker-nexus3" target="_blank" rel="external">Sonatype Nexus3 Docker</a><a href="#fnref:3" rev="footnote"> ↩</a></span></li></ol></div></div>
       
     </div>
     
@@ -532,9 +541,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/PowerCLI/" rel="tag"># PowerCLI</a>
-          
-            <a href="/tags/Docker/" rel="tag"># Docker</a>
+            <a href="/tags/Nexus/" rel="tag"># Nexus</a>
           
         </div>
       
@@ -547,8 +554,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/03/18/PoshBotVMware/" rel="next" title="ChatOps! 自制Poshbot插件管理VMware">
-                <i class="fa fa-chevron-left"></i> ChatOps! 自制Poshbot插件管理VMware
+              <a href="/2018/03/30/LinuxPowerCLI/" rel="next" title="在Linux和Docker上使用PowerCLI">
+                <i class="fa fa-chevron-left"></i> 在Linux和Docker上使用PowerCLI
               </a>
             
           </div>
@@ -556,10 +563,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2018/04/16/NexusYum/" rel="prev" title="使用Nexus自建Yum Repository代理">
-                使用Nexus自建Yum Repository代理 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -736,7 +739,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#Linux安装PowerCLI"><span class="nav-number">1.</span> <span class="nav-text">Linux安装PowerCLI</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#通过Docker使用PowerCLI"><span class="nav-number">2.</span> <span class="nav-text">通过Docker使用PowerCLI</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#安装Nexus"><span class="nav-number">1.</span> <span class="nav-text">安装Nexus</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Docker方式运行Nexus"><span class="nav-number">2.</span> <span class="nav-text">Docker方式运行Nexus</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#配置Yum-Repository"><span class="nav-number">3.</span> <span class="nav-text">配置Yum Repository</span></a></li></ol></div>
             
 
           </div>
@@ -888,9 +891,9 @@
     
       <script type="text/javascript">
         var disqus_config = function () {
-          this.page.url = 'http://edxi.github.io/2018/03/30/LinuxPowerCLI/';
-          this.page.identifier = '2018/03/30/LinuxPowerCLI/';
-          this.page.title = '在Linux和Docker上使用PowerCLI';
+          this.page.url = 'http://edxi.github.io/2018/04/16/NexusYum/';
+          this.page.identifier = '2018/04/16/NexusYum/';
+          this.page.title = '使用Nexus自建Yum Repository代理';
         };
         var d = document, s = d.createElement('script');
         s.src = 'https://edxi.disqus.com/embed.js';
