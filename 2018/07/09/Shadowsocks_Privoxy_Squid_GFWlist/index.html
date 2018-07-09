@@ -96,19 +96,19 @@
 
 
 
-<meta name="description" content="不要被标题这一串软件名字迷惑，这篇博客讲的内容无非就是下面这个图”(￣y▽,￣)╭ “  最终为了解决内网服务器通过http方式代理访问不同的网站，比如，docker存在国内镜像，那么就直接代理访问，k8s的pause容器须要访问gcr.io，那么就会通过GFWlist再squid规则里指向上级代理privoxy，再通过shadowsocks访问出去。 下面直接看各个软件的配置方法 Shadows">
+<meta name="description" content="不要被标题这一串软件名字迷惑，这篇博客讲的内容无非就是下面这个图”(￣y▽,￣)╭ “  最终为了解决内网服务器通过http方式代理访问不同的网站，比如，docker存在国内镜像，那么就直接代理访问，k8s的pause容器须要访问gcr.io，那么就会通过GFWlist再squid规则里指向上级代理privoxy，再通过shadowsocks访问出去。 下面直接看各个软件的配置方法">
 <meta name="keywords" content="Proxy">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Shadowsocks+Privoxy+Squid+GFWlist">
 <meta property="og:url" content="http://edxi.github.io/2018/07/09/Shadowsocks_Privoxy_Squid_GFWlist/index.html">
 <meta property="og:site_name" content="DXC守护者">
-<meta property="og:description" content="不要被标题这一串软件名字迷惑，这篇博客讲的内容无非就是下面这个图”(￣y▽,￣)╭ “  最终为了解决内网服务器通过http方式代理访问不同的网站，比如，docker存在国内镜像，那么就直接代理访问，k8s的pause容器须要访问gcr.io，那么就会通过GFWlist再squid规则里指向上级代理privoxy，再通过shadowsocks访问出去。 下面直接看各个软件的配置方法 Shadows">
+<meta property="og:description" content="不要被标题这一串软件名字迷惑，这篇博客讲的内容无非就是下面这个图”(￣y▽,￣)╭ “  最终为了解决内网服务器通过http方式代理访问不同的网站，比如，docker存在国内镜像，那么就直接代理访问，k8s的pause容器须要访问gcr.io，那么就会通过GFWlist再squid规则里指向上级代理privoxy，再通过shadowsocks访问出去。 下面直接看各个软件的配置方法">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="http://ovdqer2rp.bkt.clouddn.com/static/images/Shadowsocks_Privoxy_Squid_GFWlist/Wall.jpg">
-<meta property="og:updated_time" content="2018-07-09T11:47:45.217Z">
+<meta property="og:updated_time" content="2018-07-09T11:48:57.123Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Shadowsocks+Privoxy+Squid+GFWlist">
-<meta name="twitter:description" content="不要被标题这一串软件名字迷惑，这篇博客讲的内容无非就是下面这个图”(￣y▽,￣)╭ “  最终为了解决内网服务器通过http方式代理访问不同的网站，比如，docker存在国内镜像，那么就直接代理访问，k8s的pause容器须要访问gcr.io，那么就会通过GFWlist再squid规则里指向上级代理privoxy，再通过shadowsocks访问出去。 下面直接看各个软件的配置方法 Shadows">
+<meta name="twitter:description" content="不要被标题这一串软件名字迷惑，这篇博客讲的内容无非就是下面这个图”(￣y▽,￣)╭ “  最终为了解决内网服务器通过http方式代理访问不同的网站，比如，docker存在国内镜像，那么就直接代理访问，k8s的pause容器须要访问gcr.io，那么就会通过GFWlist再squid规则里指向上级代理privoxy，再通过shadowsocks访问出去。 下面直接看各个软件的配置方法">
 <meta name="twitter:image" content="http://ovdqer2rp.bkt.clouddn.com/static/images/Shadowsocks_Privoxy_Squid_GFWlist/Wall.jpg">
 
 
@@ -454,6 +454,7 @@
 <img src="http://ovdqer2rp.bkt.clouddn.com/static/images/Shadowsocks_Privoxy_Squid_GFWlist/Wall.jpg">
 <p>最终为了解决内网服务器通过http方式代理访问不同的网站，比如，docker存在国内镜像，那么就直接代理访问，k8s的pause容器须要访问gcr.io，那么就会通过GFWlist再squid规则里指向上级代理privoxy，再通过shadowsocks访问出去。</p>
 <p>下面直接看各个软件的配置方法</p>
+<a id="more"></a>
 <h3 id="Shadowsocks"><a href="#Shadowsocks" class="headerlink" title="Shadowsocks"></a>Shadowsocks</h3><blockquote>
 <p>服务器端和客户端的配置一样，只是再json文件里把server写成自己的IP就行了，不赘述，详细配置包括打开fast_open和优化等查看Shadowsocks官方网站<sup id="fnref:1"><a href="#fn:1" rel="footnote"><span class="hint--top-right hint--error hint--large" aria-label="[Shadowsocks官方网站](https://shadowsocks.org/en/config/quick-guide.html)
 ">[1]</span></a></sup><br>这段配置方法引用博客CentOS 7 安装使用Shadowsocks客户端<sup id="fnref:2"><a href="#fn:2" rel="footnote"><span class="hint--top-right hint--error hint--large" aria-label="[CentOS 7 安装使用Shadowsocks客户端](https://blog.csdn.net/wh211212/article/details/79165415)
