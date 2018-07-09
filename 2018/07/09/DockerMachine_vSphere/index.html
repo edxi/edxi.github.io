@@ -80,7 +80,7 @@
 <link href="/css/main.css?v=5.1.2" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="PowerShell," />
+  <meta name="keywords" content="VMware,docker," />
 
 
 
@@ -96,20 +96,18 @@
 
 
 
-<meta name="description" content="这一篇主要目的其实是为炫耀下奚有米的工作环境(￣y▽,￣)╭其次才是总结一下这段时间写PowerShell的心得。 所以，先上奚有米工作图。 Look！ 豪华6屏联动！同时掌控5个操作系统（加上虚拟机7种操作系统）！老夫一把键盘游刃有余！  竖着的代码屏——VS Code的ZenMode。 Apple Air——Google/GitHub/stackoverflow  复制！黏贴！ HP Elit">
-<meta name="keywords" content="PowerShell">
+<meta name="description" content="在使用docker-machine的时候，尝试了vSphere driver。Docker的vSphere Driver官方文档[1]比较晦涩，只是列出了支持的参数及其对应的环境变量。这里参照VMware BLOGS的一篇博客[2]作为例子测试通过。 顺便这里提一下，VMware也有自己的容器解决方案，叫VIC，每个容器都创建一个VM，通过VCH来模拟容器主机，Admiral来管理，当然还集成了热">
+<meta name="keywords" content="VMware,docker">
 <meta property="og:type" content="article">
-<meta property="og:title" content="PowerShell 学习笔记">
-<meta property="og:url" content="http://edxi.github.io/2018/02/02/PowerShell_Study/index.html">
+<meta property="og:title" content="docker-machine使用vSphere驱动(转)">
+<meta property="og:url" content="http://edxi.github.io/2018/07/09/DockerMachine_vSphere/index.html">
 <meta property="og:site_name" content="DXC守护者">
-<meta property="og:description" content="这一篇主要目的其实是为炫耀下奚有米的工作环境(￣y▽,￣)╭其次才是总结一下这段时间写PowerShell的心得。 所以，先上奚有米工作图。 Look！ 豪华6屏联动！同时掌控5个操作系统（加上虚拟机7种操作系统）！老夫一把键盘游刃有余！  竖着的代码屏——VS Code的ZenMode。 Apple Air——Google/GitHub/stackoverflow  复制！黏贴！ HP Elit">
+<meta property="og:description" content="在使用docker-machine的时候，尝试了vSphere driver。Docker的vSphere Driver官方文档[1]比较晦涩，只是列出了支持的参数及其对应的环境变量。这里参照VMware BLOGS的一篇博客[2]作为例子测试通过。 顺便这里提一下，VMware也有自己的容器解决方案，叫VIC，每个容器都创建一个VM，通过VCH来模拟容器主机，Admiral来管理，当然还集成了热">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="http://ovdqer2rp.bkt.clouddn.com/static/images/powershell_study/CodingMi.jpg">
-<meta property="og:updated_time" content="2018-02-02T06:12:41.472Z">
+<meta property="og:updated_time" content="2018-07-09T13:06:58.413Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="PowerShell 学习笔记">
-<meta name="twitter:description" content="这一篇主要目的其实是为炫耀下奚有米的工作环境(￣y▽,￣)╭其次才是总结一下这段时间写PowerShell的心得。 所以，先上奚有米工作图。 Look！ 豪华6屏联动！同时掌控5个操作系统（加上虚拟机7种操作系统）！老夫一把键盘游刃有余！  竖着的代码屏——VS Code的ZenMode。 Apple Air——Google/GitHub/stackoverflow  复制！黏贴！ HP Elit">
-<meta name="twitter:image" content="http://ovdqer2rp.bkt.clouddn.com/static/images/powershell_study/CodingMi.jpg">
+<meta name="twitter:title" content="docker-machine使用vSphere驱动(转)">
+<meta name="twitter:description" content="在使用docker-machine的时候，尝试了vSphere driver。Docker的vSphere Driver官方文档[1]比较晦涩，只是列出了支持的参数及其对应的环境变量。这里参照VMware BLOGS的一篇博客[2]作为例子测试通过。 顺便这里提一下，VMware也有自己的容器解决方案，叫VIC，每个容器都创建一个VM，通过VCH来模拟容器主机，Admiral来管理，当然还集成了热">
 
 
 
@@ -138,7 +136,7 @@
 
 
 
-  <link rel="canonical" href="http://edxi.github.io/2018/02/02/PowerShell_Study/"/>
+  <link rel="canonical" href="http://edxi.github.io/2018/07/09/DockerMachine_vSphere/"/>
 
 
 
@@ -146,7 +144,7 @@
 
 
 
-  <title>PowerShell 学习笔记 | DXC守护者</title>
+  <title>docker-machine使用vSphere驱动(转) | DXC守护者</title>
   
 
 
@@ -323,7 +321,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://edxi.github.io/2018/02/02/PowerShell_Study/">
+    <link itemprop="mainEntityOfPage" href="http://edxi.github.io/2018/07/09/DockerMachine_vSphere/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="阿德">
@@ -340,7 +338,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">PowerShell 学习笔记</h1>
+          <h1 class="post-title" itemprop="name headline">docker-machine使用vSphere驱动(转)</h1>
         
 
         <div class="post-meta">
@@ -352,8 +350,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-02-02T08:08:08+08:00">
-                2018-02-02
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-07-09T18:18:18+08:00">
+                2018-07-09
               </time>
             
 
@@ -386,8 +384,8 @@
                 
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/学习/PowerShell/" itemprop="url" rel="index">
-                    <span itemprop="name">PowerShell</span>
+                  <a href="/categories/学习/Docker/" itemprop="url" rel="index">
+                    <span itemprop="name">Docker</span>
                   </a>
                 </span>
 
@@ -404,9 +402,9 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2018/02/02/PowerShell_Study/#comments" itemprop="discussionUrl">
+                <a href="/2018/07/09/DockerMachine_vSphere/#comments" itemprop="discussionUrl">
                   <span class="post-comments-count disqus-comment-count"
-                        data-disqus-identifier="2018/02/02/PowerShell_Study/" itemprop="commentCount"></span>
+                        data-disqus-identifier="2018/07/09/DockerMachine_vSphere/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -414,7 +412,7 @@
 
           
           
-             <span id="/2018/02/02/PowerShell_Study/" class="leancloud_visitors" data-flag-title="PowerShell 学习笔记">
+             <span id="/2018/07/09/DockerMachine_vSphere/" class="leancloud_visitors" data-flag-title="docker-machine使用vSphere驱动(转)">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -450,40 +448,27 @@
       
 
       
-        <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><p>这一篇主要目的其实是为炫耀下奚有米的工作环境(￣y▽,￣)╭<br>其次才是总结一下这段时间写PowerShell的心得。</p>
-<p>所以，先上奚有米工作图。<br><img src="http://ovdqer2rp.bkt.clouddn.com/static/images/powershell_study/CodingMi.jpg"></p>
-<p>Look！ 豪华6屏联动！同时掌控5个操作系统（加上虚拟机7种操作系统）！老夫一把键盘游刃有余！</p>
-<ul>
-<li>竖着的代码屏——VS Code的ZenMode。</li>
-<li>Apple Air——Google/GitHub/stackoverflow  复制！黏贴！</li>
-<li>HP Elite——收收邮件开开会~填填表格写写文档，这就是为啥公司派的电脑配置再好也总是让人讨厌的原因~。</li>
-<li>Dell XPS——可选，Ubuntu里Dock跑测试，当然实际上可以直接跑在工作机、虚拟机或云上面。</li>
-<li>iPad——Slack上聊个天而已。</li>
-<li>华为P9——还是微信最贴合国人需求。</li>
-</ul>
+        <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><p>在使用docker-machine的时候，尝试了vSphere driver。<br>Docker的vSphere Driver官方文档<sup id="fnref:1"><a href="#fn:1" rel="footnote"><span class="hint--top-right hint--error hint--large" aria-label="[Docker machine driver VMware vSphere](https://docs.docker.com/machine/drivers/vsphere/)
+">[1]</span></a></sup>比较晦涩，只是列出了支持的参数及其对应的环境变量。<br>这里参照VMware BLOGS的一篇博客<sup id="fnref:2"><a href="#fn:2" rel="footnote"><span class="hint--top-right hint--error hint--large" aria-label="[How to use docker-machine in conjunction with the vSphere driver](https://blogs.vmware.com/cloudnative/2016/02/17/how-to-use-docker-machine-in-conjunction-with-vsphere-driver/)
+">[2]</span></a></sup>作为例子测试通过。</p>
+<p>顺便这里提一下，VMware也有自己的容器解决方案，叫VIC，每个容器都创建一个VM，通过VCH来模拟容器主机，Admiral来管理，当然还集成了热门的Harbor作为registry，PhotonOS作为dockerOS。可以到官网上尝试下Hands-on Lab<sup id="fnref:3"><a href="#fn:3" rel="footnote"><span class="hint--top-right hint--error hint--large" aria-label="[vSphere Integrated Containers](https://www.vmware.com/products/vsphere/integrated-containers.html)
+">[3]</span></a></sup>。</p>
 <a id="more"></a>
-<h3 id="PowerShell-DSC"><a href="#PowerShell-DSC" class="headerlink" title="PowerShell DSC"></a>PowerShell DSC</h3><p>目前工作环境还没有真的使用，这里留个沙发位给他。目前参考文档有：</p>
-<ul>
-<li><a href="https://docs.microsoft.com/en-us/powershell/dsc/overview" target="_blank" rel="external">DCS官网文档</a>——必不可少。</li>
-<li><a href="http://ramblingcookiemonster.github.io/Testing-DSC-with-Pester-and-AppVeyor/" target="_blank" rel="external">DSC使用Pester和AppVeyor做测试</a>——Warren F大神关于DCS测试的博客，编写复杂配置的时候，不妨使用这个方法测试。</li>
-<li><a href="http://www.lucd.info/tag/vspheredsc/" target="_blank" rel="external">vSphereDCS系列</a>——LucD大神嫁接vSphere的DCS实现，其中创意的把LCM放在一个独立的可以连接vcenter的服务器上（当然可以是vcenter本身），可惜目前项目进度感觉有点停滞了~</li>
-</ul>
+<h3 id="docker-machine安装"><a href="#docker-machine安装" class="headerlink" title="docker-machine安装"></a>docker-machine安装</h3><p>windows和macos就只要直接安装docker会带上，一般问题不大。<br>之所以这里须要提一下，是因为linux上或者须要直接到官方github release页面下载的话，会涉及到墙的问题，当然可以用代理解决，如果不想用代理，那就须要把aws s3服务器在本地Hosts上指定成香港的，如下：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">[root@docker ~]<span class="comment"># echo '219.76.4.4 github-cloud.s3.amazonaws.com' &gt;&gt; /etc/hosts</span></div><div class="line"></div><div class="line">[root@docker ~]<span class="comment"># curl -L https://github.com/docker/machine/releases/download/v0.15.0/docker-machine-$(uname -s)-$(uname -m) &gt;/tmp/docker-machine &amp;&amp;</span></div><div class="line">&gt;     chmod +x /tmp/docker-machine &amp;&amp;</div><div class="line">&gt;     sudo cp /tmp/docker-machine /usr/<span class="built_in">local</span>/bin/docker-machine</div><div class="line">  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current</div><div class="line">                                 Dload  Upload   Total   Spent    Left  Speed</div><div class="line">100   617    0   617    0     0    701      0 --:--:-- --:--:-- --:--:--   701</div><div class="line">100 26.8M  100 26.8M    0     0   328k      0  0:01:23  0:01:23 --:--:--  523k</div></pre></td></tr></table></figure></p>
+<h3 id="docker-machine创建vm"><a href="#docker-machine创建vm" class="headerlink" title="docker-machine创建vm"></a>docker-machine创建vm</h3><p>为了方便解释，这里直接把测试使用的环境变量罗列解释一下：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">export</span> VSPHERE_VCENTER=<span class="string">'hpshvcenter02.vpcsh.com.cn'</span>    <span class="comment"># vCenter IP/FQDN</span></div><div class="line"><span class="built_in">export</span> VSPHERE_USERNAME=<span class="string">'administrator@vsphere.local'</span>  <span class="comment"># vCenter user </span></div><div class="line"><span class="built_in">export</span> VSPHERE_PASSWORD=<span class="string">'0!MoneyGomyHome'</span>              <span class="comment"># vCenter user password </span></div><div class="line"><span class="built_in">export</span> VSPHERE_NETWORK=<span class="string">'107'</span>                           <span class="comment"># PortGroup 这个网段要有DHCP，否则没法连上管理这个DOCKER MACHINE，这个有bug，必须要在docker-machine命令里使用参数</span></div><div class="line"><span class="built_in">export</span> VSPHERE_DATASTORE=<span class="string">'SS8400/8400-1t'</span>              <span class="comment"># Datastore</span></div><div class="line"><span class="built_in">export</span> VSPHERE_DATACENTER=<span class="string">'SHVPClab'</span>                   <span class="comment"># Datacenter name </span></div><div class="line"><span class="built_in">export</span> VSPHERE_FOLDER=<span class="string">'LabVM/labdockervm'</span>              <span class="comment"># VM folder</span></div><div class="line"><span class="built_in">export</span> VSPHERE_HOSTSYSTEM=<span class="string">'SHVPClab/*'</span>                 <span class="comment"># could be ommited if DRS, cluster name (inside the datacenter)</span></div></pre></td></tr></table></figure></p>
+<p>可以看到，上面除了VSPHERE_NETWORK，其他环境变量也就直接用好了，用起来都挺正常的。<br>至于DHCP，这个我不知道有什么其他办法可以破，貌似docker-machine也没有参数可以在创建machine的时候指定IP的。</p>
+<p>我引用的博客里还使用了docker-machine的swarm参数直接生成swarm cluster，这里就不再赘述了。</p>
 <hr>
-<h3 id="Vester"><a href="#Vester" class="headerlink" title="Vester"></a>Vester</h3><p>这个开源项目着实解决了我的一些实际工作需求。<br><a href="https://github.com/WahlNetwork/Vester" target="_blank" rel="external">Vester</a>借助Pester实现对vSphere环境的检查(Test)，并且可以做相应的修复(Remediate)。当然检查和修复的脚本项目自身已经提供了不少，我在实际工作中也写了些，放在自己的<a href="https://github.com/edxi/Vester/tree/hashtable-support" target="_blank" rel="external">fork</a>里。<br>主要补充了：</p>
-<ul>
-<li>一些Host的Tests</li>
-<li>支持配置使用HashTable</li>
-</ul>
-<hr>
-<h3 id="Compare-HashTable"><a href="#Compare-HashTable" class="headerlink" title="Compare-HashTable"></a>Compare-HashTable</h3><p>PowerShell自带的Compare-Object不能有效的比较HashTable，这里改写了网上某神的函数，实现递归的比较带嵌套的HashTable，代码如下：<br><figure class="highlight powershell"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">function</span> Compare-Hashtable &#123;</div><div class="line"><span class="comment">&lt;#</span></div><div class="line"><span class="comment"><span class="doctag">.SYNOPSIS</span></span></div><div class="line"><span class="comment">Compare two Hashtable and returns an array of differences.</span></div><div class="line"><span class="comment"><span class="doctag">.DESCRIPTION</span></span></div><div class="line"><span class="comment">The Compare-Hashtable function computes differences between two Hashtables. Results are returned as</span></div><div class="line"><span class="comment">an array of objects with the properties: "key" (the name of the key that caused a difference), </span></div><div class="line"><span class="comment">"side" (one of "&lt;=", "!=" or "=&gt;"), "lvalue" an "rvalue" (resp. the left and right value </span></div><div class="line"><span class="comment">associated with the key).</span></div><div class="line"><span class="comment"><span class="doctag">.PARAMETER left</span> </span></div><div class="line"><span class="comment">The left hand side Hashtable to compare.</span></div><div class="line"><span class="comment"><span class="doctag">.PARAMETER right</span> </span></div><div class="line"><span class="comment">The right hand side Hashtable to compare.</span></div><div class="line"><span class="comment"><span class="doctag">.EXAMPLE</span></span></div><div class="line"><span class="comment">Returns a difference for ("3 &lt;="), c (3 "!=" 4) and e ("=&gt;" 5).</span></div><div class="line"><span class="comment">Compare-Hashtable @&#123; a = 1; b = 2; c = 3 &#125; @&#123; b = 2; c = 4; e = 5&#125;</span></div><div class="line"><span class="comment"><span class="doctag">.EXAMPLE</span> </span></div><div class="line"><span class="comment">Returns a difference for a ("3 &lt;="), c (3 "!=" 4), e ("=&gt;" 5) and g (6 "&lt;=").</span></div><div class="line"><span class="comment">$left = @&#123; a = 1; b = 2; c = 3; f = $Null; g = 6 &#125;</span></div><div class="line"><span class="comment">$right = @&#123; b = 2; c = 4; e = 5; f = $Null; g = $Null &#125;</span></div><div class="line"><span class="comment">Compare-Hashtable $left $right</span></div><div class="line"><span class="comment">#&gt;</span>	</div><div class="line">[CmdletBinding()]</div><div class="line">    <span class="keyword">param</span> (</div><div class="line">        [Parameter(Mandatory = <span class="literal">$true</span>)]</div><div class="line">        [Hashtable]<span class="variable">$Left</span>,</div><div class="line"></div><div class="line">        [Parameter(Mandatory = <span class="literal">$true</span>)]</div><div class="line">        [Hashtable]<span class="variable">$Right</span>		</div><div class="line">	)</div><div class="line">	</div><div class="line">	<span class="keyword">function</span> New-Result(<span class="variable">$Key</span>, <span class="variable">$LValue</span>, <span class="variable">$Side</span>, <span class="variable">$RValue</span>) &#123;</div><div class="line">		<span class="built_in">New-Object</span> -Type PSObject -Property @&#123;</div><div class="line">					key    = <span class="variable">$Key</span></div><div class="line">					lvalue = <span class="variable">$LValue</span></div><div class="line">					rvalue = <span class="variable">$RValue</span></div><div class="line">					side   = <span class="variable">$Side</span></div><div class="line">			&#125;</div><div class="line">	&#125;</div><div class="line">	[Object[]]<span class="variable">$Results</span> = <span class="variable">$Left</span>.Keys | % &#123;</div><div class="line">		<span class="keyword">if</span> (<span class="variable">$Left</span>.ContainsKey(<span class="variable">$_</span>) -and !<span class="variable">$Right</span>.ContainsKey(<span class="variable">$_</span>)) &#123;</div><div class="line">			New-Result <span class="variable">$_</span> <span class="variable">$Left</span>[<span class="variable">$_</span>] <span class="string">"&lt;="</span> <span class="literal">$Null</span></div><div class="line">		&#125; <span class="keyword">else</span> &#123;</div><div class="line">			<span class="keyword">if</span> (<span class="variable">$Left</span>[<span class="variable">$_</span>] -is [hashtable] -and <span class="variable">$Right</span>[<span class="variable">$_</span>] -is [hashtable] ) &#123;</div><div class="line">				Compare-Hashtable <span class="variable">$Left</span>[<span class="variable">$_</span>] <span class="variable">$Right</span>[<span class="variable">$_</span>]</div><div class="line">			&#125;</div><div class="line">			<span class="keyword">else</span> &#123;</div><div class="line">				<span class="variable">$LValue</span>, <span class="variable">$RValue</span> = <span class="variable">$Left</span>[<span class="variable">$_</span>], <span class="variable">$Right</span>[<span class="variable">$_</span>]</div><div class="line">				<span class="keyword">if</span> (<span class="variable">$LValue</span> <span class="nomarkup">-ne</span> <span class="variable">$RValue</span>) &#123;</div><div class="line">					New-Result <span class="variable">$_</span> <span class="variable">$LValue</span> <span class="string">"!="</span> <span class="variable">$RValue</span></div><div class="line">				&#125;</div><div class="line">			&#125;</div><div class="line">		&#125;</div><div class="line">	&#125;</div><div class="line">	<span class="variable">$Results</span> += <span class="variable">$Right</span>.Keys | % &#123;</div><div class="line">		<span class="keyword">if</span> (!<span class="variable">$Left</span>.ContainsKey(<span class="variable">$_</span>) -and <span class="variable">$Right</span>.ContainsKey(<span class="variable">$_</span>)) &#123;</div><div class="line">			New-Result <span class="variable">$_</span> <span class="literal">$Null</span> <span class="string">"=&gt;"</span> <span class="variable">$Right</span>[<span class="variable">$_</span>]</div><div class="line">		&#125; </div><div class="line">	&#125;</div><div class="line">	<span class="keyword">if</span> (<span class="variable">$Results</span> <span class="nomarkup">-ne</span> <span class="literal">$null</span>) &#123; <span class="variable">$Results</span> &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<hr>
-<h3 id="PSObject和HashTable互转"><a href="#PSObject和HashTable互转" class="headerlink" title="PSObject和HashTable互转"></a>PSObject和HashTable互转</h3><p>有个现成的<a href="https://blogs.msdn.microsoft.com/timid/2013/03/05/converting-pscustomobject-tofrom-hashtables/" target="_blank" rel="external">MSDN博客</a>提供了两个互转的函数。<br>实际使用时<a href="https://stackoverflow.com/questions/3740128/pscustomobject-to-hashtable" target="_blank" rel="external">stackoverflow</a>里提供了两种方法也不错。<br>首先时直接循环对象的属性：<br><figure class="highlight powershell"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># Create a PSCustomObject (ironically using a hashtable)</span></div><div class="line"><span class="variable">$ht1</span> = @&#123; A = <span class="string">'a'</span>; B = <span class="string">'b'</span>; DateTime = <span class="built_in">Get-Date</span> &#125;</div><div class="line"><span class="variable">$theObject</span> = <span class="built_in">new-object</span> psobject -Property <span class="variable">$ht1</span></div><div class="line"></div><div class="line"><span class="comment"># Convert the PSCustomObject back to a hashtable</span></div><div class="line"><span class="variable">$ht2</span> = @&#123;&#125;</div><div class="line"><span class="variable">$theObject</span>.psobject.properties | <span class="keyword">Foreach</span> &#123; <span class="variable">$ht2</span>[<span class="variable">$_</span>.Name] = <span class="variable">$_</span>.Value &#125;</div></pre></td></tr></table></figure></p>
-<p>还有就是如果须要转换嵌套对象，就使用这个函数：<br><figure class="highlight powershell"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">function</span> ConvertPSObjectToHashtable &#123; </div><div class="line">    <span class="keyword">param</span> (</div><div class="line">        [Parameter(ValueFromPipeline)]</div><div class="line">        <span class="variable">$InputObject</span></div><div class="line">    )</div><div class="line"></div><div class="line">	 <span class="keyword">process</span> &#123;</div><div class="line">		<span class="keyword">if</span> (<span class="variable">$InputObject</span> -is [psobject])&#123;</div><div class="line">			<span class="variable">$hash</span> = @&#123;&#125;</div><div class="line">			<span class="keyword">foreach</span> (<span class="variable">$property</span> <span class="keyword">in</span> <span class="variable">$InputObject</span>.PSObject.Properties)&#123;</div><div class="line">				<span class="variable">$hash</span>[<span class="variable">$property</span>.Name] = ConvertPSObjectToHashtable <span class="variable">$property</span>.Value</div><div class="line">			&#125;</div><div class="line">			<span class="variable">$hash</span></div><div class="line">		&#125;</div><div class="line">		<span class="keyword">else</span>&#123;</div><div class="line">			<span class="variable">$InputObject</span></div><div class="line">		&#125;</div><div class="line">	 &#125; </div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<hr>
-<h3 id="参数选项"><a href="#参数选项" class="headerlink" title="参数选项"></a>参数选项</h3><p>这里墙裂推荐<a href="http://www.pstips.net/" target="_blank" rel="external">PowerShell中文博客</a>，标签云里提供了很多种参数用法。<br>当然，参考<a href="https://docs.microsoft.com/en-us/powershell/module/microsoft.powershell.core/about/about_functions_advanced_parameters?view=powershell-5.1" target="_blank" rel="external">官方文档</a>总能有全面详细的参数使用帮助。</p>
-<hr>
-<p>最后，农历狗年即将到来，预祝一下今年会旺<em>(੭</em>ˊᵕˋ)੭*ଘ</p>
-
+<h3 id="管理docker-machine"><a href="#管理docker-machine" class="headerlink" title="管理docker-machine"></a>管理docker-machine</h3><p>这里不罗嗦了，可以直接参看docker-machine的官方文档。</p>
+<p>下面直接看下使用了vSphere环境变量后创建的效果。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div></pre></td><td class="code"><pre><div class="line">admin@labdocker:~$ docker-machine create -d vmwarevsphere --vmwarevsphere-network=<span class="string">"107"</span> testvm</div><div class="line">Running pre-create checks...</div><div class="line">Creating machine...</div><div class="line">(testvm) Copying /home/admin/.docker/machine/cache/boot2docker.iso to /home/admin/.docker/machine/machines/testvm/boot2docker.iso.                                     ..</div><div class="line">(testvm) Generating SSH Keypair...</div><div class="line">(testvm) Creating VM...</div><div class="line">(testvm) Uploading Boot2docker ISO ...</div><div class="line">(testvm) adding network: 107</div><div class="line">(testvm) adding network: 107</div><div class="line">(testvm) Reconfiguring VM</div><div class="line">(testvm) Waiting <span class="keyword">for</span> VMware Tools to come online...</div><div class="line">(testvm) Provisioning certs and ssh keys...</div><div class="line">Waiting <span class="keyword">for</span> machine to be running, this may take a few minutes...</div><div class="line">Detecting operating system of created instance...</div><div class="line">Waiting <span class="keyword">for</span> SSH to be available...</div><div class="line">Detecting the provisioner...</div><div class="line">Provisioning with boot2docker...</div><div class="line">Copying certs to the <span class="built_in">local</span> machine directory...</div><div class="line">Copying certs to the remote machine...</div><div class="line">Setting Docker configuration on the remote daemon...</div><div class="line">Checking connection to Docker...</div><div class="line">Docker is up and running!</div><div class="line">To see how to connect your Docker Client to the Docker Engine running on this virtual machine, run: docker-machine env testvm</div><div class="line">admin@labdocker:~$ docker-machine ls</div><div class="line">NAME     ACTIVE   DRIVER          STATE     URL                       SWARM   DOCKER        ERRORS</div><div class="line">testvm   -        vmwarevsphere   Running   tcp://10.252.7.176:2376           v18.05.0-ce</div></pre></td></tr></table></figure>
+<p>然而，DHCP因为可能会分配vm新的IP，这就会导致下面这个报错。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">admin@labdocker:~$ docker-machine ls</div><div class="line">NAME     ACTIVE   DRIVER          STATE     URL                       SWARM   DOCKER    ERRORS</div><div class="line">testvm   -        vmwarevsphere   Running   tcp://10.252.7.175:2376           Unknown   Unable to query docker version: Get https:                                     //10.252.7.175:2376/v1.15/version: x509: certificate is valid <span class="keyword">for</span> 10.252.7.176, not 10.252.7.175</div></pre></td></tr></table></figure>
+<p>这也属于比较常见的问题，通过重新生成连接证书来解决。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">admin@labdocker:~$ docker-machine regenerate-certs testvm</div><div class="line">Regenerate TLS machine certs?  Warning: this is irreversible. (y/n): y</div><div class="line">Regenerating TLS certificates</div><div class="line">Waiting <span class="keyword">for</span> SSH to be available...</div><div class="line">Detecting the provisioner...</div><div class="line">Copying certs to the <span class="built_in">local</span> machine directory...</div><div class="line">Copying certs to the remote machine...</div><div class="line">Setting Docker configuration on the remote daemon...</div></pre></td></tr></table></figure>
+<p>其他使用下来也都一切正常，用完删掉，over了事~（毕竟docker-machine还是作为测试环境比较好，正式环境最好还是上文首VIC这类方案比较好）</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">admin@labdocker:~$ docker-machine rm testvm</div><div class="line">About to remove testvm</div><div class="line">WARNING: This action will delete both <span class="built_in">local</span> reference and remote instance.</div><div class="line">Are you sure? (y/n): y</div><div class="line">Successfully removed testvm</div></pre></td></tr></table></figure>
+<div id="footnotes"><hr><div id="footnotelist"><ol style="list-style: none; padding-left: 0; margin-left: 40px"><li id="fn:1"><span style="display: inline-block; vertical-align: top; padding-right: 10px; margin-left: -40px">1.</span><span style="display: inline-block; vertical-align: top; margin-left: 10px;"><a href="https://docs.docker.com/machine/drivers/vsphere/" target="_blank" rel="external">Docker machine driver VMware vSphere</a><a href="#fnref:1" rev="footnote"> ↩</a></span></li><li id="fn:2"><span style="display: inline-block; vertical-align: top; padding-right: 10px; margin-left: -40px">2.</span><span style="display: inline-block; vertical-align: top; margin-left: 10px;"><a href="https://blogs.vmware.com/cloudnative/2016/02/17/how-to-use-docker-machine-in-conjunction-with-vsphere-driver/" target="_blank" rel="external">How to use docker-machine in conjunction with the vSphere driver</a><a href="#fnref:2" rev="footnote"> ↩</a></span></li><li id="fn:3"><span style="display: inline-block; vertical-align: top; padding-right: 10px; margin-left: -40px">3.</span><span style="display: inline-block; vertical-align: top; margin-left: 10px;"><a href="https://www.vmware.com/products/vsphere/integrated-containers.html" target="_blank" rel="external">vSphere Integrated Containers</a><a href="#fnref:3" rev="footnote"> ↩</a></span></li></ol></div></div>
       
     </div>
     
@@ -529,7 +514,9 @@
       
         <div class="post-tags">
           
-            <a href="/tags/PowerShell/" rel="tag"># PowerShell</a>
+            <a href="/tags/VMware/" rel="tag"># VMware</a>
+          
+            <a href="/tags/docker/" rel="tag"># docker</a>
           
         </div>
       
@@ -542,8 +529,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/01/15/PowerShellPipeline/" rel="next" title="PowerShell 一把梭">
-                <i class="fa fa-chevron-left"></i> PowerShell 一把梭
+              <a href="/2018/04/16/NexusYum/" rel="next" title="使用Nexus自建Yum Repository代理">
+                <i class="fa fa-chevron-left"></i> 使用Nexus自建Yum Repository代理
               </a>
             
           </div>
@@ -552,8 +539,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2018/02/18/DSCwinrm/" rel="prev" title="DSC使用https的winrm">
-                DSC使用https的winrm <i class="fa fa-chevron-right"></i>
+              <a href="/2018/07/09/Shadowsocks_Privoxy_Squid_GFWlist/" rel="prev" title="Shadowsocks+Privoxy+Squid+GFWlist">
+                Shadowsocks+Privoxy+Squid+GFWlist <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -731,7 +718,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#PowerShell-DSC"><span class="nav-number">1.</span> <span class="nav-text">PowerShell DSC</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Vester"><span class="nav-number">2.</span> <span class="nav-text">Vester</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Compare-HashTable"><span class="nav-number">3.</span> <span class="nav-text">Compare-HashTable</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#PSObject和HashTable互转"><span class="nav-number">4.</span> <span class="nav-text">PSObject和HashTable互转</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#参数选项"><span class="nav-number">5.</span> <span class="nav-text">参数选项</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#docker-machine安装"><span class="nav-number">1.</span> <span class="nav-text">docker-machine安装</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#docker-machine创建vm"><span class="nav-number">2.</span> <span class="nav-text">docker-machine创建vm</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#管理docker-machine"><span class="nav-number">3.</span> <span class="nav-text">管理docker-machine</span></a></li></ol></div>
             
 
           </div>
@@ -883,9 +870,9 @@
     
       <script type="text/javascript">
         var disqus_config = function () {
-          this.page.url = 'http://edxi.github.io/2018/02/02/PowerShell_Study/';
-          this.page.identifier = '2018/02/02/PowerShell_Study/';
-          this.page.title = 'PowerShell 学习笔记';
+          this.page.url = 'http://edxi.github.io/2018/07/09/DockerMachine_vSphere/';
+          this.page.identifier = '2018/07/09/DockerMachine_vSphere/';
+          this.page.title = 'docker-machine使用vSphere驱动(转)';
         };
         var d = document, s = d.createElement('script');
         s.src = 'https://edxi.disqus.com/embed.js';
