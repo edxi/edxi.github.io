@@ -318,6 +318,259 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://edxi.github.io/2018/07/09/Shadowsocks_Privoxy_Squid_GFWlist/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="阿德">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/ade.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="DXC守护者">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/07/09/Shadowsocks_Privoxy_Squid_GFWlist/" itemprop="url">Shadowsocks+Privoxy+Squid+GFWlist</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-07-09T19:19:19+08:00">
+                2018-07-09
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/学习/" itemprop="url" rel="index">
+                    <span itemprop="name">学习</span>
+                  </a>
+                </span>
+
+                
+                
+                  ， 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/学习/Proxy/" itemprop="url" rel="index">
+                    <span itemprop="name">Proxy</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2018/07/09/Shadowsocks_Privoxy_Squid_GFWlist/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count"
+                        data-disqus-identifier="2018/07/09/Shadowsocks_Privoxy_Squid_GFWlist/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+             <span id="/2018/07/09/Shadowsocks_Privoxy_Squid_GFWlist/" class="leancloud_visitors" data-flag-title="Shadowsocks+Privoxy+Squid+GFWlist">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数 </span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><p>不要被标题这一串软件名字迷惑，这篇博客讲的内容无非就是下面这个图”(￣y▽,￣)╭ “</p>
+<img src="http://ovdqer2rp.bkt.clouddn.com/static/images/Shadowsocks_Privoxy_Squid_GFWlist">
+<p>最终为了解决内网服务器通过http方式代理访问不同的网站，比如，docker存在国内镜像，那么就直接代理访问，k8s的pause容器须要访问gcr.io，那么就会通过GFWlist再squid规则里指向上级代理privoxy，再通过shadowsocks访问出去。</p>
+<p>下面直接看各个软件的配置方法</p>
+<h3 id="Shadowsocks"><a href="#Shadowsocks" class="headerlink" title="Shadowsocks"></a>Shadowsocks</h3><blockquote>
+<p>服务器端和客户端的配置一样，只是再json文件里把server写成自己的IP就行了，不赘述，详细配置包括打开fast_open和优化等查看Shadowsocks官方网站<sup id="fnref:1"><a href="#fn:1" rel="footnote"><span class="hint--top-right hint--error hint--large" aria-label="[Shadowsocks官方网站](https://shadowsocks.org/en/config/quick-guide.html)
+">[1]</span></a></sup><br>这段配置方法引用博客CentOS 7 安装使用Shadowsocks客户端<sup id="fnref:2"><a href="#fn:2" rel="footnote"><span class="hint--top-right hint--error hint--large" aria-label="[CentOS 7 安装使用Shadowsocks客户端](https://blog.csdn.net/wh211212/article/details/79165415)
+">[2]</span></a></sup></p>
+</blockquote>
+<h4 id="安装Shadowsocks"><a href="#安装Shadowsocks" class="headerlink" title="安装Shadowsocks"></a>安装Shadowsocks</h4><ul>
+<li>安装epel源、安装pip包管理</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">sudo yum -y install epel-release</div><div class="line">sudo yum -y install python-pip</div></pre></td></tr></table></figure>
+<ul>
+<li>安装Shadowsocks客户端</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sudo pip install shadowsocks</div></pre></td></tr></table></figure>
+<h4 id="配置Shadowsocks连接"><a href="#配置Shadowsocks连接" class="headerlink" title="配置Shadowsocks连接"></a>配置Shadowsocks连接</h4><ul>
+<li>新建配置文件、默认不存在</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">sudo mkdir /etc/shadowsocks</div><div class="line">sudo vi /etc/shadowsocks/shadowsocks.json</div></pre></td></tr></table></figure>
+<ul>
+<li>添加配置信息：前提是需要有ss服务器的地址、端口等信息</li>
+</ul>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">&#123;</div><div class="line">    "server":"x.x.x.x",  # Shadowsocks服务器地址</div><div class="line">    "server_port":1035,  # Shadowsocks服务器端口</div><div class="line">    "local_address": "127.0.0.1", # 本地IP</div><div class="line">    "local_port":1080,  # 本地端口</div><div class="line">    "password":"password", # Shadowsocks连接密码</div><div class="line">    "timeout":300,  # 等待超时时间</div><div class="line">    "method":"aes-256-cfb",  # 加密方式</div><div class="line">    "fast_open": false,  # true或false。开启fast_open以降低延迟，但要求Linux内核在3.7+</div><div class="line">    "workers": 1  #工作线程数 </div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<ul>
+<li><p>配置自启动</p>
+<blockquote>
+<p>新建启动脚本文件/etc/systemd/system/shadowsocks.service，内容如下：</p>
+</blockquote>
+</li>
+</ul>
+<figure class="highlight ini"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="section">[Unit]</span></div><div class="line"><span class="attr">Description</span>=Shadowsocks</div><div class="line"><span class="section">[Service]</span></div><div class="line"><span class="attr">TimeoutStartSec</span>=<span class="number">0</span></div><div class="line"><span class="attr">ExecStart</span>=/usr/bin/sslocal -c /etc/shadowsocks/shadowsocks.json</div><div class="line"><span class="section">[Install]</span></div><div class="line"><span class="attr">WantedBy</span>=multi-user.target</div></pre></td></tr></table></figure>
+<ul>
+<li>启动Shadowsocks服务</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">systemctl <span class="built_in">enable</span> shadowsocks.service</div><div class="line">systemctl start shadowsocks.service</div><div class="line">systemctl status shadowsocks.service</div></pre></td></tr></table></figure>
+<ul>
+<li>验证Shadowsocks客户端服务是否正常运行</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">curl --socks5 127.0.0.1:1080 http://httpbin.org/ip</div></pre></td></tr></table></figure>
+<ul>
+<li>Shadowsock客户端服务已正常运行，则结果如下：</li>
+</ul>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">&#123;</div><div class="line">  <span class="attr">"origin"</span>: <span class="string">"x.x.x.x"</span>       #你的Shadowsock服务器IP</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<hr>
+<h3 id="安装配置privoxy"><a href="#安装配置privoxy" class="headerlink" title="安装配置privoxy"></a>安装配置privoxy</h3><ul>
+<li>安装privoxy</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">yum install privoxy -y</div><div class="line">systemctl <span class="built_in">enable</span> privoxy</div><div class="line">systemctl start privoxy</div><div class="line">systemctl status privoxy</div></pre></td></tr></table></figure>
+<ul>
+<li>配置privoxy</li>
+</ul>
+<blockquote>
+<p>修改配置文件/etc/privoxy/config</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">listen-address 127.0.0.1:8118 # 8118 是默认端口，不用改</div><div class="line">forward-socks5t / 127.0.0.1:1080 . #转发到本地端口，注意最后有个点</div></pre></td></tr></table></figure>
+<ul>
+<li>设置http、https代理</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># vi /etc/profile 在最后添加如下信息</span></div><div class="line">PROXY_HOST=127.0.0.1</div><div class="line"><span class="built_in">export</span> all_proxy=http://<span class="variable">$PROXY_HOST</span>:8118</div><div class="line"><span class="built_in">export</span> ftp_proxy=http://<span class="variable">$PROXY_HOST</span>:8118</div><div class="line"><span class="built_in">export</span> http_proxy=http://<span class="variable">$PROXY_HOST</span>:8118</div><div class="line"><span class="built_in">export</span> https_proxy=http://<span class="variable">$PROXY_HOST</span>:8118</div><div class="line"><span class="built_in">export</span> no_proxy=localhost,172.16.0.0/16,192.168.0.0/16.,127.0.0.1,10.10.0.0/16</div><div class="line"></div><div class="line"><span class="comment"># 重载环境变量</span></div><div class="line"><span class="built_in">source</span> /etc/profile</div></pre></td></tr></table></figure>
+<ul>
+<li>测试代理</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line">[root@aniu-k8s ~]<span class="comment"># curl -I www.google.com </span></div><div class="line">HTTP/1.1 200 OK</div><div class="line">Date: Fri, 26 Jan 2018 05:32:37 GMT</div><div class="line">Expires: -1</div><div class="line">Cache-Control: private, max-age=0</div><div class="line">Content-Type: text/html; charset=ISO-8859-1</div><div class="line">P3P: CP=<span class="string">"This is not a P3P policy! See g.co/p3phelp for more info."</span></div><div class="line">Server: gws</div><div class="line">X-XSS-Protection: 1; mode=block</div><div class="line">X-Frame-Options: SAMEORIGIN</div><div class="line">Set-Cookie: 1P_JAR=2018-01-26-05; expires=Sun, 25-Feb-2018 05:32:37 GMT; path=/; domain=.google.com</div><div class="line">Set-Cookie: NID=122=PIiGck3gwvrrJSaiwkSKJ5UrfO4WtAO80T4yipOx4R4O0zcgOEdvsKRePWN1DFM66g8PPF4aouhY4JIs7tENdRm7H9hkq5xm4y1yNJ-sZzwVJCLY_OK37sfI5LnSBtb7; expires=Sat, 28-Jul-2018 05:32:37 GMT; path=/; domain=.google.com; HttpOnly</div><div class="line">Transfer-Encoding: chunked</div><div class="line">Accept-Ranges: none</div><div class="line">Vary: Accept-Encoding</div><div class="line">Proxy-Connection: keep-alive</div></pre></td></tr></table></figure>
+<ul>
+<li>取消使用代理</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">while</span> <span class="built_in">read</span> var; <span class="keyword">do</span> <span class="built_in">unset</span> <span class="variable">$var</span>; <span class="keyword">done</span> &lt; &lt;(env | grep -i proxy | awk -F= <span class="string">'&#123;print $1&#125;'</span>)</div></pre></td></tr></table></figure>
+<hr>
+<h3 id="设置squid使用GFWlist"><a href="#设置squid使用GFWlist" class="headerlink" title="设置squid使用GFWlist"></a>设置squid使用GFWlist</h3><blockquote>
+<p>参考GFWList 兼容 Squid<sup id="fnref:3"><a href="#fn:3" rel="footnote"><span class="hint--top-right hint--error hint--large" aria-label="[GFWList 兼容 Squid](https://blog.sorz.org/p/squid-blacklist/)
+">[3]</span></a></sup></p>
+</blockquote>
+<p>使用这个<a href="https://gist.github.com/gwjwin/68c300a1050c3b9a12be" target="_blank" rel="external">gist的脚本</a>下载GFWlist生成域名的regex列表</p>
+<p>/etc/squid/squid.conf 里增加</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">acl gfwlist dstdom_regex &quot;/etc/squid/gfw.url_regex.lst&quot;</div><div class="line"></div><div class="line">cache_peer 127.0.0.1 parent 8118 0 no-query name=privoxy</div><div class="line">cache_peer_access privoxy allow all</div><div class="line">never_direct allow gfwlist</div></pre></td></tr></table></figure>
+<hr>
+<p>至此代理服务器已经配置完毕，至于客户端如何配置http proxy和这里就没啥关系了~</p>
+<div id="footnotes"><hr><div id="footnotelist"><ol style="list-style: none; padding-left: 0; margin-left: 40px"><li id="fn:1"><span style="display: inline-block; vertical-align: top; padding-right: 10px; margin-left: -40px">1.</span><span style="display: inline-block; vertical-align: top; margin-left: 10px;"><a href="https://shadowsocks.org/en/config/quick-guide.html" target="_blank" rel="external">Shadowsocks官方网站</a><a href="#fnref:1" rev="footnote"> ↩</a></span></li><li id="fn:2"><span style="display: inline-block; vertical-align: top; padding-right: 10px; margin-left: -40px">2.</span><span style="display: inline-block; vertical-align: top; margin-left: 10px;"><a href="https://blog.csdn.net/wh211212/article/details/79165415" target="_blank" rel="external">CentOS 7 安装使用Shadowsocks客户端</a><a href="#fnref:2" rev="footnote"> ↩</a></span></li><li id="fn:3"><span style="display: inline-block; vertical-align: top; padding-right: 10px; margin-left: -40px">3.</span><span style="display: inline-block; vertical-align: top; margin-left: 10px;"><a href="https://blog.sorz.org/p/squid-blacklist/" target="_blank" rel="external">GFWList 兼容 Squid</a><a href="#fnref:3" rev="footnote"> ↩</a></span></li></ol></div></div>
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://edxi.github.io/2018/04/16/NexusYum/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1996,186 +2249,6 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://edxi.github.io/2017/11/15/pluginlist/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="阿德">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/ade.png">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="DXC守护者">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2017/11/15/pluginlist/" itemprop="url">至今使用的插件列表</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-11-15T08:15:00+08:00">
-                2017-11-15
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/学习/" itemprop="url" rel="index">
-                    <span itemprop="name">学习</span>
-                  </a>
-                </span>
-
-                
-                
-                  ， 
-                
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/学习/建站/" itemprop="url" rel="index">
-                    <span itemprop="name">建站</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/2017/11/15/pluginlist/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count disqus-comment-count"
-                        data-disqus-identifier="2017/11/15/pluginlist/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-          
-             <span id="/2017/11/15/pluginlist/" class="leancloud_visitors" data-flag-title="至今使用的插件列表">
-               <span class="post-meta-divider">|</span>
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               
-                 <span class="post-meta-item-text">阅读次数 </span>
-               
-                 <span class="leancloud-visitors-count"></span>
-             </span>
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <p>先播一段程序小猴奚有米的视频，嘿&lt;(￣︶￣)↗[GO!]<br><iframe src="http://player.youku.com/embed/XMzE1ODQ1NDc2OA==" width="100%" height="300" frameborder="0" allowfullscreen></iframe><br><blockquote><p>A monkey hitting keys at random on a typewriter keyboard for an infinite amount of time will almost surely type a given text, such as the complete works of William Shakespeare.</p>
-<footer><strong>Émile Borel</strong><cite><a href="https://en.wikipedia.org/wiki/Infinite_monkey_theorem" target="_blank" rel="external">Infinite monkey theorem</a></cite></footer></blockquote><br>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2017/11/15/pluginlist/#далее" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -2226,7 +2299,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives/">
-                <span class="site-state-item-count">17</span>
+                <span class="site-state-item-count">18</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -2237,7 +2310,7 @@
             
             <div class="site-state-item site-state-categories">
               <a href="/categories/index.html">
-                <span class="site-state-item-count">9</span>
+                <span class="site-state-item-count">10</span>
                 <span class="site-state-item-name">分类</span>
               </a>
             </div>
@@ -2248,7 +2321,7 @@
             
             <div class="site-state-item site-state-tags">
               <a href="/tags/index.html">
-                <span class="site-state-item-count">22</span>
+                <span class="site-state-item-count">23</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
