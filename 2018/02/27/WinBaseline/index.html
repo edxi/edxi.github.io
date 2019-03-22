@@ -104,13 +104,13 @@
 <meta property="og:site_name" content="DXC守护者">
 <meta property="og:description" content="这里所说的合规检查指的是Windows Baseline Compliance Check。 原本微软有个SCM的安全检查工具[1]，可以做合规检查的工作，但是目前这个工具已经退役了，并因此推荐了这篇博客所提及的两个开源工具DSCEA和BaselineManagement[2]，另外还有SCT这个工具[3]，总之，关于安全合规，可以参考微软官方文档[4]了解更多。 当然，合规也未必只限于安全方面，">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="http://ovdqer2rp.bkt.clouddn.com/static/images/WinBaseline/youmijiao.jpg">
-<meta property="og:image" content="http://ovdqer2rp.bkt.clouddn.com/static/images/WinBaseline/BaselineCheck.gif">
-<meta property="og:updated_time" content="2018-02-27T22:50:23.495Z">
+<meta property="og:image" content="http://poqwdbkil.bkt.clouddn.com/static/images/WinBaseline/youmijiao.jpg">
+<meta property="og:image" content="http://poqwdbkil.bkt.clouddn.com/static/images/WinBaseline/BaselineCheck.gif">
+<meta property="og:updated_time" content="2019-03-22T03:14:57.455Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="使用DSCEA和BaselineManagement做合规检查">
 <meta name="twitter:description" content="这里所说的合规检查指的是Windows Baseline Compliance Check。 原本微软有个SCM的安全检查工具[1]，可以做合规检查的工作，但是目前这个工具已经退役了，并因此推荐了这篇博客所提及的两个开源工具DSCEA和BaselineManagement[2]，另外还有SCT这个工具[3]，总之，关于安全合规，可以参考微软官方文档[4]了解更多。 当然，合规也未必只限于安全方面，">
-<meta name="twitter:image" content="http://ovdqer2rp.bkt.clouddn.com/static/images/WinBaseline/youmijiao.jpg">
+<meta name="twitter:image" content="http://poqwdbkil.bkt.clouddn.com/static/images/WinBaseline/youmijiao.jpg">
 
 
 
@@ -458,7 +458,7 @@
 ">[3]</span></a></sup>，总之，关于安全合规，可以参考微软官方文档<sup id="fnref:4"><a href="#fn:4" rel="footnote"><span class="hint--top-right hint--error hint--large" aria-label="[Windows Security Baselines](https://docs.microsoft.com/en-us/windows/security/threat-protection/windows-security-baselines)
 ">[4]</span></a></sup>了解更多。</p>
 <p>当然，合规也未必只限于安全方面，说到底，只要系统和自己定义的配置相符，那么就可以认为是合规。 这里用“有米饺”举个例子，嘿嘿(●ˇ∀ˇ●)</p>
-<img src="http://ovdqer2rp.bkt.clouddn.com/static/images/WinBaseline/youmijiao.jpg">
+<img src="http://poqwdbkil.bkt.clouddn.com/static/images/WinBaseline/youmijiao.jpg">
 <p>所以，DSCEA内部使用Test-DscConfiguration，很好的做到了检查相应的配置，而不局限于安全方面。</p>
 <p>由于BaselineManagement和DSCEA作为开源的PowerShell程序，目前官方的文档还比较少，很多还是依赖于社区资源，所以这里记录下使用方法。</p>
 <a id="more"></a>
@@ -479,8 +479,9 @@
 <li>执行转换命令ConvertFrom-GPO -Path PathToGPO，生成mof文件。</li>
 </ul>
 <hr>
-<h3 id="DSCEA"><a href="#DSCEA" class="headerlink" title="DSCEA"></a>DSCEA</h3><p>有了上面BaselineManagement生成的DSC .mof文件，接下来就可以使用DSCEA来扫描机器是否符合相应的DSC配置。<br>实际上对于DSCEA而言，其本身从哪里拿的DSC配置文件并不重要，所以这里也就不限定于刚才的SCM或GPO这些与安全合规关系比较大的配置了。DSCEA他起的作用只是扫描机器并产生报表。DSCEA有比较完善的文档<sup id="fnref:6"><a href="#fn:6" rel="footnote"><span class="hint--top-right hint--error hint--large" aria-label="[DSCEA文档](https://microsoft.github.io/DSCEA/)">[6]</span></a></sup>，其中有几个自己生成DSC配置的Sample，这里就不再详细写使用方法了，下面直接把结合两个工具的整个使用过程录制了下来。</p>
-<img src="http://ovdqer2rp.bkt.clouddn.com/static/images/WinBaseline/BaselineCheck.gif">
+<h3 id="DSCEA"><a href="#DSCEA" class="headerlink" title="DSCEA"></a>DSCEA</h3><p>有了上面BaselineManagement生成的DSC .mof文件，接下来就可以使用DSCEA来扫描机器是否符合相应的DSC配置。<br>实际上对于DSCEA而言，其本身从哪里拿的DSC配置文件并不重要，所以这里也就不限定于刚才的SCM或GPO这些与安全合规关系比较大的配置了。DSCEA他起的作用只是扫描机器并产生报表。DSCEA有比较完善的文档<sup id="fnref:6"><a href="#fn:6" rel="footnote"><span class="hint--top-right hint--error hint--large" aria-label="[DSCEA文档](https://microsoft.github.io/DSCEA/)
+">[6]</span></a></sup>，其中有几个自己生成DSC配置的Sample，这里就不再详细写使用方法了，下面直接把结合两个工具的整个使用过程录制了下来。</p>
+<img src="http://poqwdbkil.bkt.clouddn.com/static/images/WinBaseline/BaselineCheck.gif">
 <hr>
 <div id="footnotes"><hr><div id="footnotelist"><ol style="list-style: none; padding-left: 0; margin-left: 40px"><li id="fn:1"><span style="display: inline-block; vertical-align: top; padding-right: 10px; margin-left: -40px">1.</span><span style="display: inline-block; vertical-align: top; margin-left: 10px;"><a href="https://technet.microsoft.com/en-us/solutionaccelerators/cc835245.aspx" target="_blank" rel="external">Security Compliance Manager</a><a href="#fnref:1" rev="footnote"> ↩</a></span></li><li id="fn:2"><span style="display: inline-block; vertical-align: top; padding-right: 10px; margin-left: -40px">2.</span><span style="display: inline-block; vertical-align: top; margin-left: 10px;"><a href="https://blogs.technet.microsoft.com/secguide/2017/06/15/security-compliance-manager-scm-retired-new-tools-and-procedures/" target="_blank" rel="external">Security Compliance Manager retired; new tools and procedures</a><a href="#fnref:2" rev="footnote"> ↩</a></span></li><li id="fn:3"><span style="display: inline-block; vertical-align: top; padding-right: 10px; margin-left: -40px">3.</span><span style="display: inline-block; vertical-align: top; margin-left: 10px;"><a href="https://docs.microsoft.com/en-us/windows/security/threat-protection/security-compliance-toolkit-10" target="_blank" rel="external">Microsoft Security Compliance Toolkit 1.0</a><a href="#fnref:3" rev="footnote"> ↩</a></span></li><li id="fn:4"><span style="display: inline-block; vertical-align: top; padding-right: 10px; margin-left: -40px">4.</span><span style="display: inline-block; vertical-align: top; margin-left: 10px;"><a href="https://docs.microsoft.com/en-us/windows/security/threat-protection/windows-security-baselines" target="_blank" rel="external">Windows Security Baselines</a><a href="#fnref:4" rev="footnote"> ↩</a></span></li><li id="fn:5"><span style="display: inline-block; vertical-align: top; padding-right: 10px; margin-left: -40px">5.</span><span style="display: inline-block; vertical-align: top; margin-left: 10px;"><a href="https://github.com/Microsoft/BaselineManagement/blob/master/README.md" target="_blank" rel="external">BaselineManagement README</a><a href="#fnref:5" rev="footnote"> ↩</a></span></li><li id="fn:6"><span style="display: inline-block; vertical-align: top; padding-right: 10px; margin-left: -40px">6.</span><span style="display: inline-block; vertical-align: top; margin-left: 10px;"><a href="https://microsoft.github.io/DSCEA/" target="_blank" rel="external">DSCEA文档</a><a href="#fnref:6" rev="footnote"> ↩</a></span></li></ol></div></div>
       

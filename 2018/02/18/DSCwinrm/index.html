@@ -104,13 +104,13 @@
 <meta property="og:site_name" content="DXC守护者">
 <meta property="og:description" content="时至二零一八农历戊戌（狗）年春节，奚有米先来拜个年啦！   新年长假后会有一个拖延了很久的任务须要完成，于是着手研究怎么使用DSC，其中包含了winrm的配置，这篇博客简单记录下相关经验：  初始winrm。[1] 使用winrm的https方法。[2] https是否会过期。[3] 通过GPO分发winrm证书的方法。[4]">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="http://ovdqer2rp.bkt.clouddn.com/static/images/DSCwinrm/dogyear.jpg">
-<meta property="og:image" content="http://ovdqer2rp.bkt.clouddn.com/static/images/DSCwinrm/starwardog.gif">
-<meta property="og:updated_time" content="2018-02-27T02:56:43.509Z">
+<meta property="og:image" content="http://poqwdbkil.bkt.clouddn.com/static/images/DSCwinrm/dogyear.jpg">
+<meta property="og:image" content="http://poqwdbkil.bkt.clouddn.com/static/images/DSCwinrm/starwardog.gif">
+<meta property="og:updated_time" content="2019-03-22T03:14:57.455Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="DSC使用https的winrm">
 <meta name="twitter:description" content="时至二零一八农历戊戌（狗）年春节，奚有米先来拜个年啦！   新年长假后会有一个拖延了很久的任务须要完成，于是着手研究怎么使用DSC，其中包含了winrm的配置，这篇博客简单记录下相关经验：  初始winrm。[1] 使用winrm的https方法。[2] https是否会过期。[3] 通过GPO分发winrm证书的方法。[4]">
-<meta name="twitter:image" content="http://ovdqer2rp.bkt.clouddn.com/static/images/DSCwinrm/dogyear.jpg">
+<meta name="twitter:image" content="http://poqwdbkil.bkt.clouddn.com/static/images/DSCwinrm/dogyear.jpg">
 
 
 
@@ -452,7 +452,7 @@
 
       
         <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><p>时至二零一八农历戊戌（狗）年春节，奚有米先来拜个年啦！ </p>
-<img src="http://ovdqer2rp.bkt.clouddn.com/static/images/DSCwinrm/dogyear.jpg">
+<img src="http://poqwdbkil.bkt.clouddn.com/static/images/DSCwinrm/dogyear.jpg">
 <p>新年长假后会有一个拖延了很久的任务须要完成，于是着手研究怎么使用DSC，其中包含了winrm的配置，这篇博客简单记录下相关经验：</p>
 <ul>
 <li>初始winrm。<sup id="fnref:1"><a href="#fn:1" rel="footnote"><span class="hint--top-right hint--error hint--large" aria-label="[Installation and Configuration for Windows Remote Management](https://msdn.microsoft.com/en-us/library/aa384372.aspx)
@@ -461,8 +461,7 @@
 ">[2]</span></a></sup></li>
 <li>https是否会过期。<sup id="fnref:3"><a href="#fn:3" rel="footnote"><span class="hint--top-right hint--error hint--large" aria-label="[WinRM and HTTPs – What happens when certs expired](https://foxdeploy.com/2016/09/13/winrm-and-https-what-happens-when-certs-die/)
 ">[3]</span></a></sup></li>
-<li>通过GPO分发winrm证书的方法。<sup id="fnref:4"><a href="#fn:4" rel="footnote"><span class="hint--top-right hint--error hint--large" aria-label="[WinRM SSL Certificate Deployment via GPO](https://www.darkoperator.com/blog/2015/3/24/bdvjiiw1ybzfdjulc5pprgpkm8os0b)
-">[4]</span></a></sup></li>
+<li>通过GPO分发winrm证书的方法。<sup id="fnref:4"><a href="#fn:4" rel="footnote"><span class="hint--top-right hint--error hint--large" aria-label="[WinRM SSL Certificate Deployment via GPO](https://www.darkoperator.com/blog/2015/3/24/bdvjiiw1ybzfdjulc5pprgpkm8os0b)">[4]</span></a></sup></li>
 </ul>
 <a id="more"></a>
 <h3 id="winrm默认配置-http-5985"><a href="#winrm默认配置-http-5985" class="headerlink" title="winrm默认配置(http 5985)"></a>winrm默认配置(http 5985)</h3><p>目前winrm在windows2012r2之后版本默认开启了http listener 5985端口，可以通过下面命令测试winrm连接，须要注意：</p>
@@ -517,7 +516,7 @@
 <figure class="highlight powershell"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">Enter-PSSession</span> -ComputerName HP840G1 -Port <span class="number">5986</span> -SessionOption (<span class="built_in">New-PSSessionOption</span> -SkipCACheck) -UseSSL</div></pre></td></tr></table></figure>
 <hr>
 <p>狗年旺起来！<em>(੭</em>ˊᵕˋ)੭*ଘ</p>
-<img src="http://ovdqer2rp.bkt.clouddn.com/static/images/DSCwinrm/starwardog.gif">
+<img src="http://poqwdbkil.bkt.clouddn.com/static/images/DSCwinrm/starwardog.gif">
 <div id="footnotes"><hr><div id="footnotelist"><ol style="list-style: none; padding-left: 0; margin-left: 40px"><li id="fn:1"><span style="display: inline-block; vertical-align: top; padding-right: 10px; margin-left: -40px">1.</span><span style="display: inline-block; vertical-align: top; margin-left: 10px;"><a href="https://msdn.microsoft.com/en-us/library/aa384372.aspx" target="_blank" rel="external">Installation and Configuration for Windows Remote Management</a><a href="#fnref:1" rev="footnote"> ↩</a></span></li><li id="fn:2"><span style="display: inline-block; vertical-align: top; padding-right: 10px; margin-left: -40px">2.</span><span style="display: inline-block; vertical-align: top; margin-left: 10px;"><a href="https://www.visualstudiogeeks.com/devops/how-to-configure-winrm-for-https-manually" target="_blank" rel="external">How to configure WinRM for HTTPS manually</a><a href="#fnref:2" rev="footnote"> ↩</a></span></li><li id="fn:3"><span style="display: inline-block; vertical-align: top; padding-right: 10px; margin-left: -40px">3.</span><span style="display: inline-block; vertical-align: top; margin-left: 10px;"><a href="https://foxdeploy.com/2016/09/13/winrm-and-https-what-happens-when-certs-die/" target="_blank" rel="external">WinRM and HTTPs – What happens when certs expired</a><a href="#fnref:3" rev="footnote"> ↩</a></span></li><li id="fn:4"><span style="display: inline-block; vertical-align: top; padding-right: 10px; margin-left: -40px">4.</span><span style="display: inline-block; vertical-align: top; margin-left: 10px;"><a href="https://www.darkoperator.com/blog/2015/3/24/bdvjiiw1ybzfdjulc5pprgpkm8os0b" target="_blank" rel="external">WinRM SSL Certificate Deployment via GPO</a><a href="#fnref:4" rev="footnote"> ↩</a></span></li></ol></div></div>
       
     </div>

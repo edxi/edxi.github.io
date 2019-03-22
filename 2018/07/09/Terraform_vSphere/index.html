@@ -104,7 +104,7 @@
 <meta property="og:site_name" content="DXC守护者">
 <meta property="og:description" content="使用AWS几乎少不了用到CloudFormation，可能更加知名的是可以用在近百个不同平台上的Terraform，这类软件是Infrastructure as code很好的实践。 出于日常管理vSphere的须要，尝试了使用Terraform管理vSphere。（非常巧合的是，接下来几天，也就是上周五参加的AWS summit的DevOps主题会场里，有位大牛介绍一个github项目tride">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-07-17T08:16:15.101Z">
+<meta property="og:updated_time" content="2019-03-22T03:14:57.455Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Infrastructure as code - 尝试Terraform管理vSphere">
 <meta name="twitter:description" content="使用AWS几乎少不了用到CloudFormation，可能更加知名的是可以用在近百个不同平台上的Terraform，这类软件是Infrastructure as code很好的实践。 出于日常管理vSphere的须要，尝试了使用Terraform管理vSphere。（非常巧合的是，接下来几天，也就是上周五参加的AWS summit的DevOps主题会场里，有位大牛介绍一个github项目tride">
@@ -540,7 +540,8 @@
 <p>那么这里就会有另外一个问题了，如果现在须要创建的folder已经存在了，那么这里还能成功执行上述命令吗？<br>这里就涉及到.state文件了：</p>
 <ul>
 <li>在terraform目录下，初始情况下，<strong>由于从未连接过目标infra，所以.state文件不存在</strong>，在我们这个例子里，也就是<strong>terraform这时候不知道目标vSphere是否已经存在，这个时候执行terraform apply命令会失败</strong>。</li>
-<li>这个时候<strong>可以通过执行terraform import命令，导入相应的resource到.state中，使terraform apply执行时可以知道对应资源已经存在</strong>，参考这里对应folder resource的文档<sup id="fnref:2"><a href="#fn:2" rel="footnote"><span class="hint--top-right hint--error hint--large" aria-label="[vsphere_folder](https://www.terraform.io/docs/providers/vsphere/r/folder.html)">[2]</span></a></sup>，大致命令格式就这样 terraform import vsphere_folder.folder /default-dc/vm/terraform-test-folder</li>
+<li>这个时候<strong>可以通过执行terraform import命令，导入相应的resource到.state中，使terraform apply执行时可以知道对应资源已经存在</strong>，参考这里对应folder resource的文档<sup id="fnref:2"><a href="#fn:2" rel="footnote"><span class="hint--top-right hint--error hint--large" aria-label="[vsphere_folder](https://www.terraform.io/docs/providers/vsphere/r/folder.html)
+">[2]</span></a></sup>，大致命令格式就这样 terraform import vsphere_folder.folder /default-dc/vm/terraform-test-folder</li>
 <li>当然，如果所需创建的folder不存在，在执行了一次terraform apply之后，该目录会创建，并且terraform本地的.state文件也会记录该目录创建了，也就是已存在，之后再反复执行terraform apply是也就不会失败了。（会按照terraform的幂等特性将对应resource修改成.tf文件中所定义的）</li>
 </ul>
 <h4 id="创建datastore"><a href="#创建datastore" class="headerlink" title="创建datastore"></a>创建datastore</h4><p>datastore的创建方法和folder相符，无非是所需的data source有所不同，这里简单举例如下：</p>

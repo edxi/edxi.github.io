@@ -104,7 +104,7 @@
 <meta property="og:site_name" content="DXC守护者">
 <meta property="og:description" content="在CentOS 7安装Zabbix 3.4后，SELINUX开启，启动Zabbix-Server报错。经查为Zabbix 3.4已知故障[1]记录故障现象及解决方法（参考Baleam的博客[2]）">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2017-11-09T07:05:23.281Z">
+<meta property="og:updated_time" content="2019-03-22T03:14:57.455Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Zabbix学习笔记--CentOS7安装selinux修改（转）">
 <meta name="twitter:description" content="在CentOS 7安装Zabbix 3.4后，SELINUX开启，启动Zabbix-Server报错。经查为Zabbix 3.4已知故障[1]记录故障现象及解决方法（参考Baleam的博客[2]）">
@@ -449,8 +449,7 @@
 
       
         <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><p>在CentOS 7安装Zabbix 3.4后，SELINUX开启，启动Zabbix-Server报错。<br>经查为Zabbix 3.4已知故障<sup id="fnref:1"><a href="#fn:1" rel="footnote"><span class="hint--top-right hint--error hint--large" aria-label="issue:https://www.zabbix.com/documentation/3.4/manual/installation/upgrade_notes_340#possible_issues_with_selinux
-">[1]</span></a></sup><br>记录故障现象及解决方法（参考Baleam的博客<sup id="fnref:2"><a href="#fn:2" rel="footnote"><span class="hint--top-right hint--error hint--large" aria-label="https://baleam.com/2017/10/zabbix-zabbix_server_alerter-sock-13-permission-denied/
-">[2]</span></a></sup>）</p>
+">[1]</span></a></sup><br>记录故障现象及解决方法（参考Baleam的博客<sup id="fnref:2"><a href="#fn:2" rel="footnote"><span class="hint--top-right hint--error hint--large" aria-label="https://baleam.com/2017/10/zabbix-zabbix_server_alerter-sock-13-permission-denied/">[2]</span></a></sup>）</p>
 <a id="more"></a>
 <h4 id="故障现象"><a href="#故障现象" class="headerlink" title="故障现象"></a>故障现象</h4><p>systemd报错如下：<br><figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">[root@ansible02 ~]# systemctl status zabbix-server.service</div><div class="line">● zabbix-server.service - Zabbix Server</div><div class="line">   Loaded: loaded (/usr/lib/systemd/system/zabbix-server.service; enabled; vendor preset: disabled)</div><div class="line">   Active: activating (auto-restart) (Result: exit-code) since Wed 2017-11-08 19:57:09 CST; 6s ago</div><div class="line">  Process: 24278 ExecStop=/bin/kill -SIGTERM $MAINPID (code=exited, status=1/FAILURE)</div><div class="line">  Process: 24227 ExecStart=/usr/sbin/zabbix_server -c $CONFFILE (code=exited, status=0/SUCCESS)</div><div class="line"> Main PID: 24229 (code=exited, status=0/SUCCESS)</div><div class="line"></div><div class="line">Nov 08 19:57:09 ansible02.mylab.com systemd[1]: zabbix-server.service: control process exited, code=exited status=1</div><div class="line">Nov 08 19:57:09 ansible02.mylab.com systemd[1]: Unit zabbix-server.service entered failed state.</div><div class="line">Nov 08 19:57:09 ansible02.mylab.com systemd[1]: zabbix-server.service failed.</div></pre></td></tr></table></figure></p>
 <p>开启/etc/zabbix/zabbix_server.conf<br><figure class="highlight ini"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="attr">LogFile</span>=/var/log/zabbix/zabbix_server.log</div></pre></td></tr></table></figure></p>

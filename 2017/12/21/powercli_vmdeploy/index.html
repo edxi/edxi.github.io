@@ -104,12 +104,12 @@
 <meta property="og:site_name" content="DXC守护者">
 <meta property="og:description" content="最近沉迷于一项工作任务——PowerCLI实现自动部署VM，参考了大神的作品，按照实际工作环境做了修改。足足600行代码，实在繁琐，所以这里就不贴代码了，直接扔在Gist上了。现在的心情如图。通过这个脚本，顺便捡起了10年前学的powershell，这里借着这个脚本的实现总结下几个脚本里用到的技巧。">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="http://ovdqer2rp.bkt.clouddn.com/static/images/powercli_vmdeploy/codingyibasuo.jpg">
-<meta property="og:updated_time" content="2018-02-27T01:04:14.042Z">
+<meta property="og:image" content="http://poqwdbkil.bkt.clouddn.com/static/images/powercli_vmdeploy/codingyibasuo.jpg">
+<meta property="og:updated_time" content="2019-03-22T03:14:57.455Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="PowerCLI实现自动部署VM">
 <meta name="twitter:description" content="最近沉迷于一项工作任务——PowerCLI实现自动部署VM，参考了大神的作品，按照实际工作环境做了修改。足足600行代码，实在繁琐，所以这里就不贴代码了，直接扔在Gist上了。现在的心情如图。通过这个脚本，顺便捡起了10年前学的powershell，这里借着这个脚本的实现总结下几个脚本里用到的技巧。">
-<meta name="twitter:image" content="http://ovdqer2rp.bkt.clouddn.com/static/images/powercli_vmdeploy/codingyibasuo.jpg">
+<meta name="twitter:image" content="http://poqwdbkil.bkt.clouddn.com/static/images/powercli_vmdeploy/codingyibasuo.jpg">
 
 
 
@@ -450,7 +450,7 @@
       
 
       
-        <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><p>最近沉迷于一项工作任务——PowerCLI实现自动部署VM，参考了大神的<a href="http://vmwaremine.com/2014/08/25/ultimate-vm-batch-deployment-script/#sthash.oJPuxCZX.dpbs" target="_blank" rel="external">作品</a>，按照实际工作环境做了修改。足足600行代码，实在繁琐，所以这里就不贴代码了，直接扔在<a href="https://gist.github.com/edxi/f80e6e4f9bffa55162ab84d2ce6b10dc" target="_blank" rel="external">Gist上了</a>。现在的心情如图。<br><img src="http://ovdqer2rp.bkt.clouddn.com/static/images/powercli_vmdeploy/codingyibasuo.jpg"><br>通过这个脚本，顺便捡起了10年前学的powershell，这里借着这个脚本的实现总结下几个脚本里用到的技巧。<br><a id="more"></a></p>
+        <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><p>最近沉迷于一项工作任务——PowerCLI实现自动部署VM，参考了大神的<a href="http://vmwaremine.com/2014/08/25/ultimate-vm-batch-deployment-script/#sthash.oJPuxCZX.dpbs" target="_blank" rel="external">作品</a>，按照实际工作环境做了修改。足足600行代码，实在繁琐，所以这里就不贴代码了，直接扔在<a href="https://gist.github.com/edxi/f80e6e4f9bffa55162ab84d2ce6b10dc" target="_blank" rel="external">Gist上了</a>。现在的心情如图。<br><img src="http://poqwdbkil.bkt.clouddn.com/static/images/powercli_vmdeploy/codingyibasuo.jpg"><br>通过这个脚本，顺便捡起了10年前学的powershell，这里借着这个脚本的实现总结下几个脚本里用到的技巧。<br><a id="more"></a></p>
 <h4 id="脚本功能概述"><a href="#脚本功能概述" class="headerlink" title="脚本功能概述"></a>脚本功能概述</h4><p>脚本大致完成下面几件事情：</p>
 <ol>
 <li>读取csv文件——<a href="https://gist.github.com/edxi/f80e6e4f9bffa55162ab84d2ce6b10dc" target="_blank" rel="external">csv文件例子</a>也放在Gist上了。里面带数字的列是可以增加的，比如例子只有disk1,disk2，可以继续加上disk3,disk4,disk5等等（如果新VM须要更多硬盘的话）</li>

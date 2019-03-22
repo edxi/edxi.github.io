@@ -444,7 +444,7 @@
       
         
           <p>不要被标题这一串软件名字迷惑，这篇博客讲的内容无非就是下面这个图”(￣y▽,￣)╭ “</p>
-<img src="http://ovdqer2rp.bkt.clouddn.com/static/images/Shadowsocks_Privoxy_Squid_GFWlist/Wall.jpg">
+<img src="http://poqwdbkil.bkt.clouddn.com/static/images/Shadowsocks_Privoxy_Squid_GFWlist/Wall.jpg">
 <p>最终为了解决内网服务器通过http方式代理访问不同的网站，比如，docker存在国内镜像，那么就直接代理访问，k8s的pause容器须要访问gcr.io，那么就会通过GFWlist再squid规则里指向上级代理privoxy，再通过shadowsocks访问出去。</p>
 <p>下面直接看各个软件的配置方法</p>
           <!--noindex-->
@@ -809,8 +809,7 @@
           <p>在使用docker-machine的时候，尝试了vSphere driver。<br>Docker的vSphere Driver官方文档<sup id="fnref:1"><a href="#fn:1" rel="footnote"><span class="hint--top-right hint--error hint--large" aria-label="[Docker machine driver VMware vSphere](https://docs.docker.com/machine/drivers/vsphere/)
 ">[1]</span></a></sup>比较晦涩，只是列出了支持的参数及其对应的环境变量。<br>这里参照VMware BLOGS的一篇博客<sup id="fnref:2"><a href="#fn:2" rel="footnote"><span class="hint--top-right hint--error hint--large" aria-label="[How to use docker-machine in conjunction with the vSphere driver](https://blogs.vmware.com/cloudnative/2016/02/17/how-to-use-docker-machine-in-conjunction-with-vsphere-driver/)
 ">[2]</span></a></sup>作为例子测试通过。</p>
-<p>顺便这里提一下，VMware也有自己的容器解决方案，叫VIC，每个容器都创建一个VM，通过VCH来模拟容器主机，Admiral来管理，当然还集成了热门的Harbor作为registry，PhotonOS作为dockerOS。可以到官网上尝试下Hands-on Lab<sup id="fnref:3"><a href="#fn:3" rel="footnote"><span class="hint--top-right hint--error hint--large" aria-label="[vSphere Integrated Containers](https://www.vmware.com/products/vsphere/integrated-containers.html)
-">[3]</span></a></sup>。</p>
+<p>顺便这里提一下，VMware也有自己的容器解决方案，叫VIC，每个容器都创建一个VM，通过VCH来模拟容器主机，Admiral来管理，当然还集成了热门的Harbor作为registry，PhotonOS作为dockerOS。可以到官网上尝试下Hands-on Lab<sup id="fnref:3"><a href="#fn:3" rel="footnote"><span class="hint--top-right hint--error hint--large" aria-label="[vSphere Integrated Containers](https://www.vmware.com/products/vsphere/integrated-containers.html)">[3]</span></a></sup>。</p>
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/2018/07/09/DockerMachine_vSphere/#more" rel="contents">
@@ -999,7 +998,7 @@
 <p>最近使Sonatype Nexus的时候发现可以支持Yum Repository，官方博客也早在去年八月就发布了这个功能<sup id="fnref:1"><a href="#fn:1" rel="footnote"><span class="hint--top-right hint--error hint--large" aria-label="[Nexus Repository Manager 3.5: Yum Proxy Support Now Available](https://blog.sonatype.com/nexus-repository-manager-3.5)
 ">[1]</span></a></sup>，通过这个新功能，使得自建的repo可以解决这些困难着实解决了上面这些困难，这里简单介绍下Nexus服务器自建Yum Repository代理的过程。</p>
 <p>Nexus的安装和配置过程都比较简单，当然Nexus的功能远不限于此，它提供了当下最流行的库支持（Maven/Java, npm, NuGet, RubyGems, Docker, P2, OBR, APT, YUM 等等），也支持cluster，还提供rest API和基于OSGi的bundle开发。我这里只是让它小露一手而已~<br>附《绿巨人击倒奚有米》的动图，嘿嘿(o゜▽゜)o☆</p>
-<img src="http://ovdqer2rp.bkt.clouddn.com/static/images/NexusYum/HulkPunch.gif">
+<img src="http://poqwdbkil.bkt.clouddn.com/static/images/NexusYum/HulkPunch.gif">
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/2018/04/16/NexusYum/#more" rel="contents">
@@ -1178,7 +1177,7 @@
 
       
         
-          <p>奚有米一岁啦！先来张庆生照！<br><img src="http://ovdqer2rp.bkt.clouddn.com/static/images/LinuxPowerCLI/1year.jpg"></p>
+          <p>奚有米一岁啦！先来张庆生照！<br><img src="http://poqwdbkil.bkt.clouddn.com/static/images/LinuxPowerCLI/1year.jpg"></p>
 <p>时间过的真快，VMware也已经10周年了，PowerCLI也在上个月发布了新的版本，版本号也直接从6.5到了10<sup id="fnref:1"><a href="#fn:1" rel="footnote"><span class="hint--top-right hint--error hint--large" aria-label="[New Release: VMware PowerCLI 10.0.0](https://blogs.vmware.com/PowerCLI/2018/02/powercli-10.html)
 ">[1]</span></a></sup>，就是为了10周年的缘故吧，在slack的讨论里也有这样的解释：</p>
 <blockquote>
@@ -1565,7 +1564,7 @@
 ">[3]</span></a></sup>，总之，关于安全合规，可以参考微软官方文档<sup id="fnref:4"><a href="#fn:4" rel="footnote"><span class="hint--top-right hint--error hint--large" aria-label="[Windows Security Baselines](https://docs.microsoft.com/en-us/windows/security/threat-protection/windows-security-baselines)
 ">[4]</span></a></sup>了解更多。</p>
 <p>当然，合规也未必只限于安全方面，说到底，只要系统和自己定义的配置相符，那么就可以认为是合规。 这里用“有米饺”举个例子，嘿嘿(●ˇ∀ˇ●)</p>
-<img src="http://ovdqer2rp.bkt.clouddn.com/static/images/WinBaseline/youmijiao.jpg">
+<img src="http://poqwdbkil.bkt.clouddn.com/static/images/WinBaseline/youmijiao.jpg">
 <p>所以，DSCEA内部使用Test-DscConfiguration，很好的做到了检查相应的配置，而不局限于安全方面。</p>
 <p>由于BaselineManagement和DSCEA作为开源的PowerShell程序，目前官方的文档还比较少，很多还是依赖于社区资源，所以这里记录下使用方法。</p>
           <!--noindex-->
@@ -1747,7 +1746,7 @@
       
         
           <p>时至二零一八农历戊戌（狗）年春节，奚有米先来拜个年啦！ </p>
-<img src="http://ovdqer2rp.bkt.clouddn.com/static/images/DSCwinrm/dogyear.jpg">
+<img src="http://poqwdbkil.bkt.clouddn.com/static/images/DSCwinrm/dogyear.jpg">
 <p>新年长假后会有一个拖延了很久的任务须要完成，于是着手研究怎么使用DSC，其中包含了winrm的配置，这篇博客简单记录下相关经验：</p>
 <ul>
 <li>初始winrm。<sup id="fnref:1"><a href="#fn:1" rel="footnote"><span class="hint--top-right hint--error hint--large" aria-label="[Installation and Configuration for Windows Remote Management](https://msdn.microsoft.com/en-us/library/aa384372.aspx)
@@ -1756,8 +1755,7 @@
 ">[2]</span></a></sup></li>
 <li>https是否会过期。<sup id="fnref:3"><a href="#fn:3" rel="footnote"><span class="hint--top-right hint--error hint--large" aria-label="[WinRM and HTTPs – What happens when certs expired](https://foxdeploy.com/2016/09/13/winrm-and-https-what-happens-when-certs-die/)
 ">[3]</span></a></sup></li>
-<li>通过GPO分发winrm证书的方法。<sup id="fnref:4"><a href="#fn:4" rel="footnote"><span class="hint--top-right hint--error hint--large" aria-label="[WinRM SSL Certificate Deployment via GPO](https://www.darkoperator.com/blog/2015/3/24/bdvjiiw1ybzfdjulc5pprgpkm8os0b)
-">[4]</span></a></sup></li>
+<li>通过GPO分发winrm证书的方法。<sup id="fnref:4"><a href="#fn:4" rel="footnote"><span class="hint--top-right hint--error hint--large" aria-label="[WinRM SSL Certificate Deployment via GPO](https://www.darkoperator.com/blog/2015/3/24/bdvjiiw1ybzfdjulc5pprgpkm8os0b)">[4]</span></a></sup></li>
 </ul>
           <!--noindex-->
           <div class="post-button text-center">
@@ -1938,7 +1936,7 @@
       
         
           <p>这一篇主要目的其实是为炫耀下奚有米的工作环境(￣y▽,￣)╭<br>其次才是总结一下这段时间写PowerShell的心得。</p>
-<p>所以，先上奚有米工作图。<br><img src="http://ovdqer2rp.bkt.clouddn.com/static/images/powershell_study/CodingMi.jpg"></p>
+<p>所以，先上奚有米工作图。<br><img src="http://poqwdbkil.bkt.clouddn.com/static/images/powershell_study/CodingMi.jpg"></p>
 <p>Look！ 豪华6屏联动！同时掌控5个操作系统（加上虚拟机7种操作系统）！老夫一把键盘游刃有余！</p>
 <ul>
 <li>竖着的代码屏——VS Code的ZenMode。</li>

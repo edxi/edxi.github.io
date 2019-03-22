@@ -104,7 +104,7 @@
 <meta property="og:site_name" content="DXC守护者">
 <meta property="og:description" content="这些词你有听说过嘛？  DevOps ChatOps AIOps NoOps  OOooooopps…这里写的内容是ChatOps…就像过完年这段时间特别的忙，手机上几十个聊天群，这时候ChatOps这个词浮现再眼前~本质上讲，ChatOps其实意思就是聊天群里来了个机器人，这家伙会截取特定聊天内容，执行对应的动作，比方说吧：  ”看看Ben的账号是不是锁了“ ”虚拟机vm1创建个快照，让Jack">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-03-23T01:55:02.187Z">
+<meta property="og:updated_time" content="2019-03-22T03:14:57.455Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="ChatOps! 自制Poshbot插件管理VMware">
 <meta name="twitter:description" content="这些词你有听说过嘛？  DevOps ChatOps AIOps NoOps  OOooooopps…这里写的内容是ChatOps…就像过完年这段时间特别的忙，手机上几十个聊天群，这时候ChatOps这个词浮现再眼前~本质上讲，ChatOps其实意思就是聊天群里来了个机器人，这家伙会截取特定聊天内容，执行对应的动作，比方说吧：  ”看看Ben的账号是不是锁了“ ”虚拟机vm1创建个快照，让Jack">
@@ -511,8 +511,7 @@
 </ul>
 <p>具体实现须要用到几个poshbot相关的技术：</p>
 <ul>
-<li><p>plugin配置<sup id="fnref:4"><a href="#fn:4" rel="footnote"><span class="hint--top-right hint--error hint--large" aria-label="[PoshBot Plugin Configuration](http://poshbot.readthedocs.io/en/latest/guides/plugin-configuration/)
-">[4]</span></a></sup>——由于VIServer列表的存放路径写在poshbot配置中，通过在模块函数中添加如下PoshBot.FromConfig这个attribute</p>
+<li><p>plugin配置<sup id="fnref:4"><a href="#fn:4" rel="footnote"><span class="hint--top-right hint--error hint--large" aria-label="[PoshBot Plugin Configuration](http://poshbot.readthedocs.io/en/latest/guides/plugin-configuration/)">[4]</span></a></sup>——由于VIServer列表的存放路径写在poshbot配置中，通过在模块函数中添加如下PoshBot.FromConfig这个attribute</p>
 <figure class="highlight powershell"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">[cmdletbinding()]</div><div class="line"><span class="keyword">param</span>(</div><div class="line">    [PoshBot.FromConfig(<span class="string">'VIServerConfigStore'</span>)]</div><div class="line">    [parameter(Mandatory = <span class="literal">$true</span>)]</div><div class="line">    [string]<span class="variable">$VIServerConfigStore</span>,</div><div class="line">)</div></pre></td></tr></table></figure>
 </li>
 <li><p>作为powershell module，作为command的函数除了自身的函数命名，还使用了下面这种attribute命名Poshbot command</p>

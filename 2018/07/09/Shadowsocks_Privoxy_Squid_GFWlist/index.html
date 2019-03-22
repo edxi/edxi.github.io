@@ -104,12 +104,12 @@
 <meta property="og:site_name" content="DXC守护者">
 <meta property="og:description" content="不要被标题这一串软件名字迷惑，这篇博客讲的内容无非就是下面这个图”(￣y▽,￣)╭ “  最终为了解决内网服务器通过http方式代理访问不同的网站，比如，docker存在国内镜像，那么就直接代理访问，k8s的pause容器须要访问gcr.io，那么就会通过GFWlist再squid规则里指向上级代理privoxy，再通过shadowsocks访问出去。 下面直接看各个软件的配置方法">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="http://ovdqer2rp.bkt.clouddn.com/static/images/Shadowsocks_Privoxy_Squid_GFWlist/Wall.jpg">
-<meta property="og:updated_time" content="2018-07-09T13:07:45.697Z">
+<meta property="og:image" content="http://poqwdbkil.bkt.clouddn.com/static/images/Shadowsocks_Privoxy_Squid_GFWlist/Wall.jpg">
+<meta property="og:updated_time" content="2019-03-22T03:14:57.455Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Shadowsocks+Privoxy+Squid+GFWlist">
 <meta name="twitter:description" content="不要被标题这一串软件名字迷惑，这篇博客讲的内容无非就是下面这个图”(￣y▽,￣)╭ “  最终为了解决内网服务器通过http方式代理访问不同的网站，比如，docker存在国内镜像，那么就直接代理访问，k8s的pause容器须要访问gcr.io，那么就会通过GFWlist再squid规则里指向上级代理privoxy，再通过shadowsocks访问出去。 下面直接看各个软件的配置方法">
-<meta name="twitter:image" content="http://ovdqer2rp.bkt.clouddn.com/static/images/Shadowsocks_Privoxy_Squid_GFWlist/Wall.jpg">
+<meta name="twitter:image" content="http://poqwdbkil.bkt.clouddn.com/static/images/Shadowsocks_Privoxy_Squid_GFWlist/Wall.jpg">
 
 
 
@@ -451,7 +451,7 @@
 
       
         <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><p>不要被标题这一串软件名字迷惑，这篇博客讲的内容无非就是下面这个图”(￣y▽,￣)╭ “</p>
-<img src="http://ovdqer2rp.bkt.clouddn.com/static/images/Shadowsocks_Privoxy_Squid_GFWlist/Wall.jpg">
+<img src="http://poqwdbkil.bkt.clouddn.com/static/images/Shadowsocks_Privoxy_Squid_GFWlist/Wall.jpg">
 <p>最终为了解决内网服务器通过http方式代理访问不同的网站，比如，docker存在国内镜像，那么就直接代理访问，k8s的pause容器须要访问gcr.io，那么就会通过GFWlist再squid规则里指向上级代理privoxy，再通过shadowsocks访问出去。</p>
 <p>下面直接看各个软件的配置方法</p>
 <a id="more"></a>
@@ -522,8 +522,7 @@
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">while</span> <span class="built_in">read</span> var; <span class="keyword">do</span> <span class="built_in">unset</span> <span class="variable">$var</span>; <span class="keyword">done</span> &lt; &lt;(env | grep -i proxy | awk -F= <span class="string">'&#123;print $1&#125;'</span>)</div></pre></td></tr></table></figure>
 <hr>
 <h3 id="设置squid使用GFWlist"><a href="#设置squid使用GFWlist" class="headerlink" title="设置squid使用GFWlist"></a>设置squid使用GFWlist</h3><blockquote>
-<p>参考GFWList 兼容 Squid<sup id="fnref:3"><a href="#fn:3" rel="footnote"><span class="hint--top-right hint--error hint--large" aria-label="[GFWList 兼容 Squid](https://blog.sorz.org/p/squid-blacklist/)
-">[3]</span></a></sup></p>
+<p>参考GFWList 兼容 Squid<sup id="fnref:3"><a href="#fn:3" rel="footnote"><span class="hint--top-right hint--error hint--large" aria-label="[GFWList 兼容 Squid](https://blog.sorz.org/p/squid-blacklist/)">[3]</span></a></sup></p>
 </blockquote>
 <p>使用这个<a href="https://gist.github.com/gwjwin/68c300a1050c3b9a12be" target="_blank" rel="external">gist的脚本</a>下载GFWlist生成域名的regex列表</p>
 <p>/etc/squid/squid.conf 里增加</p>
