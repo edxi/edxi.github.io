@@ -1,0 +1,9 @@
+# This repository is the Astro build output published to GitHub Pages.
+# Nothing here is hand-written source, so it should not skew the language
+# statistics that GitHub shows on the profile.
+*.html linguist-generated
+*.css linguist-generated
+*.js linguist-generated
+_astro/** linguist-generated
+pagefind/** linguist-generated
+sitemap-*.xml linguist-generated
